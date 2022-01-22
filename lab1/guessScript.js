@@ -20,6 +20,7 @@
     remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
     // STEP 3: Build a function to check the user's guess
     function checkGuess () {
+        
         if(guessCount == 10) return;
         function reset ()
         {
@@ -37,7 +38,15 @@
         }
         // STEP 3b: Create a variable to contain what number the user entered
         let userGuess = Number(guessField.value);
-
+        if (userGuess < 1 || userGuess > 49) {
+            guessField.value = '';
+            guessField.focus(); 
+              lastResult.textContent = `Incorrect Value Guessed`;
+    lastResult.style.backgroundColor = `orange`;
+        lowOrHi.textContent = `your guess must be a number BETWEEN 0 and 50`;
+        lowOrHi.style.color = `orange`;
+            return
+        }
     console.log(userGuess);
     // STEP 3c: If this is the first guess, add some text to the screen as a label for listing previous guesses for reference
     if(guessCount === 0){
