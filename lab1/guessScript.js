@@ -19,7 +19,8 @@
     
     remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
     // STEP 3: Build a function to check the user's guess
-    function checkGuess () {
+function checkGuess() {
+        
         
         if(guessCount == 10) return;
         function reset ()
@@ -47,12 +48,38 @@
         lowOrHi.style.color = `orange`;
             return
         }
-    console.log(userGuess);
+        //logic to check if entered value has already been guesses
+      
+        
+        
+        
+
+
+
     // STEP 3c: If this is the first guess, add some text to the screen as a label for listing previous guesses for reference
     if(guessCount === 0){
         guesses.textContent = `previous Guesses: `;	
 					
 				}
+        let pArray = Array.from(guesses.childNodes);
+        if (pArray) {
+            pArray.forEach(element => {
+                if (element.innerText == "previous Guesses: ") { return; }
+                if (userGuess != 0) {
+                    console.log(Number(String(element.innerText).replace(",", "")));
+
+                    if (userGuess == Number(String(element.innerText).replace(",", ""))) {
+                        guessField.value = '';
+                        guessField.focus();
+                        lastResult.textContent = `Youve already guessed the number ${userGuess}`;
+                        lastResult.style.backgroundColor = `orange`;
+                        lowOrHi.textContent = `Try again!`;
+                        lowOrHi.style.color = `orange`;
+                       throw("Duplicate Guess Error");
+                    }
+                }
+            });
+        }
 				// STEP 3d: Add the user's current guess to that list, plus a space
 				if(userGuess > randomNumber){
         let tempEle = document.createElement("p");
@@ -123,6 +150,7 @@
     guessField.value = '';
     guessField.focus(); 
 				}
+                
 			};
     // STEP 3a: Add an event listener for the guess form button that calls the checkGuess function, then test that the event listener is working and that it invokes the function
     guessSubmit.addEventListener('click', checkGuess);
@@ -131,5 +159,3 @@ guessField.addEventListener('keypress', function (e) {
         checkGuess();
     }
 });
-
-
