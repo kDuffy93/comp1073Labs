@@ -111,6 +111,11 @@
                     guessSubmit.textContent = 'RESET';
                     guessSubmit.removeEventListener('click', checkGuess);
                     guessSubmit.addEventListener('click', reset);
+                    globalThis.removeEventListener('keypress', function (e) {
+                        if (e.key === 'Enter') {
+                            checkGuess();
+                        }
+                    });
     while (guesses.lastChild) {
         guesses.removeChild(guesses.lastChild);
 					}
@@ -122,7 +127,6 @@
     guessSubmit.addEventListener('click', checkGuess);
 globalThis.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        console.log('inenter');
         checkGuess();
     }
 });
