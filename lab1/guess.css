@@ -3,6 +3,7 @@
 html {
 	font-family: sans-serif;
 }
+
 body {
 	width: 75%;
 	max-width: 800px;
@@ -19,6 +20,10 @@ body {
 }
 #remainingGuesses{
 	display:block;
+}
+section{
+	margin-top:5%;
+	padding-top:5%;
 }
 section.div{
 	display:inline;
