@@ -48,16 +48,16 @@ function checkGuess() {
         lastResult.textContent = `Hey, No cheating!`;
         lastResult.style.backgroundColor = `BlueViolet`;
         lowOrHi.textContent = `But if you really want to, try theRandomNumberImUsing instead.`;
-        lowOrHi.style.color = `black`;
+        lowOrHi.style.color = `BlueViolet`;
         return;
     }
         if (userGuess < 1 || userGuess > 49) {
             guessField.value = '';
             guessField.focus(); 
               lastResult.textContent = `Incorrect Value Guessed`;
-    lastResult.style.backgroundColor = `orange`;
+            lastResult.style.backgroundColor = `IndianRed`;
         lowOrHi.textContent = `your guess must be a number BETWEEN 0 and 50`;
-        lowOrHi.style.color = `orange`;
+            lowOrHi.style.color = `IndianRed`;
             return
         }
         //logic to check if entered value has already been guesses
@@ -84,9 +84,9 @@ function checkGuess() {
                         guessField.value = '';
                         guessField.focus();
                         lastResult.textContent = `Youve already guessed the number ${userGuess}`;
-                        lastResult.style.backgroundColor = `orange`;
+                        lastResult.style.backgroundColor = `SlateBlue`;
                         lowOrHi.textContent = `Try again!`;
-                        lowOrHi.style.color = `orange`;
+                        lowOrHi.style.color = `SlateBlue`;
                        throw("Duplicate Guess Error");
                     }
                 }
