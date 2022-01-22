@@ -22,9 +22,12 @@
 function checkGuess() {
         
         
-        if(guessCount == 10) return;
+        
         function reset ()
         {
+            while (guesses.lastChild) {
+                guesses.removeChild(guesses.lastChild);
+            }
             guessCount = 0;
             remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
             randomNumber = Math.floor(50 * Math.random()) + 1;
@@ -113,9 +116,12 @@ function checkGuess() {
     // STEP 3e: Conditional - the user guessed correctly
     // Output a success message, then end the game
     if (userGuess === randomNumber) {
-        while (guesses.lastChild) {
-            guesses.removeChild(guesses.lastChild);
-        }
+        let tempEle = document.createElement("p");
+        tempEle.style = 'color:#00ff00;display:inline;'
+        tempEle.textContent = ` ${Number(userGuess)} ,`;
+        guesses.appendChild(tempEle);
+        guessCount++;
+        remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
     lastResult.textContent = `Correct! You Win`;
     lastResult.style.backgroundColor = `green`;
         lowOrHi.textContent = `Press the reset button or refresh the page to play again`;
@@ -131,7 +137,7 @@ function checkGuess() {
 					
 				}
 				// STEP 3f: Conditional - the user is all out of guesses
-				if(guessCount >= 10)
+				if(guessCount >= 10 && userGuess != randomNumber)
     {
         // Output an appropriate message, then end the game
        
