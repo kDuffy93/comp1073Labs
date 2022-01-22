@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Number Guessing Game | COMP1073 Client-Side JavaScript</title>
+		<link rel="stylesheet" href="guess.css" />
+		<script src="guessScript.js" defer></script>
+	</head>
+	<body>
+		<h1>Number Guessing Game</h1>
+		<p> I have picked a random number between <b><em>1</em></b> and <b><em>50</em></b>. Enter A guess below and hit submit.</br></br>
+			If your guess is too <b><em>high</em></b> it will appear in in your previous guesses in <span id="redSpan">red</span>.</br>
+			If your guess is too <b><em>low</em></b> it will appear in in your previous guesses in <span id="blueSpan">blue</span>.</br>
+			If you guess <b><em>correct</em></b> it will appear in in your previous guesses in <span id="greenSpan">green</span> and you will recieve an alert notifying you you won.</br></br>
+			You have 10 chances to guess the number or else the game will reset.
+		</p>
+		<!-- Guessing form controls -->
+		<label for="guessField">Enter a guess: </label>
+		<input type="number" id="guessField">
+		<button>Submit guess</button>
+		<!-- Elements to contain feedback for user -->
+		<section>
+			<h2>game notifications</h2>
+			<p  id="remainingGuesses"></p>
+			<div id="guesses"></div>
+			<p id="lastResult"></p>
+			<p id="lowOrHi"></p>
+		</section>
+	</body>
+</html>

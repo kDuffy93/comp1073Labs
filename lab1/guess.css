@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+html {
+	font-family: sans-serif;
+}
+body {
+	width: 75%;
+	max-width: 800px;
+	min-width: 480px;
+	margin: 0 auto;
+	text-align: center;
+}
+#lastResult {
+	color: white;
+	padding: 3px;
+}
+#guesses{
+	display:inline;
+}
+#remainingGuesses{
+	display:block;
+}
+section.div{
+	display:inline;
+}
+#redSpan,#blueSpan,#greenSpan{
+	color:red;
+	font-weight:bold;
+	font-style: italic;
+}
+#greenSpan{
+	color:green;
+}
+#blueSpan{
+	color:blue;
+}
