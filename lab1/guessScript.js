@@ -20,6 +20,7 @@
     remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
     // STEP 3: Build a function to check the user's guess
     function checkGuess () {
+        if(guessCount == 10) return;
         function reset ()
         {
             guessCount = 0;
@@ -76,13 +77,11 @@
     // STEP 3e: Conditional - the user guessed correctly
     // Output a success message, then end the game
     if (userGuess === randomNumber) {
-        let tempEle = document.createElement("p");
-    tempEle.style = 'color:#00ff00;display:inline;'
-    tempEle.textContent = ` ${Number(userGuess)} ,`;
-    guesses.appendChild(tempEle);
+        while (guesses.lastChild) {
+            guesses.removeChild(guesses.lastChild);
+        }
     lastResult.textContent = `Correct! You Win`;
     lastResult.style.backgroundColor = `green`;
-    guessCount = 0;
         lowOrHi.textContent = `Press the reset button or refresh the page to play again`;
         lowOrHi.style.color = `green`;
         guessField.disabled = true;
@@ -90,9 +89,7 @@
         guessSubmit.removeEventListener('click', checkGuess);
         guessSubmit.addEventListener('click', reset);
  
-    while (guesses.lastChild) {
-        guesses.removeChild(guesses.lastChild);
-						}
+    
     guessField.value = '';
     guessField.focus(); 
 					
@@ -111,11 +108,6 @@
                     guessSubmit.textContent = 'RESET';
                     guessSubmit.removeEventListener('click', checkGuess);
                     guessSubmit.addEventListener('click', reset);
-                    globalThis.removeEventListener('keypress', function (e) {
-                        if (e.key === 'Enter') {
-                            checkGuess();
-                        }
-                    });
     while (guesses.lastChild) {
         guesses.removeChild(guesses.lastChild);
 					}
@@ -125,7 +117,7 @@
 			};
     // STEP 3a: Add an event listener for the guess form button that calls the checkGuess function, then test that the event listener is working and that it invokes the function
     guessSubmit.addEventListener('click', checkGuess);
-globalThis.addEventListener('keypress', function (e) {
+guessField.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         checkGuess();
     }
