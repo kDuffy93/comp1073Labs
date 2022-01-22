@@ -120,12 +120,11 @@
 			};
     // STEP 3a: Add an event listener for the guess form button that calls the checkGuess function, then test that the event listener is working and that it invokes the function
     guessSubmit.addEventListener('click', checkGuess);
+globalThis.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        console.log('inenter');
+        checkGuess();
+    }
+});
 
 
-// If the guess is too low, let the user know
-if (userGuess < randomNumber) {
-    lowOrHi.textContent = `Too low.`;
-    // Else if the guess is too high, let the user know
-} else {
-    lowOrHi.textContent = `Too high.`;
-}
