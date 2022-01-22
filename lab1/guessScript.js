@@ -1,7 +1,8 @@
 
 			// STEP 1: Initialize game variables
     // STEP 1a: Pick random number
-    let randomNumber = Math.floor(50 * Math.random())+1;
+    let randomNumber = Math.floor(50 * Math.random())+51;
+    let theRandomNumberImUsing = Math.floor(50 * Math.random()) + 1;
     // STEP 1b: Create variables to represent the three paragraphs above that will contain user feedback
     const guesses = document.querySelector('#guesses');
 
@@ -20,9 +21,7 @@
     remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
     // STEP 3: Build a function to check the user's guess
 function checkGuess() {
-        
-        
-        
+    
         function reset ()
         {
             while (guesses.lastChild) {
@@ -30,7 +29,7 @@ function checkGuess() {
             }
             guessCount = 0;
             remainingGuessesElem.textContent = `Remaining Guesses: ${10 - guessCount}`;
-            randomNumber = Math.floor(50 * Math.random()) + 1;
+            theRandomNumberImUsing = Math.floor(50 * Math.random()) + 1;
             lastResult.textContent = ``;
             lastResult.style.backgroundColor = `#FFFFFF`;
             guessField.disabled = false;
@@ -42,6 +41,16 @@ function checkGuess() {
         }
         // STEP 3b: Create a variable to contain what number the user entered
         let userGuess = Number(guessField.value);
+    if (userGuess == randomNumber)
+    {
+        guessField.value = '';
+        guessField.focus();
+        lastResult.textContent = `Hey, No cheating!`;
+        lastResult.style.backgroundColor = `BlueViolet`;
+        lowOrHi.textContent = `But if you really want to, try theRandomNumberImUsing instead.`;
+        lowOrHi.style.color = `black`;
+        return;
+    }
         if (userGuess < 1 || userGuess > 49) {
             guessField.value = '';
             guessField.focus(); 
@@ -84,7 +93,7 @@ function checkGuess() {
             });
         }
 				// STEP 3d: Add the user's current guess to that list, plus a space
-				if(userGuess > randomNumber){
+				if(userGuess > theRandomNumberImUsing){
         let tempEle = document.createElement("p");
     tempEle.style = 'color:#ff0000;display:inline;';
     tempEle.textContent = ` ${Number(userGuess)},`;
@@ -99,7 +108,7 @@ function checkGuess() {
     guessField.value = '';
     guessField.focus(); 
 				}
-    if(userGuess < randomNumber){
+    if(userGuess < theRandomNumberImUsing){
         let tempEle = document.createElement("p");
     tempEle.style = 'color:#0000ff;display:inline;'
     tempEle.textContent = ` ${Number(userGuess)} ,`;
@@ -115,7 +124,7 @@ function checkGuess() {
 				}
     // STEP 3e: Conditional - the user guessed correctly
     // Output a success message, then end the game
-    if (userGuess === randomNumber) {
+    if (userGuess === theRandomNumberImUsing) {
         let tempEle = document.createElement("p");
         tempEle.style = 'color:#00ff00;display:inline;'
         tempEle.textContent = ` ${Number(userGuess)} ,`;
@@ -137,7 +146,7 @@ function checkGuess() {
 					
 				}
 				// STEP 3f: Conditional - the user is all out of guesses
-				if(guessCount >= 10 && userGuess != randomNumber)
+				if(guessCount >= 10 && userGuess != theRandomNumberImUsing)
     {
         // Output an appropriate message, then end the game
        
