@@ -12,6 +12,7 @@ body {
 	text-align: center;
 }
 #lastResult {
+	
 	color: white;
 	padding: 3px;
 }
@@ -25,9 +26,16 @@ section{
 	margin-top:5%;
 	padding-top:5%;
 }
-section.div{
-	display:inline;
+#lastResult{
+	
+	margin-left:30%;
+	margin-right:30%;
+	min-width: 5%;
+	max-width: 45%;
+	
+	
 }
+
 #redSpan,#blueSpan,#greenSpan{
 	color:red;
 	font-weight:bold;
