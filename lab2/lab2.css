@@ -1,0 +1,20 @@
+
+
+li{
+
+display: flex;
+margin-bottom: 1%;
+
+}li:before{
+content:'';
+        display:inline-flex;
+        height:2em; 
+        width:4em; 
+        background-color: black;
+        background-image:url(airplane.png);
+        background-size:contain;
+    	background-repeat:no-repeat; 
+        margin-bottom: 1%;
+        margin-right: 1%;
+        border-radius: 40%;
+}
