@@ -1,0 +1,143 @@
+@charset "utf-8";
+/* Assignment 1 | COMP1073 Client-Side JavaScript */
+
+.titleSectionContainer{
+    display:flex;
+}
+h1{
+    min-width: 60vw;
+}
+.titleSection{
+    text-align:center;
+}
+.titleSectionContainer>h2{
+   width:40vw;
+}
+
+img{
+    padding-top:1%;
+      max-width:40%;
+    max-height:40%;
+}
+.flex-container {
+  display: flex;
+  background-color: DodgerBlue;
+  max-height: 100vh;
+}
+
+.flex-container > section {
+background-color: rgb(168, 168, 35);
+font-size:1.9vmin;
+}
+
+table{max-height: 85vh;}
+.flex-container > #tsection > table:nth-child(2){
+overflow-y: scroll;
+}
+
+
+.flex-container > #tsection {
+    background-color: rgb(168, 168, 35);
+align-self: flex-start;
+width:65%;
+height:100vh;
+padding-left: 4vw;
+margin-right:3.25%;
+padding-right:3%;
+
+}
+.flex-container > #bsection {
+width:30%;
+margin-left: 8%;
+padding-left: 2%;
+}
+
+body{
+    background-color: rgb(168, 168, 35);
+}
+
+table{  
+    width:95%;
+text-align: center;
+}
+
+
+
+table>tr {
+    padding-left:1%;
+}
+
+tbody>tr>td>:nth-child(1){ 
+width:60%;
+    height:50%;
+    align-self: center;
+    text-align: center;
+    vertical-align: center;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+}
+
+tbody>tr>td>:nth-child(2){ 
+width:90%;
+    height:25%;
+    align-self: center;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 1%;
+    margin-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+    font-size:2.2vmin;
+font-weight: bolder;
+}
+tbody>tr>:nth-child(1),thead>tr>:nth-child(1),tfoot>tr>:nth-child(1){ 
+background-color: rgb(156, 18, 156);   
+}
+tbody>tr>:nth-child(2),thead>tr>:nth-child(2),tfoot>tr>:nth-child(2){ 
+background-color: rgb(19, 72, 231);
+}
+tbody>tr>:nth-child(3),thead>tr>:nth-child(3),tfoot>tr>:nth-child(3){ 
+background-color: rgb(21, 90, 21);
+}
+tbody>tr>:nth-child(4),thead>tr>:nth-child(4),tfoot>tr>:nth-child(4){ 
+background-color: rgb(160, 123, 53);
+}
+tbody>tr>:nth-child(5),thead>tr>:nth-child(5),tfoot>tr>:nth-child(5){ 
+background-color: rgb(206, 74, 96);
+}
+
+
+#noun1,#nnoun1{ 
+background-color:rgb(252, 0, 252);   
+}
+#verb,#nverb{
+background-color: rgb(25, 83, 255);
+}
+#adjective,#nadjective{ 
+background-color: rgb(31, 231, 31);
+}
+#noun2, #nnoun2{ 
+background-color: rgb(252, 182, 53);
+}
+#setting,#nsetting{ 
+background-color: rgb(255, 95, 122);
+}
+
+#playback{
+background-color: turquoise;
+}
+
+th{
+    display:inline-flexbox;
+    font-size:1.65vmin;
+}
+/* fill out the buttons to the width of the cell*/
+.tableButton{
+min-width: 99%;
+margin: auto,0;
+}
+tbody{
+    overflow: scroll;
+}
+
+
