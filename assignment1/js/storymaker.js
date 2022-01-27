@@ -32,7 +32,7 @@ let currentSettingIndex = 0;
 //updates a buttons text dependent on the parameters passed
 function populateVoiceList() {
     voices = synth.getVoices();
-
+console.log(voices);
     for (i = 0; i < voices.length; i++) {
         var option = document.createElement('option');
         option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
@@ -42,7 +42,7 @@ function populateVoiceList() {
         option.setAttribute('data-name', voices[i].name);
         voiceSelect.appendChild(option);
      }
-     if(voices.length === 0){
+     if(voices.length == 0){
          var option = document.createElement('option');
          option.textContent = 'No Available Voices';
          option.setAttribute('data-lang', 'no-Lang');
@@ -314,7 +314,6 @@ let randomStory = () => {
     setCurrentWords();
     CallUpdateButtonText();
     outPutText();
-
 }
 //
 let saySentense = (sentense) => {
@@ -326,11 +325,11 @@ let saySentense = (sentense) => {
         if (voices[i].name === selectedOption) {
             utterThis.voice = voices[i];
         }
+
     }
     utterThis.pitch = pitch.value;
     utterThis.rate = rate.value;
     synth.speak(utterThis);
-    output.blur();
 }
 
 pitch.onchange = function () {

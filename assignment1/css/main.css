@@ -4,8 +4,7 @@
 body{
     background-color: rgb(168, 168, 35);
     overflow:hidden;
-    min-width: 370px;
-    
+    min-width: 100vw;
     text-align: center;
 }
 /*---------------------------HEAD STYLING----------------------------*/
@@ -46,6 +45,7 @@ max-height: 85vh;
 .flex-container  section {
 background-color: rgb(168, 168, 35);
 font-size:calc(2pt + 1.3vmin);
+max-height: 85vh;
 }
 /*---------------------------TABLE STYLING----------------------------*/
 /* This is where im working to add table scroll*/
@@ -165,17 +165,28 @@ background-color: rgb(255, 95, 122);
 /*second section in the bottom half on the right side*//*---------------------------BSECTION STYLING----------------------------*/
 .flex-container > #bsection {
 width:30vw;
+max-height: 85vh;
 margin-left: 1vw;
 padding-right:3vw;
-
+text-align: center;
 }
 /*show story button*/
-#playback{
+#playback,#randomButton{
+width:60%;
 background-color: turquoise;
+margin:3vh;
 }
+#playback{
+    margin-top:5vh;
+}
+#resetButton{
+    margin-top: 30%;
+}
+
 #story{
-    text-align: left;
-    padding-top: 10vh;
+    min-height: 2em;
+    text-align: center;
+    padding: 5vh 0 0 0;
     font-size: calc(6pt + 1.7vmin);
     font-weight: bolder;
 }
