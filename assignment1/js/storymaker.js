@@ -109,10 +109,7 @@ switch (String(button))
 }
 }
     
-//click function for table buttons 
-rate.onchange = function () {
-    rateValue.textContent = rate.value;
-}
+
 const clickedTd = (evt) => {
     const clickedID = evt.currentTarget.id;
     const clickedCol = clickedID.slice(4, 5);

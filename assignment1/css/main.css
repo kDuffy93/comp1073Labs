@@ -3,19 +3,17 @@
 /*entire body styles*/
 body{
     background-color: rgb(168, 168, 35);
-    max-height: 99vh;
     overflow:hidden;
-    min-height: 450px;
-    min-width: 300px;
+    min-width: 370px;
+    min-height:500px;
+    text-align: center;
 }
 /*---------------------------HEAD STYLING----------------------------*/
 /*head container*/
 .titleSectionContainer{
     display:flex;
 }
-.titleSection{
-    text-align:center;
-}
+
 /*Main Title*/
 .titleSectionContainer>h1{
     min-width: 60vw;
@@ -31,55 +29,62 @@ body{
 .flex-container {
   display: flex;
   background-color: DodgerBlue;
-  max-height: 91vh;
+  
+  
+  /* overflow: auto; /*this makes the whole section scroll*/
 }
 /*first sections in the lower 2*/
 .flex-container > #tsection {
-background-color: rgb(168, 168, 35);
 align-self: flex-start;
 width:65%;
-min-height:90vh;
-padding-left: 4vw;
 margin-right:3.25%;
 padding-right:3%;
-text-align: center;
+max-height: 85vh;
+ /*  overflow: scroll; /*this makes the whole section scroll*/
 }
-/*both lower sections*/
+
+/*both lower sections*//*---------------------------Lower Section----------------------------*/
 .flex-container  section {
 background-color: rgb(168, 168, 35);
-text-align: center;
 font-size:calc(2pt + 1.3vmin);
 }
 /*---------------------------TABLE STYLING----------------------------*/
 /* This is where im working to add table scroll*/
 /*tried setting max height of table */
-table{
-    max-height: 85vh;
-    width:95%;
-text-align: center;
+table{ 
+max-height: 75vh;/*set the parent max height which is the table*/
+max-width: 60vw;
+min-width:60vw;
 }
 th{
-    
     font-size:calc(4pt + 1.3vmin);
 }
-/* this should be the tbody and where I add the overflow to the body, but its not working */
-.flex-container > #tsection > table:nth-child(2){
-max-height: 80vh;
+/* the 4 selectors below ive tried to add scroll with. this should be the tbody and where I add the overflow to the body, but its not working */
+.flex-container > #tsection > table > tbody{
+max-height: 70vh;
 overflow-y: scroll;
-overflow-x: scroll;
+overflow-x: hidden;
+
 }
 tbody {
-  max-height: 80vh;
-overflow-y: scroll;
+max-height: 70vh;
+overflow-y: scroll; /* set overflow-y for tbody to scroll */
+
 }
 tbody > tr {
-    overflow-y: scroll;
+ 
 }
 tbody > tr > td {
-    overflow-y: scroll;
+  
+   
 }
-
+/* --------- END OF WORKING AREA --------- */
 /* fill out the buttons to the width of the cell*/
+.tableButton{
+    min-width:100%;
+    min-height:100%;
+    margin:0;
+}
 
 /*all tr's in the table */
 table>tr {
@@ -89,8 +94,6 @@ table>tr {
 /*all pictures in the td*/
 tbody>tr>td>:nth-child(1){ 
     align-self: center;
-    text-align: center;
-    vertical-align: center;
     margin-bottom: 1%;
     padding-top:1%;
     height:7.5vmin;
@@ -103,8 +106,6 @@ tbody>tr>td>:nth-child(2){
 width:90%;
     height:25%;
     align-self: center;
-    text-align: center;
-    vertical-align: center;
     padding-top: 1%;
     margin-top: 0%;
     margin-bottom: 0%;
@@ -144,7 +145,7 @@ background-color: rgb(252, 182, 53);
 background-color: rgb(255, 95, 122);
 }
 
-/*second section in the bottom half on the right side*/
+/*second section in the bottom half on the right side*//*---------------------------BSECTION STYLING----------------------------*/
 .flex-container > #bsection {
 width:30vw;
 margin-left: 1vw;
