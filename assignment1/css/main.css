@@ -1,95 +1,104 @@
 @charset "utf-8";
 /* Assignment 1 | COMP1073 Client-Side JavaScript */
-
+/*entire body styles*/
+body{
+    background-color: rgb(168, 168, 35);
+    max-height: 99vh;
+    overflow:hidden;
+    min-height: 450px;
+    min-width: 300px;
+}
+/*---------------------------HEAD STYLING----------------------------*/
+/*head container*/
 .titleSectionContainer{
     display:flex;
-}
-h1{
-    min-width: 60vw;
 }
 .titleSection{
     text-align:center;
 }
+/*Main Title*/
+.titleSectionContainer>h1{
+    min-width: 60vw;
+    font-size:calc(8pt + 2.25vmin);
+}
 .titleSectionContainer>h2{
    width:40vw;
+    font-size:calc(6pt + 2vmin);
 }
 
-img{
-    padding-top:1%;
-      max-width:40%;
-    max-height:40%;
-}
+
+/*div containing the 2 lower sections */
 .flex-container {
   display: flex;
   background-color: DodgerBlue;
   max-height: 91vh;
 }
-
-.flex-container > section {
-background-color: rgb(168, 168, 35);
-  text-align: center;
-font-size:1.9vmin;
-}
-body{
-    max-height: 85vh;
-    overflow:hidden;
-    
-    min-height: 450px;
-    min-width: 300px;;
-}
-table{
-    max-height: 70vh;
-}
-.flex-container > #tsection > table:nth-child(2){
-overflow-y: auto;
-}
-
-
+/*first sections in the lower 2*/
 .flex-container > #tsection {
-    background-color: rgb(168, 168, 35);
+background-color: rgb(168, 168, 35);
 align-self: flex-start;
 width:65%;
-height:91vh;
+min-height:90vh;
 padding-left: 4vw;
 margin-right:3.25%;
 padding-right:3%;
+text-align: center;
 }
-.flex-container > #bsection {
-width:30%;
-margin-left: 3%;
-padding-left: 2%;
-padding-right:3%;
-
+/*both lower sections*/
+.flex-container  section {
+background-color: rgb(168, 168, 35);
+text-align: center;
+font-size:calc(2pt + 1.3vmin);
 }
-
-
-body{
-    background-color: rgb(168, 168, 35);
-}
-
-table{  
+/*---------------------------TABLE STYLING----------------------------*/
+/* This is where im working to add table scroll*/
+/*tried setting max height of table */
+table{
+    max-height: 85vh;
     width:95%;
 text-align: center;
-max-height:60vh;
+}
+th{
+    
+    font-size:calc(4pt + 1.3vmin);
+}
+/* this should be the tbody and where I add the overflow to the body, but its not working */
+.flex-container > #tsection > table:nth-child(2){
+max-height: 80vh;
+overflow-y: scroll;
+overflow-x: scroll;
+}
+tbody {
+  max-height: 80vh;
+overflow-y: scroll;
+}
+tbody > tr {
+    overflow-y: scroll;
+}
+tbody > tr > td {
+    overflow-y: scroll;
 }
 
+/* fill out the buttons to the width of the cell*/
 
-
+/*all tr's in the table */
 table>tr {
     padding-left:1%;
     max-height: 10vh;
 }
-
+/*all pictures in the td*/
 tbody>tr>td>:nth-child(1){ 
-width:60%;
-    height:50%;
     align-self: center;
     text-align: center;
     vertical-align: center;
-    padding-bottom: 1%;
     margin-bottom: 1%;
+    padding-top:1%;
+    height:7.5vmin;
+    width:7.5vmin;
+    min-height:40px;
+    min-width:40px;
 }
-
+/* all p's in the td*/
 tbody>tr>td>:nth-child(2){ 
 width:90%;
     height:25%;
@@ -97,12 +106,13 @@ width:90%;
     text-align: center;
     vertical-align: center;
     padding-top: 1%;
-    margin-top: 1%;
-    padding-bottom: 1%;
-    margin-bottom: 1%;
-    font-size:2.2vmin;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size:calc(3pt + 1.5vmin);
 font-weight: bolder;
 }
+
+/* color the corrosponding buttons and colums with the correct colors.*/
 tbody>tr>:nth-child(1),thead>tr>:nth-child(1),tfoot>tr>:nth-child(1){ 
 background-color: rgb(156, 18, 156);   
 }
@@ -118,8 +128,6 @@ background-color: rgb(160, 123, 53);
 tbody>tr>:nth-child(5),thead>tr>:nth-child(5),tfoot>tr>:nth-child(5){ 
 background-color: rgb(206, 74, 96);
 }
-
-
 #noun1,#nnoun1{ 
 background-color:rgb(252, 0, 252);   
 }
@@ -136,21 +144,22 @@ background-color: rgb(252, 182, 53);
 background-color: rgb(255, 95, 122);
 }
 
+/*second section in the bottom half on the right side*/
+.flex-container > #bsection {
+width:30vw;
+margin-left: 1vw;
+padding-right:3vw;
+
+}
+/*show story button*/
 #playback{
 background-color: turquoise;
 }
-
-th{
-    
-    font-size:1.65vmin;
-}
-/* fill out the buttons to the width of the cell*/
-.tableButton{
-min-width: 99%;
-margin: auto 0;
-}
-tbody{
-    overflow: auto;
+#story{
+    text-align: left;
+    padding-top: 10vh;
+    font-size: calc(6pt + 1.7vmin);
+    font-weight: bolder;
 }
 
 

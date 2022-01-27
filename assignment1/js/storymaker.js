@@ -317,6 +317,7 @@ let randomStory = () => {
 }
 //
 let saySentense = (sentense) => {
+    synth.cancel();
     sentense = sentense.toLowerCase();
     var utterThis = new SpeechSynthesisUtterance(sentense);
     var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
