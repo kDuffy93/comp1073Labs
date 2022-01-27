@@ -39,9 +39,7 @@ body{
 align-self: flex-start;
 width:65%;
 margin-right:3.25%;
-padding-right:3%;
 max-height: 85vh;
- /*  overflow: scroll; /*this makes the whole section scroll*/
 }
 
 /*both lower sections*//*---------------------------Lower Section----------------------------*/
@@ -57,27 +55,32 @@ background-color: rgb(168, 168, 35);
 max-height: 75vh;/*set the parent max height which is the table*/
 max-width: 65vw;
 min-width:60vw;
-margin-right: 1vw;
+margin-right: .5vw;
 padding-right: 1vw;
 }
 th{
     font-size:calc(4pt + 1.3vmin);
 }
 thead, tbody, tfoot { display: block; }
-
+thead, tfoot{
+    max-width:60vw;
+}
 
  thead th, tfoot th{
     min-width: 12vw;  /* Optional */
-    padding:0 0.6vw ;
 }
-tbody td{
-    min-width: 13vw;
+
+ tbody td{
+    max-width: 12vw;
+    min-width: 12vw;  /* Optional */
 }
+
 
 /* the 4 selectors below ive tried to add scroll with. this should be the tbody, and where I add the overflow to the body, but its not working */
 #tBody{
-scrollbar-width:auto;
-min-width:63vw;
+scrollbar-width: thin;
+scroll-behavior: smooth;
+min-width:61vw;
 max-height: 70vh;
 overflow-y: scroll;
 overflow-x: hidden;
@@ -95,8 +98,10 @@ tbody > tr > td {
 .tableButton{
     min-width:100%;
     min-height:100%;
-    margin:0;
+    max-width: 100%;
+
 }
+
 
 /*all tr's in the table */
 table>tr {
