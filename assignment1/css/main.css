@@ -173,14 +173,19 @@ text-align: center;
 /*show story button*/
 #playback,#randomButton{
 width:60%;
-background-color: turquoise;
+background-color:lightsalmon;
 margin:3vh;
+font-weight:500;
 }
 #playback{
+    background-color: turquoise;
     margin-top:5vh;
 }
 #resetButton{
+    background-color: ;
     margin-top: 30%;
+    background-color: lightslategrey;
+    font-weight: 500;
 }
 
 #story{
