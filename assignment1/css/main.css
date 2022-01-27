@@ -12,6 +12,7 @@ body{
 /*head container*/
 .titleSectionContainer{
     display:flex;
+    max-height: 10vh;
 }
 
 /*Main Title*/
@@ -52,6 +53,7 @@ font-size:calc(2pt + 1.3vmin);
 /* This is where im working to add table scroll*/
 /*tried setting max height of table */
 table{ 
+     background-color: rgb(168, 168, 35);
 max-height: 75vh;/*set the parent max height which is the table*/
 max-width: 60vw;
 min-width:60vw;
@@ -59,24 +61,26 @@ min-width:60vw;
 th{
     font-size:calc(4pt + 1.3vmin);
 }
-/* the 4 selectors below ive tried to add scroll with. this should be the tbody and where I add the overflow to the body, but its not working */
-.flex-container > #tsection > table > tbody{
+thead, tbody, tfoot { display: block; }
+
+
+tbody td, thead th, tfoot th{
+    min-width: 12vw;  /* Optional */
+}
+
+/* the 4 selectors below ive tried to add scroll with. this should be the tbody, and where I add the overflow to the body, but its not working */
+#tBody{
+   
 max-height: 70vh;
 overflow-y: scroll;
 overflow-x: hidden;
-
 }
-tbody {
-max-height: 70vh;
-overflow-y: scroll; /* set overflow-y for tbody to scroll */
 
-}
+/*table body rows*/
 tbody > tr {
- 
 }
-tbody > tr > td {
-  
-   
+/* table body row cells */
+tbody > tr > td { 
 }
 /* --------- END OF WORKING AREA --------- */
 /* fill out the buttons to the width of the cell*/
