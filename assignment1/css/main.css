@@ -61,7 +61,8 @@ max-height: 85vh;
 /*tried setting max height of table */
 table{ 
 background-color: rgb(168, 168, 35);
-max-height: 75vh;/*set the parent max height which is the table*/
+/*set the parent max height which is the table*/
+min-height:85vh;
 max-width: 65vw;
 min-width:60vw;
 margin-right: .5vw;
@@ -118,8 +119,7 @@ tbody>tr>td>:nth-child(1){
     padding-top:1%;
     height:7.5vmin;
     width:7.5vmin;
-    min-height:40px;
-    min-width:40px;
+ 
 }
 /* all p's in the td*/
 tbody>tr>td>:nth-child(2){ 
@@ -167,19 +167,20 @@ background-color: rgb(255, 95, 122);
 
 /*second section in the bottom half on the right side*//*---------------------------BSECTION STYLING----------------------------*/
 .flex-container > #bsection {
-width:30vw;
+width:33vw;
 max-height: 85vh;
-margin-left: 1vw;
-padding-right:3vw;
+
+
 text-align: center;
 }
 /*show story button*/
-#playback,#randomButton{
-    min-height:3em;
-width:60%;
+#playback,#randomButton, #resetButton{
+    min-height:5em;
+width:80%;
 background-color:lightsalmon;
-margin:3vh;
+margin-bottom:1.5vh;
 font-weight:500;
+font-size: calc(6pt + 1.3vmin);
 }
 #playback{
     background-color: turquoise;
@@ -200,16 +201,18 @@ label{
   min-width: 20%;
   max-width: 20%;
 display: inline-block;
+vertical-align:center;
 }
 label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNoun2Txt],label[for=newSettingTxt],label[for=newNounURL],label[for=newVerbURL],label[for=newAdjURL],label[for=newNoun2URL],label[for=newSettingURL]{
-    min-width: 30%;
-    max-width: 30%;
+    min-width: 45%;
+    max-width: 45%;
     margin: 0;
     padding:0;
+    font-size: calc(2pt + .9vw);    
 }
 input[type='text']{
-    min-width: 60%;
-    max-width: 60%;
+    min-width: 55%;
+    max-width: 55%;
     margin: 0;
     padding:0;
 }
