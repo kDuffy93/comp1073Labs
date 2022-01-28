@@ -176,6 +176,7 @@ const clickedTdButton = (evt) => {
             console.log(`name: ${word}   url: ${url}`);
             addNewWord(noun1Array, word, url);
             buildTable();
+            updateAllTableRowsHighlight();
             break;
         case "nverb":
              word = document.getElementById("newVerbTxt").value.toUpperCase();
@@ -183,6 +184,7 @@ const clickedTdButton = (evt) => {
             console.log(`name: ${word}   url: ${url}`);
             addNewWord(verbArray, word, url);
             buildTable();
+            updateAllTableRowsHighlight();
             break;
         case "nadjective":
              word = document.getElementById("newAdjTxt").value.toUpperCase();
@@ -190,6 +192,7 @@ const clickedTdButton = (evt) => {
             console.log(`name: ${word}   url: ${url}`);
             addNewWord(adjArray, word, url);
             buildTable();
+            updateAllTableRowsHighlight();
             break;
         case "nnoun2":
              word = document.getElementById("newNoun2Txt").value.toUpperCase();
@@ -197,6 +200,7 @@ const clickedTdButton = (evt) => {
             console.log(`name: ${word}   url: ${url}`);
             addNewWord(noun2Array, word, url);
             buildTable();
+            updateAllTableRowsHighlight();
             break;
         case "nsetting":
              word = document.getElementById("newSettingTxt").value.toUpperCase();
@@ -204,6 +208,7 @@ const clickedTdButton = (evt) => {
             console.log(`name: ${word}   url: ${url}`);
             addNewWord(settingArray, word, url);
             buildTable();
+            updateAllTableRowsHighlight();
             break;
         case "noun1": 
             currentNoun1Index ++;
@@ -213,8 +218,7 @@ const clickedTdButton = (evt) => {
             setCurrentWords('noun1', noun1Array, currentNoun1Index);
             CallUpdateButtonText('noun1');
             saySentense(currentNoun1);
-            workingCol = document.getElementById(`col:0-row:${currentNoun1Index}`);
-            highlightSelectedColumn(workingCol, "activeNoun1");
+            updateHighlightedRow(currentNoun1Index, "activeNoun1",0);
             break;
         case "verb": 
         currentVerbIndex++;
@@ -224,8 +228,7 @@ const clickedTdButton = (evt) => {
             setCurrentWords('verb', verbArray, currentVerbIndex);
             CallUpdateButtonText('verb');
             saySentense(currentVerb);
-            workingCol = document.getElementById(`col:1-row:${currentVerbIndex}`);
-            highlightSelectedColumn(workingCol, "activeVerb");
+            updateHighlightedRow(currentVerbIndex, "activeVerb",1);
             break;
         case "adjective": currentAdjIndex++;
             if (currentAdjIndex >= adjArray.length) {
@@ -234,8 +237,7 @@ const clickedTdButton = (evt) => {
             setCurrentWords('adjective', adjArray, currentAdjIndex);
             CallUpdateButtonText('adjective');
             saySentense(currentAdj);
-            workingCol = document.getElementById(`col:2-row:${currentAdjIndex}`);
-            highlightSelectedColumn(workingCol, "activeAdj");
+            updateHighlightedRow(currentAdjIndex, "activeAdj",2);
             break;
         case "noun2": currentNoun2Index++;
             if (currentNoun2Index >= noun2Array.length) {
@@ -244,8 +246,7 @@ const clickedTdButton = (evt) => {
             setCurrentWords('noun2', noun2Array, currentNoun2Index);
             CallUpdateButtonText('noun2');
             saySentense(currentNoun2);
-            workingCol = document.getElementById(`col:3-row:${currentNoun2Index}`);
-            highlightSelectedColumn(workingCol, "activeNoun2");
+            updateHighlightedRow(currentNoun2Index, "activeNoun2",3);
             break;
         case "setting": currentSettingIndex++;
             if (currentSettingIndex  >= settingArray.length) {
@@ -254,10 +255,8 @@ const clickedTdButton = (evt) => {
             setCurrentWords('setting', settingArray, currentSettingIndex);
             CallUpdateButtonText('setting');
             saySentense(currentSetting);
-            workingCol = document.getElementById(`col:4-row:${currentSettingIndex}`);
-            highlightSelectedColumn(workingCol, "activeSetting");
+            updateHighlightedRow(currentSettingIndex, "activeSetting",4);
             break;
-        
         default:break;
     }
     
@@ -268,7 +267,10 @@ const clickedTdButton = (evt) => {
     setting: ${currentSetting}, settingIndex: ${currentSettingIndex}`);
 
 }
-
+let updateHighlightedRow = (index, className, col)=> {
+    workingCol = document.getElementById(`col:${col}-row:${index}`);
+    highlightSelectedColumn(workingCol, className);
+}
 
 let buildElement = (array, iteration,colNum) => {
     let tempTd = document.createElement('td');
@@ -318,10 +320,21 @@ let buildTable = () =>
         tBody.appendChild(tRow);
     } 
 }
+let updateAllTableRowsHighlight = () =>
+{
+    updateHighlightedRow(currentNoun1Index, "activeNoun1", 0);
+    updateHighlightedRow(currentVerbIndex, "activeVerb", 1);
+    updateHighlightedRow(currentAdjIndex, "activeAdj", 2);
+    updateHighlightedRow(currentNoun2Index, "activeNoun2", 3);
+    updateHighlightedRow(currentSettingIndex, "activeSetting", 4);
+}
 let Init = () => {
     populateVoiceList();
     buildTable();
     CallUpdateButtonText();
+    updateAllTableRowsHighlight();
+
+
 }
 
 let PlaybackClick = () => {
@@ -357,6 +370,9 @@ let randomStory = () => {
     setCurrentWords();
     CallUpdateButtonText();
     outPutText();
+    updateAllTableRowsHighlight();
+
+
 }
 //
 let saySentense = (sentense) => {
