@@ -208,7 +208,8 @@ label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNo
     max-width: 45%;
     margin: 0;
     padding:0;
-    font-size: calc(2pt + .9vw);    
+    font-size: calc(1vmin + calc(.1vw + .05vh));    
+    vertical-align: middle;
 }
 input[type='text']{
     min-width: 55%;
@@ -220,6 +221,9 @@ select{
     margin-top: 3vh;
     
     width:60%;
+}
+checkmark{
+    margin-top:1vh;
 }
 
 #resetButton{

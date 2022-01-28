@@ -31,7 +31,10 @@ let verbToSpeak;
 let adjToSpeak;
 let noun2ToSpeak;
 let settingToSpeak;
-
+const resetButton = document.getElementById('resetButton');
+let randomButton = document.getElementById('randomButton');
+let playbackButton = document.getElementById('playback');
+const tableButtons = document.getElementsByClassName('tableButton');
 
 /* Functions
 -------------------------------------------------- */
@@ -376,7 +379,7 @@ for (const radioButton of radioButtons) {
      let phrase2 = ` ${currentVerb.toLowerCase()} `;
      let phrase3 =` ${currentAdj.toLowerCase()} `;
      let phrase4 =` ${currentNoun2.toLowerCase()} `;
-     let phrase5 =` ${currentSetting.toLowerCase()}.`
+     let phrase5 =` ${currentSetting.toLowerCase()}`
 
   if(rbValue == 0){
       
@@ -398,7 +401,7 @@ for (const radioButton of radioButtons) {
     tempSection.appendChild(buildSentenceElement(phrase2,1));
     tempSection.appendChild(buildSentenceElement(phrase3,2));
     tempSection.appendChild(buildSentenceElement(phrase4,3));
-    tempSection.appendChild(buildSentenceElement(phrase5,4));
+    tempSection.appendChild(buildSentenceElement(`${phrase5}.`,4));
     output.appendChild(tempSection);
     noun1ToSpeak = document.getElementById(`col:0-row:${currentNoun1Index}`);
     verbToSpeak = document.getElementById(`col:1-row:${currentVerbIndex}`);
@@ -407,6 +410,9 @@ for (const radioButton of radioButtons) {
     settingToSpeak = document.getElementById(`col:4-row:${currentSettingIndex}`);
     document.getElementById("para:0").style.backgroundColor = "limeGreen";
     noun1ToSpeak.classList.toggle(`${'speaking'}`);
+    playbackButton.disabled = true;
+    randomButton.disabled = true;
+
     saySentense(phrase1).then(() => { 
         noun1ToSpeak.classList.remove(`${'speaking'}`);
         document.getElementById("para:0").style.backgroundColor = "transparent";
@@ -430,6 +436,8 @@ for (const radioButton of radioButtons) {
                     saySentense(phrase5).then(() => {
                         settingToSpeak.classList.remove(`${'speaking'}`);
                         document.getElementById("para:4").style.backgroundColor = "transparent";
+                         playbackButton.disabled = false;
+    randomButton.disabled = false;
                     })
                 })
             })
@@ -501,11 +509,12 @@ reject();
 }
 let removeSpeakingClasses = () =>
 {
-noun1ToSpeak.classList.remove(`${'speaking'}`);
-        verbToSpeak.classList.remove(`${'speaking'}`);
-        adjToSpeak.classList.remove(`${'speaking'}`);
-        noun2ToSpeak.classList.remove(`${'speaking'}`);
-         settingToSpeak.classList.remove(`${'speaking'}`);
+    if(noun1ToSpeak)noun1ToSpeak.classList.remove(`${'speaking'}`);
+
+         if(verbToSpeak)verbToSpeak.classList.remove(`${'speaking'}`);
+         if(adjToSpeak)adjToSpeak.classList.remove(`${'speaking'}`);
+         if(noun2ToSpeak)noun2ToSpeak.classList.remove(`${'speaking'}`);
+         if(settingToSpeak) settingToSpeak.classList.remove(`${'speaking'}`);
 }
      
 
@@ -542,18 +551,15 @@ let highlightSelectedColumn = (workingCol,className) => {
 
 /* Event Listeners
 -------------------------------------------------- */
-let tableButtons = document.getElementsByClassName('tableButton');
 for (let i = 0; i < tableButtons.length; i++) {
     console.log(tableButtons[i]);
     tableButtons[i].addEventListener('click', clickedTdButton, false);
 }
-let playbackButton = document.getElementById('playback');
 playbackButton.addEventListener('click', PlaybackClick, false);
 
-let randomButton = document.getElementById('randomButton');
 randomButton.addEventListener('click', randomStory, false);
 
-let resetButton = document.getElementById('resetButton');
+
 resetButton.addEventListener('click', reset, false);
 
 
