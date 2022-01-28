@@ -31,6 +31,7 @@ body{
 }
 .titleSectionContainer>h2{
    width:40vw;
+   margin-top:0;
     font-size:calc(1.2vmin + calc(.1vw + 2.3vh));   
 }
 
@@ -80,6 +81,7 @@ thead, tfoot{
 }
 
  thead th, tfoot th{
+     max-height:100%;
 min-width: 12vw;  
 max-width: 12vw;  
  }
@@ -136,19 +138,19 @@ font-weight: bolder;
 
 /* color the corrosponding buttons and colums with the correct colors.*/
 tbody>tr>:nth-child(1),thead>tr>:nth-child(1),tfoot>tr>:nth-child(1){ 
-background-color: rgb(156, 18, 156);   
+background-color: rgb(163, 44, 162);   
 }
 tbody>tr>:nth-child(2),thead>tr>:nth-child(2),tfoot>tr>:nth-child(2){ 
-background-color: rgb(19, 72, 231);
+background-color: rgb(45, 152, 215);
 }
 tbody>tr>:nth-child(3),thead>tr>:nth-child(3),tfoot>tr>:nth-child(3){ 
-background-color: rgb(21, 90, 21);
+background-color: rgb(141, 182, 6);
 }
 tbody>tr>:nth-child(4),thead>tr>:nth-child(4),tfoot>tr>:nth-child(4){ 
-background-color: rgb(160, 123, 53);
+background-color: rgb(240, 137, 8);
 }
 tbody>tr>:nth-child(5),thead>tr>:nth-child(5),tfoot>tr>:nth-child(5){ 
-background-color: rgb(206, 74, 96);
+background-color: rgb(223, 59, 150);
 }
 #noun1,#nnoun1{ 
 background-color:rgb(252, 0, 252);   
@@ -178,13 +180,13 @@ text-align: center;
 #playback,#randomButton, #resetButton{
     min-height:5em;
 width:80%;
-background-color:lightsalmon;
+background-color:#00ffa2;
 margin-bottom:1.5vh;
 font-weight:500;
 font-size: calc(6pt + 1.3vmin);
 }
 #playback{
-    background-color: turquoise;
+    background-color: #00f7ff;
     margin-top:5vh;
 }
 input{
@@ -209,8 +211,9 @@ label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNo
     max-width: 45%;
     margin: 0;
     padding:0;
-    font-size: calc(1vmin + calc(.1vw + .05vh));    
+    font-size: calc(1vmin + calc(.01vw + .3vh));    
     vertical-align: middle;
+    text-align:left;
 }
 input[type='text']{
     min-width: 55%;
@@ -220,16 +223,13 @@ input[type='text']{
 }
 select{
     margin-top: 3vh;
-    
     width:60%;
 }
-checkmark{
-    margin-top:1vh;
-}
+
 
 #resetButton{
     vertical-align: bottom;
-    background-color: lightslategrey;
+    background-color: #b3b3b3;
     font-weight: 500;
 }
 
