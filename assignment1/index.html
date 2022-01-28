@@ -12,8 +12,8 @@
 <body>
 		<!--Title Section -->
 		<section class="titleSectionContainer">
-			<h1 class="titleSection">See-N-Say Storymaker</h1>
-			<h2 class="titleSection">Create Your Story</h2>
+			<h1 class="titleSection"><u>See-N-Say Storymaker</u><br>Create Your Story</h1>
+			<h2 class="titleSection"><u>See-N-Say Your Story</u></h2>
 		</section>
 		<div class="flex-container">
 		<section id='tsection'>
@@ -29,17 +29,37 @@
 
 			</tbody>
 			<tfoot>
-				<th><button class="tableButton" id="nnoun1">Add a new Noun#1</button></th>
-				<th><button class="tableButton" id="nverb">Add a new Verb</button></th>
-				<th><button class="tableButton" id="nadjective">Add a new Adjective</button></th>
-				<th><button class="tableButton" id="nnoun2">Add a new Noun#2</button></th>
-				<th><button class="tableButton" id="nsetting">Add a new Setting</button></th>
+				<th>
+					<label for="newNounTxt">Phrase:</label><input type="text"id="newNounTxt">
+					<label for="newNounURL">URL:</label><input type="text" id="newNounURL">
+					<button class="tableButton" id="nnoun1">Add Noun</button>
+				</th>
+
+				<th>
+					<label for="newVerbTxt">Phrase:</label><input type="text" id="newVerbTxt">
+					<label for="newVerbURL">URL:</label><input type="text" id="newVerbURL">
+				<button class="tableButton" id="nverb">Add Verb</button>
+			</th>
+
+				<th>
+					<label for="newAdjTxt">Phrase:</label><input type="text" id="newAdjTxt">
+				<label for="newAdjURL">URL:</label><input type="text" id="newAdjURL"><button class="tableButton" id="nadjective">Add Adjective</button>
+			</th>
+				<th>
+					<label for="newNoun2Txt">Phrase:</label><input type="text" id="newNoun2Txt">
+					<label for="newNoun2URL">URL:</label><input type="text" id="newNoun2URL">
+					<button class="tableButton" id="nnoun2">Add Noun</button>
+				</th>
+				<th>
+					<label for="newSettingTxt">Phrase:</label><input type="text" id="newSettingTxt">
+					<label for="newSettingURL">URL:</label><input type="text" id="newSettingURL">
+					<button class="tableButton" id="nsetting">Add Setting</button>
+				</th>
 			</tfoot>
 		</table>
 	</section>
 	<section id='bsection'>
 		<!-- Section with playback controls to see or hear the story -->
-		<h3>See-N-Say Your Story</h3>
 		<div>
 			<label for="rate">Playback Speed: </label><input type="range" min="0.1" max="3" value="1" step="0.1" id="rate">
 			<div class="rate-value">1</div>

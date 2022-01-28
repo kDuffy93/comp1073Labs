@@ -1,16 +1,20 @@
 @charset "utf-8";
 /* Assignment 1 | COMP1073 Client-Side JavaScript */
 /*entire body styles*/
+html, body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
 body{
     background-color: rgb(168, 168, 35);
     overflow:hidden;
-    min-width: 100vw;
     text-align: center;
 }
 /*---------------------------HEAD STYLING----------------------------*/
 /*head container*/
 .titleSectionContainer{
     display:flex;
+    min-height:10vh;
     max-height: 10vh;
 }
 
@@ -59,24 +63,25 @@ margin-right: .5vw;
 padding-right: 1vw;
 }
 th{
-    font-size:calc(4pt + 1.3vmin);
+    font-size:calc(3pt + 1.3vmin);
 }
+
+/* this is how I made the body scrollable and sized correctly */
 thead, tbody, tfoot { display: block; }
 thead, tfoot{
     max-width:60vw;
 }
 
  thead th, tfoot th{
-    min-width: 12vw;  /* Optional */
-}
+min-width: 12vw;  
+max-width: 12vw;  
+ }
 
  tbody td{
     max-width: 12vw;
-    min-width: 12vw;  /* Optional */
+    min-width: 12vw;  
 }
 
-
-/* the 4 selectors below ive tried to add scroll with. this should be the tbody, and where I add the overflow to the body, but its not working */
 #tBody{
 scrollbar-width: thin;
 scroll-behavior: smooth;
@@ -87,19 +92,12 @@ overflow-x: hidden;
 
 }
 
-/*table body rows*/
-tbody > tr {
-}
-/* table body row cells */
-tbody > tr > td { 
-}
-/* --------- END OF WORKING AREA --------- */
-/* fill out the buttons to the width of the cell*/
+/* fill out the buttons to the width of the cell*//*height not working */
 .tableButton{
     min-width:100%;
-    min-height:100%;
     max-width: 100%;
-
+    min-height:4em;
+    max-height:7vh;
 }
 
 
@@ -172,6 +170,7 @@ text-align: center;
 }
 /*show story button*/
 #playback,#randomButton{
+    min-height:3em;
 width:60%;
 background-color:lightsalmon;
 margin:3vh;
@@ -184,7 +183,7 @@ font-weight:500;
 input{
     min-width: 60%;
     max-width: 60%;
-   vertical-align: top;
+    margin-left: 5%;
 }
 #bsection > div{
     min-width:100%;
@@ -192,12 +191,26 @@ input{
 label{
   vertical-align: top;
   margin-right:5%;
-  text-align: right;
-  min-width: 8vw;
+  text-align: center;
+  min-width: 20%;
+  max-width: 20%;
 display: inline-block;
+}
+label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNoun2Txt],label[for=newSettingTxt],label[for=newNounURL],label[for=newVerbURL],label[for=newAdjURL],label[for=newNoun2URL],label[for=newSettingURL]{
+    min-width: 30%;
+    max-width: 30%;
+    margin: 0;
+    padding:0;
+}
+input[type='text']{
+    min-width: 60%;
+    max-width: 60%;
+    margin: 0;
+    padding:0;
 }
 select{
     margin-top: 3vh;
+    
     width:60%;
 }
 
@@ -208,10 +221,16 @@ select{
 }
 
 #story{
-    min-height: 2em;
+    padding-top: 0;;
+    min-height: 4em;
     text-align: center;
-    padding: 5vh 0 0 0;
+    vertical-align: top;
+    margin-top: 0;
     font-size: calc(6pt + 1.7vmin);
     font-weight: bolder;
+}
+.activeNoun1,.activeVerb,.activeAdj,.activeNoun2,.activeSetting{
+background-color: lime !important;
+
 }
 
