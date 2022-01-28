@@ -462,6 +462,8 @@ rate.value = 1;
 pitchValue.textContent = 1;
 rateValue.textContent = 1;
 defaultOption.checked = true;
+playbackButton.disabled = false;
+    randomButton.disabled = false;
 }
 
 let randomNumber = (below) =>

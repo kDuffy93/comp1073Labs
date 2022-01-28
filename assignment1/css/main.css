@@ -11,7 +11,7 @@ html, body {
   box-sizing: border-box;
 }
 body{
-    background-color: rgb(168, 168, 35);
+    background-color: #ebe134;
     overflow:hidden;
     text-align: center;
 }
@@ -52,7 +52,7 @@ max-height: 85vh;
 
 /*both lower sections*//*---------------------------Lower Section----------------------------*/
 .flex-container  section {
-background-color: rgb(168, 168, 35);
+ background-color: #ebe134;
 font-size:calc(2pt + 1.3vmin);
 max-height: 85vh;
 }
@@ -60,7 +60,7 @@ max-height: 85vh;
 /* This is where im working to add table scroll*/
 /*tried setting max height of table */
 table{ 
-background-color: rgb(168, 168, 35);
+background-color: #ebe134;
 /*set the parent max height which is the table*/
 min-height:85vh;
 max-width: 65vw;
@@ -245,7 +245,8 @@ checkmark{
 color: lime;
 }
 .speaking{
-background-color: DodgerBlue !important;
+background-color: #ebe134 !important;
+color:#0f0899;
 }
 
 #story>section{
