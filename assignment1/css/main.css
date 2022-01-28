@@ -5,6 +5,11 @@ html, body {
     min-height: 100vh;
     min-width: 100vw;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 body{
     background-color: rgb(168, 168, 35);
     overflow:hidden;
@@ -230,7 +235,20 @@ select{
     font-weight: bolder;
 }
 .activeNoun1,.activeVerb,.activeAdj,.activeNoun2,.activeSetting{
-background-color: lime !important;
-
+color: lime;
+}
+.speaking{
+background-color: DodgerBlue !important;
 }
 
+#story>section{
+    display:block;
+    align-self:center;
+
+}
+#story>section>p{
+    display:inline;
+   padding-left:0.5%;
+   font-size: calc(6pt + 1.7vmin);
+    font-weight: bolder;
+}

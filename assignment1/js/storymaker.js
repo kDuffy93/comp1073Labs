@@ -25,6 +25,12 @@ let currentVerbIndex = 0;
 let currentAdjIndex = 0;
 let currentNoun2Index = 0;
 let currentSettingIndex = 0;
+let defaultOption = document.getElementById('justSay');
+let noun1ToSpeak;
+let verbToSpeak;
+let adjToSpeak;
+let noun2ToSpeak;
+let settingToSpeak;
 
 
 /* Functions
@@ -44,7 +50,7 @@ console.log(voices);
      }
      if(voices.length == 0){
          var option = document.createElement('option');
-         option.textContent = 'No Available Voices';
+         option.textContent = 'No Other Voices';
          option.setAttribute('data-lang', 'no-Lang');
          option.setAttribute('data-name', 'no-Name');
          voiceSelect.appendChild(option);
@@ -333,18 +339,105 @@ let Init = () => {
     buildTable();
     CallUpdateButtonText();
     updateAllTableRowsHighlight();
-
-
+pitch.value = 1;
+rate.value = 1;
+defaultOption.checked = true;
 }
 
 let PlaybackClick = () => {
    outPutText();  
 }
-let outPutText = () =>{
-    let sentense = `${currentNoun1.slice(0, 1) + currentNoun1.slice(1, currentNoun1.length).toLowerCase()} ${currentVerb.toLowerCase()} ${currentAdj.toLowerCase()} ${currentNoun2.toLowerCase()} ${currentSetting.toLowerCase()}.`;
-    output.textContent = sentense;
-    saySentense(sentense);
+let buildSentenceElement = (phrase, index) => {
+     let tempP = document.createElement("p");
+     tempP.textContent = phrase;
+     tempP.id=`para:${index}`
+    return tempP;
 }
+let outPutText = async() =>{
+    while(synth.pending){
+        if(synth.speaking){
+
+        
+            synth.cancel();
+             removeSpeakingClasses();
+        }
+             
+    }
+   
+const radioButtons = document.querySelectorAll('input[name="say&HighLight"]');
+  console.log(radioButtons);
+let rbValue;
+for (const radioButton of radioButtons) {
+  if (radioButton.checked) {
+    rbValue = radioButton.value;
+    console.log(rbValue);
+  }}
+  let phrase1 = ` ${currentNoun1.slice(0, 1) + currentNoun1.slice(1, currentNoun1.length).toLowerCase()} `;
+     let phrase2 = ` ${currentVerb.toLowerCase()} `;
+     let phrase3 =` ${currentAdj.toLowerCase()} `;
+     let phrase4 =` ${currentNoun2.toLowerCase()} `;
+     let phrase5 =` ${currentSetting.toLowerCase()}.`
+
+  if(rbValue == 0){
+      
+       let sentense = `${phrase1} ${phrase2} ${phrase3} ${phrase4} ${phrase5}.`;
+    output.textContent = sentense;
+     saySentense(sentense);
+  }
+  if(rbValue ==1){
+    let speechIndex =0;
+    let mainP = document.getElementById("story");
+     while (mainP.firstChild) {
+        mainP.removeChild(mainP.firstChild);
+    }
+    
+    
+    let CurrentParagraph;
+    let tempSection = document.createElement("section");
+    tempSection.appendChild(buildSentenceElement(phrase1,0));
+    tempSection.appendChild(buildSentenceElement(phrase2,1));
+    tempSection.appendChild(buildSentenceElement(phrase3,2));
+    tempSection.appendChild(buildSentenceElement(phrase4,3));
+    tempSection.appendChild(buildSentenceElement(phrase5,4));
+    output.appendChild(tempSection);
+    noun1ToSpeak = document.getElementById(`col:0-row:${currentNoun1Index}`);
+    verbToSpeak = document.getElementById(`col:1-row:${currentVerbIndex}`);
+    adjToSpeak = document.getElementById(`col:2-row:${currentAdjIndex}`);
+    noun2ToSpeak = document.getElementById(`col:3-row:${currentNoun2Index}`);
+    settingToSpeak = document.getElementById(`col:4-row:${currentSettingIndex}`);
+    document.getElementById("para:0").style.backgroundColor = "limeGreen";
+    noun1ToSpeak.classList.toggle(`${'speaking'}`);
+    saySentense(phrase1).then(() => { 
+        noun1ToSpeak.classList.remove(`${'speaking'}`);
+        document.getElementById("para:0").style.backgroundColor = "transparent";
+        document.getElementById("para:1").style.backgroundColor = "limeGreen";
+        verbToSpeak.classList.toggle(`${'speaking'}`);
+        saySentense(phrase2).then(() => {
+            verbToSpeak.classList.remove(`${'speaking'}`);
+            document.getElementById("para:1").style.backgroundColor = "transparent";
+            document.getElementById("para:2").style.backgroundColor = "limeGreen";
+            adjToSpeak.classList.toggle(`${'speaking'}`);
+            saySentense(phrase3).then(() =>{
+                adjToSpeak.classList.remove(`${'speaking'}`);
+                document.getElementById("para:2").style.backgroundColor = "transparent";
+                document.getElementById("para:3").style.backgroundColor = "limeGreen";
+                noun2ToSpeak.classList.toggle(`${'speaking'}`);
+                    saySentense(phrase4).then(() => {
+                    noun2ToSpeak.classList.remove(`${'speaking'}`);
+                    document.getElementById("para:3").style.backgroundColor = "transparent";
+                    document.getElementById("para:4").style.backgroundColor = "limeGreen";
+                    settingToSpeak.classList.toggle(`${'speaking'}`);
+                    saySentense(phrase5).then(() => {
+                        settingToSpeak.classList.remove(`${'speaking'}`);
+                        document.getElementById("para:4").style.backgroundColor = "transparent";
+                    })
+                })
+            })
+        })
+    })
+
+}}
+
 let reset = () => {
     currentNoun1Index = 0;
     currentVerbIndex = 0;
@@ -355,7 +448,14 @@ let reset = () => {
     CallUpdateButtonText();
     output.textContent = '';
     synth.cancel();
+    updateAllTableRowsHighlight();
+    pitch.value = 1;
+rate.value = 1;
+pitchValue.textContent = 1;
+rateValue.textContent = 1;
+defaultOption.checked = true;
 }
+
 let randomNumber = (below) =>
 {
 return Math.floor(Math.random()*below);
@@ -376,20 +476,38 @@ let randomStory = () => {
 }
 //
 let saySentense = (sentense) => {
-    synth.cancel();
-    sentense = sentense.toLowerCase();
-    var utterThis = new SpeechSynthesisUtterance(sentense);
-    var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    return new Promise((resolve, reject) => {
+        
+         sentense = sentense.toLowerCase();
+      let utterThis = new SpeechSynthesisUtterance(sentense);
+    let selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
     for (i = 0; i < voices.length; i++) {
         if (voices[i].name === selectedOption) {
             utterThis.voice = voices[i];
         }
-
     }
     utterThis.pitch = pitch.value;
     utterThis.rate = rate.value;
-    synth.speak(utterThis);
+    synth.speak(utterThis); 
+    utterThis.addEventListener("end", () => {
+        console.log('speaking Done');
+        resolve();
+    }) 
+    utterThis.addEventListener("cancel", () => {
+   removeSpeakingClasses();
+reject();
+    })
+    });     
 }
+let removeSpeakingClasses = () =>
+{
+noun1ToSpeak.classList.remove(`${'speaking'}`);
+        verbToSpeak.classList.remove(`${'speaking'}`);
+        adjToSpeak.classList.remove(`${'speaking'}`);
+        noun2ToSpeak.classList.remove(`${'speaking'}`);
+         settingToSpeak.classList.remove(`${'speaking'}`);
+}
+     
 
 pitch.onchange = function () {
     pitchValue.textContent = pitch.value;
