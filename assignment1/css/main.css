@@ -181,9 +181,28 @@ font-weight:500;
     background-color: turquoise;
     margin-top:5vh;
 }
+input{
+    min-width: 60%;
+    max-width: 60%;
+   vertical-align: top;
+}
+#bsection > div{
+    min-width:100%;
+}
+label{
+  vertical-align: top;
+  margin-right:5%;
+  text-align: right;
+  min-width: 8vw;
+display: inline-block;
+}
+select{
+    margin-top: 3vh;
+    width:60%;
+}
+
 #resetButton{
-    background-color: ;
-    margin-top: 30%;
+    vertical-align: bottom;
     background-color: lightslategrey;
     font-weight: 500;
 }
@@ -195,5 +214,4 @@ font-weight:500;
     font-size: calc(6pt + 1.7vmin);
     font-weight: bolder;
 }
-
 
