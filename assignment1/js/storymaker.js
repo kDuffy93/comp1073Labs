@@ -357,15 +357,13 @@ let buildSentenceElement = (phrase, index) => {
     return tempP;
 }
 let outPutText = async() =>{
-    while(synth.pending){
+ 
         if(synth.speaking){
-
-        
             synth.cancel();
              removeSpeakingClasses();
         }
              
-    }
+    
    
 const radioButtons = document.querySelectorAll('input[name="say&HighLight"]');
   console.log(radioButtons);
