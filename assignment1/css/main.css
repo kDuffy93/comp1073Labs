@@ -117,8 +117,7 @@ table>tr {
 }
 /*all pictures in the td*/
 tbody>tr>td>:nth-child(1){ 
-    align-self: center;
-    margin-bottom: 1%;
+    vertical-align:top;
     padding-top:1%;
     height:7.5vmin;
     width:7.5vmin;
@@ -128,11 +127,10 @@ tbody>tr>td>:nth-child(1){
 tbody>tr>td>:nth-child(2){ 
 width:90%;
     height:25%;
-    align-self: center;
     padding-top: 1%;
     margin-top: 0%;
     margin-bottom: 0%;
-    font-size:calc(3pt + 1.5vmin);
+    font-size:calc(1vmin + calc(.2vw + .3vh));   
 font-weight: bolder;
 }
 
@@ -162,10 +160,10 @@ background-color: rgb(25, 83, 255);
 background-color: rgb(31, 231, 31);
 }
 #noun2, #nnoun2{ 
-background-color: rgb(252, 182, 53);
+background-color: #ff6f00;
 }
 #setting,#nsetting{ 
-background-color: rgb(255, 95, 122);
+background-color: #ff00b3;
 }
 
 /*second section in the bottom half on the right side*//*---------------------------BSECTION STYLING----------------------------*/
@@ -243,11 +241,14 @@ select{
     font-weight: bolder;
 }
 .activeNoun1,.activeVerb,.activeAdj,.activeNoun2,.activeSetting{
-color: lime;
+border: .75vmin solid transparent;
+border-color: red;
+  border-radius: 3.25vmin 3.25vmin 1.5vmin 1.5vmin;
 }
 .speaking{
 background-color: #ebe134 !important;
 color:#0f0899;
+border-radius: 0;
 }
 
 #story>section{
