@@ -19,8 +19,8 @@ body{
 /*head container*/
 .titleSectionContainer{
     display:flex;
-    min-height:8vh;
-    max-height: 8vh;
+    min-height:10vh;
+    max-height: 10vh;
 }
 
 /*Main Title*/
@@ -188,8 +188,8 @@ font-size: calc(.8vmin + calc(.6vw + .8vh));
     margin-top:5vh;
 }
 input{
-    min-width: 60%;
-    max-width: 60%;
+    min-width: 50%;
+    max-width: 50%;
     margin-left: 5%;
     display: inline-block;
     vertical-align: top;
@@ -201,10 +201,12 @@ input{
 }
 .value{
     display: inline-block;
-    min-width: 5%;
-    max-width: 8%;
+    min-width: 15%;
+    max-width: 15%;
     vertical-align: top;
     text-align: center;
+    font-size: calc(.5vmin + calc(.2vw + .8vh));
+    calc(.5vmin + calc(.4vw + .4vh));
 }
 .inputSlider{
     margin-bottom: 3vh;
@@ -219,7 +221,7 @@ label{
   max-width: 20%;
 display: inline-block;
 vertical-align:center;
- font-size: calc(.7vmin + calc(.5vw + .7vh));    
+ font-size:  calc(.5vmin + calc(.2vw + .8vh)); 
 }
 label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNoun2Txt],label[for=newSettingTxt],label[for=newNounURL],label[for=newVerbURL],label[for=newAdjURL],label[for=newNoun2URL],label[for=newSettingURL]{
     min-width: 45%;
@@ -237,13 +239,15 @@ input[type='text']{
     padding:0;
     font-size: calc(.4vmin + calc(.3vw + .7vh));
 }
-
+.checkContainer{
+     margin-top:2vh;
+}
 input[type="radio"], .checkContainer > label{
-  
-  margin: 2vh 0;
+ 
+ 
  min-width:unset;
 max-width: unset;
-margin-left: 1vw;
+margin-left: 2.5%;
    
 }
 {
@@ -301,12 +305,11 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color:lightskyblue;
   border: 1px solid #000000;
-  height: calc(1vmin + calc(.7vw + .9vh));
-  width:calc(.5vmin + calc(.7vw + .1vh));
+  height:150%;
+  width: calc(.2vmin + calc(.7vw + .1vh));
   border-radius: 3px;
-  background: #ffffff;
   cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+ /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
 }
 
@@ -317,7 +320,7 @@ input[type=range]::-moz-range-thumb {
   height:calc(1vmin + calc(.7vw + .9vh));
   width: calc(.2vmin + calc(.7vw + .1vh));
   border-radius: 3px;
-  background: #ffffff;
+   background-color:lightskyblue;
   cursor: pointer;
     background-color:lightskyblue;
 }
@@ -329,7 +332,7 @@ input[type=range]::-ms-thumb {
   height: calc(1vmin + calc(.7vw + .9vh));
   width: calc(.2vmin + calc(.7vw + .1vh));
   border-radius: 3px;
-  background: #ffffff;
+  
   cursor: pointer;
 background-color:lightskyblue;
 }
@@ -390,22 +393,36 @@ input[type=radio] {
   box-shadow: 1px 1px 1px lightskyblue, 0px 0px 1px purple;
   border: 3px solid lightskyblue;
   height: calc(1vmin + calc(1vw + 1vh));
-  width:30%;
+width:15%;
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
-
+ margin: 0 ;
+    padding: 0;
 text-align: left;
  accent-color: green;
+ margin-left:12%;
 }
 
 label[for=voiceSelect]{
     vertical-align: middle;
+    font-size: calc(.5vmin + calc(.2vw + .8vh));
     
 }
 label[for=SayHighLight],label[for=justSay]{
-    width:10%;
-    text-align: right;
+    width:15%;
+    text-align: left;
     vertical-align: bottom;
+    margin: 0 ;
+    padding: 0;
 
+}
+
+
+
+
+/* Element | file:///C:/Users/kyled/OneDrive/Documents/GitHub/comp1073Labs/assignment1/index.html */
+
+#justSay {
+  margin-right: 10%;
 }
