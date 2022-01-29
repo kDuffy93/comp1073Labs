@@ -19,8 +19,8 @@ body{
 /*head container*/
 .titleSectionContainer{
     display:flex;
-    min-height:10vh;
-    max-height: 10vh;
+    min-height:8vh;
+    max-height: 8vh;
 }
 
 /*Main Title*/
@@ -95,7 +95,7 @@ max-width: 12vw;
 scrollbar-width: thin;
 scroll-behavior: smooth;
 min-width:61vw;
-max-height: 70vh;
+max-height: 60vh;
 overflow-y: scroll;
 overflow-x: hidden;
 
@@ -176,7 +176,7 @@ text-align: center;
 }
 /*show story button*/
 #playback,#randomButton, #resetButton{
-    min-height:5em;
+    min-height:10vh;
 width:80%;
 background-color:#00ffa2;
 margin-bottom:1.5vh;
@@ -191,9 +191,23 @@ input{
     min-width: 60%;
     max-width: 60%;
     margin-left: 5%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
 }
+
 #bsection > div{
     min-width:100%;
+}
+.value{
+    display: inline-block;
+    min-width: 5%;
+    max-width: 8%;
+    vertical-align: top;
+    text-align: center;
+}
+.inputSlider{
+    margin-bottom: 3vh;
 }
 label{
   vertical-align: top;
@@ -203,13 +217,14 @@ label{
   max-width: 20%;
 display: inline-block;
 vertical-align:center;
+ font-size: calc(.7vmin + calc(.5vw + .7vh));    
 }
 label[for=newNounTxt],label[for=newVerbTxt],label[for=newAdjTxt],label[for=newNoun2Txt],label[for=newSettingTxt],label[for=newNounURL],label[for=newVerbURL],label[for=newAdjURL],label[for=newNoun2URL],label[for=newSettingURL]{
     min-width: 45%;
     max-width: 45%;
     margin: 0;
     padding:0;
-    font-size: calc(1vmin + calc(.01vw + .3vh));    
+    font-size: calc(1.1vmin + calc(.01vw + .2vh));    
     vertical-align: middle;
     text-align:left;
 }
@@ -218,6 +233,18 @@ input[type='text']{
     max-width: 55%;
     margin: 0;
     padding:0;
+}
+
+input[type="radio"], .checkContainer > label{
+  
+  margin: 2vh 0;
+ min-width:unset;
+max-width: unset;
+margin-left: 1vw;
+   
+}
+{
+
 }
 select{
     margin-top: 3vh;
@@ -233,12 +260,14 @@ select{
 
 #story{
     padding-top: 0;;
-    min-height: 4em;
+    min-height: 15vh;
     text-align: center;
-    vertical-align: top;
     margin-top: 0;
     font-size: calc(6pt + 1.7vmin);
     font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .activeNoun1,.activeVerb,.activeAdj,.activeNoun2,.activeSetting{
 border: .75vmin solid transparent;
