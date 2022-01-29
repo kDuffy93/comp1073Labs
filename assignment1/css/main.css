@@ -2,8 +2,8 @@
 /* Assignment 1 | COMP1073 Client-Side JavaScript */
 /*entire body styles*/
 html, body {
-    min-height: 100vh;
-    min-width: 100vw;
+    min-height: 150px;
+    min-width: 150px;
 }
 *,
 *:before,
@@ -181,7 +181,7 @@ width:80%;
 background-color:#00ffa2;
 margin-bottom:1.5vh;
 font-weight:500;
-font-size: calc(6pt + 1.3vmin);
+font-size: calc(.8vmin + calc(.6vw + .8vh));
 }
 #playback{
     background-color: #00f7ff;
@@ -208,6 +208,8 @@ input{
 }
 .inputSlider{
     margin-bottom: 3vh;
+    width: calc(.5vmin + calc(.3vw + .5vh));    
+height: calc(.5vmin + calc(.3vw + .5vh));    
 }
 label{
   vertical-align: top;
@@ -233,6 +235,7 @@ input[type='text']{
     max-width: 55%;
     margin: 0;
     padding:0;
+    font-size: calc(.4vmin + calc(.3vw + .7vh));
 }
 
 input[type="radio"], .checkContainer > label{
@@ -263,7 +266,7 @@ select{
     min-height: 15vh;
     text-align: center;
     margin-top: 0;
-    font-size: calc(6pt + 1.7vmin);
+    font-size: calc(1vmin + calc(.7vw + .9vh));
     font-weight: bolder;
     display: flex;
     flex-direction: column;
@@ -288,6 +291,121 @@ border-radius: 0;
 #story>section>p{
     display:inline;
    padding-left:0.5%;
-   font-size: calc(6pt + 1.7vmin);
     font-weight: bolder;
+}
+
+/*-------------------------------------------------------- input slider styling------------------------------------*/
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color:lightskyblue;
+  border: 1px solid #000000;
+  height: calc(1vmin + calc(.7vw + .9vh));
+  width:calc(.5vmin + calc(.7vw + .1vh));
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height:calc(1vmin + calc(.7vw + .9vh));
+  width: calc(.2vmin + calc(.7vw + .1vh));
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+    background-color:lightskyblue;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: calc(1vmin + calc(.7vw + .9vh));
+  width: calc(.2vmin + calc(.7vw + .1vh));
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+background-color:lightskyblue;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height:calc(.75vmin + calc(.5vw + .5vh));
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: calc(.5vmin + calc(.3vw + .3vh));
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: calc(.75vmin + calc(.5vw + .5vh));
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+/*-------------------------------------- radio button styling-------------------------------*/
+input[type=radio] { 
+  box-shadow: 1px 1px 1px lightskyblue, 0px 0px 1px purple;
+  border: 3px solid lightskyblue;
+  height: calc(1vmin + calc(1vw + 1vh));
+  width:30%;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+
+text-align: left;
+ accent-color: green;
+}
+
+label[for=voiceSelect]{
+    vertical-align: middle;
+    
+}
+label[for=SayHighLight],label[for=justSay]{
+    width:10%;
+    text-align: right;
+    vertical-align: bottom;
+
 }

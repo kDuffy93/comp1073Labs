@@ -61,18 +61,19 @@
 	<section id='bsection'>
 		<!-- Section with playback controls to see or hear the story -->
 	<div class="inputSlider">
-			<label for="rate">Playback Speed: </label><div class="rate-value value">1</div><input type="range" min="0.1" max="3" value="1" step="0.1" id="rate">
+			<label for="rate">Speed:</label><div class="rate-value value">1</div><input type="range" min="0.1" max="3" value="1" step="0.1" id="rate">
 		
 		</div>
 		<div>
-			<label for="pitch">Voice Pitch: </label><div class="pitch-value value">1</div><input type="range" min="0" max="2" value="1" step="0.1" id="pitch">
+			<label for="pitch">Pitch:</label><div class="pitch-value value">1</div><input type="range" min="0" max="2" value="1" step="0.1" id="pitch">
 			
 		</div>
 		<div class="checkContainer">
 			<label for="justSay">PLAY:  </label><input type="radio" id='justSay' class="checkmark"name="say&HighLight" value="0">
 			<label for="SayHighLight">LEARN: </label> <input type="radio" class="checkmark"id='SayHighLight'  name="say&HighLight" value="1"> 
 		</div>
-		<select>
+		<label for="voiceSelect">Voice:</label>
+		<select id="voiceSelect">
 		
 		</select>
 		<button id="playback">See-N-Say My Story</button>
