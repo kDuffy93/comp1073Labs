@@ -9,7 +9,7 @@ var rateValue = document.querySelector('.rate-value');
 var synth = window.speechSynthesis;
 var voiceSelect = document.querySelector('select');
 var voices = [];
-let letterArray = [[`space`, `img/space.PNG`],[`A`, `img/a.PNG`], [`B`, `img/b.PNG`], [`C`, `img/c.PNG`], [`D`, `img/d.PNG`], [`E`, `img/e.PNG`], [`F`, `img/f.PNG`], [`G`, `img/g.PNG`], [`H`, `img/h.PNG`], [`I`, `img/i.PNG`], [`J`, `img/j.PNG`], [`K`, `img/k.PNG`], [`L`, `img/l.PNG`], [`M`, `img/m.PNG`], [`N`, `img/n.PNG`], [`O`, `img/o.PNG`], [`P`, `img/p.PNG`], [`Q`, `img/q.PNG`], [`R`, `img/r.PNG`], [`S`, `img/s.PNG`], [`T`, `img/t.PNG`], [`U`, `img/u.PNG`], [`V`, `img/v.PNG`], [`W`, `img/w.PNG`], [`X`, `img/x.PNG`], [`Y`, `img/y.PNG`], [`Z`, `img/z.PNG`]];
+let letterArray = [[`space`, `img/space.PNG`],[`A`, `img/A.PNG`], [`B`, `img/B.PNG`], [`C`, `img/C.PNG`], [`D`, `img/D.PNG`], [`E`, `img/E.PNG`], [`F`, `img/F.PNG`], [`G`, `img/F.PNG`], [`H`, `img/H.PNG`], [`I`, `img/I.PNG`], [`J`, `img/J.PNG`], [`K`, `img/K.PNG`], [`L`, `img/L.PNG`], [`M`, `img/M.PNG`], [`N`, `img/N.PNG`], [`O`, `img/O.PNG`], [`P`, `img/P.PNG`], [`Q`, `img/Q.PNG`], [`R`, `img/R.PNG`], [`S`, `img/S.PNG`], [`T`, `img/T.PNG`], [`U`, `img/U.PNG`], [`V`, `img/V.PNG`], [`W`, `img/W.PNG`], [`X`, `img/X.PNG`], [`Y`, `img/Y.PNG`], [`Z`, `img/Z.PNG`]];
 
 let noun1Array = [[`THE TURKEY`, `img/turkey.PNG`], [`MOM`, `img/mom.PNG`], [`DAD`, `img/dad.PNG`], [`THE DOG`, `img/dog.PNG`], [`MY TEACHER`, `img/teacher.PNG`], [`THE ELEPHANT`, `img/elephant.PNG`], [`THE CAT`, `img/cat.PNG`]];
 let verbArray = [[`SAT ON`, `img/sat.PNG`], [`ATE`, `img/ate.PNG`], [`DANCED WITH`, `img/danced.PNG`], [`SAW`, `img/saw.PNG`], [`DOESN'T LIKE`, `img/doesnt-like.PNG`], [`KISSED`, `img/kissed.PNG`]];
