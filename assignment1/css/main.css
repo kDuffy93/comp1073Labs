@@ -95,7 +95,7 @@ max-width: 12vw;
 scrollbar-width: thin;
 scroll-behavior: smooth;
 min-width:61vw;
-max-height: 60vh;
+max-height: 63vh;
 overflow-y: scroll;
 overflow-x: hidden;
 
@@ -206,7 +206,7 @@ input{
     vertical-align: top;
     text-align: center;
     font-size: calc(.5vmin + calc(.2vw + .8vh));
-    calc(.5vmin + calc(.4vw + .4vh));
+   
 }
 .inputSlider{
     margin-bottom: 3vh;
@@ -250,9 +250,9 @@ max-width: unset;
 margin-left: 2.5%;
    
 }
-{
 
-}
+
+
 select{
     margin-top: 3vh;
     width:60%;
@@ -296,6 +296,7 @@ border-radius: 0;
     display:inline;
    padding-left:0.5%;
     font-weight: bolder;
+    font-size:  calc(1vmin + calc(.7vw + .9vh));
 }
 
 /*-------------------------------------------------------- input slider styling------------------------------------*/
@@ -415,6 +416,28 @@ label[for=SayHighLight],label[for=justSay]{
     vertical-align: bottom;
     margin: 0 ;
     padding: 0;
+}
+label[for=mathRadio],label[for=storyRadio],label[for=wordRadio]{
+    width:10%;
+    text-align: left;
+    vertical-align: bottom;
+    margin: 0 ;
+    padding: 0;
+
+}
+input[type=radio].rl2 { 
+  box-shadow: 1px 1px 1px lightskyblue, 0px 0px 1px purple;
+  border: 3px solid lightskyblue;
+  height: calc(.8vmin + calc(.8vw + .8vh));
+width:10%;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+ margin-right:3% ;
+    padding: 0;
+text-align: left;
+ accent-color: green;
+ margin-left:3%;
 
 }
 

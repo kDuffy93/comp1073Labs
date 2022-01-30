@@ -12,8 +12,8 @@
 <body>
 		<!--Title Section -->
 		<section class="titleSectionContainer">
-			<h1 class="titleSection"><u>See-N-Say Storymaker</u><br>Create Your Story</h1>
-			<h2 class="titleSection"><u>See-N-Say Your Story</u></h2>
+			<h1 class="titleSection" id="mainTitle"><u>See-N-Say STORYmaker</u><br>Create Your own Stories</h1>
+			<h2 class="titleSection" id="secondaryTitle"><u>See-N-Say Your Story</u></h2>
 		</section>
 		<div class="flex-container">
 		<section id='tsection'>
@@ -28,7 +28,7 @@
 			<tbody id='tBody'>
 
 			</tbody>
-			<tfoot>
+			<tfoot id="tFoot">
 				<th>
 					<label for="newNounTxt">PHRASE</label><input type="text"id="newNounTxt">
 					<label for="newNounURL">URL</label><input type="text" id="newNounURL">
@@ -71,6 +71,14 @@
 		<div class="checkContainer">
 			<label for="justSay">PLAY:  </label><input type="radio" id='justSay' class="checkmark"name="say&HighLight" value="0">
 			<label for="SayHighLight">LEARN: </label> <input type="radio" class="checkmark"id='SayHighLight'  name="say&HighLight" value="1"> 
+		</div>
+		<div class="checkContainer">
+			<label for="storyRadio">Story: </label> <input type="radio" class="checkmark rl2" id='storyRadio' name="gameType"
+				value="story">
+			<label for="wordRadio">Words: </label><input type="radio" id='wordRadio' class="checkmark rl2" name="gameType"
+				value="word">
+				<label for="mathRadio">Math: </label> <input disabled="true"type="radio" class="checkmark rl2" id='mathRadio' name="gameType"
+					value="math">
 		</div>
 		<label for="voiceSelect">VOICE:</label>
 		<select id="voiceSelect">
