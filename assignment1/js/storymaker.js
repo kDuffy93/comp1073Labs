@@ -895,7 +895,7 @@ settingToSpeak.classList.remove(`${'speaking'}`);
                                 document.getElementById("para:1").style.backgroundColor = "limeGreen";
                                 let tempDefinition ;
                               
-                                if (typeof (defs) === "string"){
+                                if (typeof (defs) === "string" || typeof (defs) === "undefined"){
                                      tempDefinition = ` But I don't have any definitions for it.`;
                                 }
                                 if (typeof (defs) === "object") { 
