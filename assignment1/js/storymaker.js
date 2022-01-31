@@ -9,7 +9,7 @@ var rateValue = document.querySelector('.rate-value');
 var synth = window.speechSynthesis;
 var voiceSelect = document.querySelector('select');
 var voices = [];
-let letterArray = [[`space`, `img/space.PNG`],[`A`, `img/A.PNG`], [`B`, `img/B.PNG`], [`C`, `img/C.PNG`], [`D`, `img/D.PNG`], [`E`, `img/E.PNG`], [`F`, `img/F.PNG`], [`G`, `img/F.PNG`], [`H`, `img/H.PNG`], [`I`, `img/I.PNG`], [`J`, `img/J.PNG`], [`K`, `img/K.PNG`], [`L`, `img/L.PNG`], [`M`, `img/M.PNG`], [`N`, `img/N.PNG`], [`O`, `img/O.PNG`], [`P`, `img/P.PNG`], [`Q`, `img/Q.PNG`], [`R`, `img/R.PNG`], [`S`, `img/S.PNG`], [`T`, `img/T.PNG`], [`U`, `img/U.PNG`], [`V`, `img/V.PNG`], [`W`, `img/W.PNG`], [`X`, `img/X.PNG`], [`Y`, `img/Y.PNG`], [`Z`, `img/Z.PNG`]];
+let letterArray = [[`blank`, `img/space.PNG`],[`space`, `img/space.PNG`],[`A`, `img/A.PNG`], [`B`, `img/B.PNG`], [`C`, `img/C.PNG`], [`D`, `img/D.PNG`], [`E`, `img/E.PNG`], [`F`, `img/F.PNG`], [`G`, `img/F.PNG`], [`H`, `img/H.PNG`], [`I`, `img/I.PNG`], [`J`, `img/J.PNG`], [`K`, `img/K.PNG`], [`L`, `img/L.PNG`], [`M`, `img/M.PNG`], [`N`, `img/N.PNG`], [`O`, `img/O.PNG`], [`P`, `img/P.PNG`], [`Q`, `img/Q.PNG`], [`R`, `img/R.PNG`], [`S`, `img/S.PNG`], [`T`, `img/T.PNG`], [`U`, `img/U.PNG`], [`V`, `img/V.PNG`], [`W`, `img/W.PNG`], [`X`, `img/X.PNG`], [`Y`, `img/Y.PNG`], [`Z`, `img/Z.PNG`]];
 
 let noun1Array = [[`THE TURKEY`, `img/turkey.PNG`], [`MOM`, `img/mom.PNG`], [`DAD`, `img/dad.PNG`], [`THE DOG`, `img/dog.PNG`], [`MY TEACHER`, `img/teacher.PNG`], [`THE ELEPHANT`, `img/elephant.PNG`], [`THE CAT`, `img/cat.PNG`]];
 let verbArray = [[`SAT ON`, `img/sat.PNG`], [`ATE`, `img/ate.PNG`], [`DANCED WITH`, `img/danced.PNG`], [`SAW`, `img/saw.PNG`], [`DOESN'T LIKE`, `img/doesnt-like.PNG`], [`KISSED`, `img/kissed.PNG`]];
@@ -27,23 +27,228 @@ let currentVerbIndex = 0;
 let currentAdjIndex = 0;
 let currentNoun2Index = 0;
 let currentSettingIndex = 0;
-let defaultOption = document.getElementById('justSay');
-let defaultGame = document.getElementById('storyRadio');
+const defaultOption = document.getElementById('justSay');
+const defaultGame = document.getElementById('storyRadio');
 let noun1ToSpeak;
 let verbToSpeak;
 let adjToSpeak;
 let noun2ToSpeak;
 let settingToSpeak;
 const resetButton = document.getElementById('resetButton');
-let randomButton = document.getElementById('randomButton');
-let playbackButton = document.getElementById('playback');
+const randomButton = document.getElementById('randomButton');
+const playbackButton = document.getElementById('playback');
 const tableButtons = document.getElementsByClassName('tableButton');
 let currentType = 'story'
-
+let returnresult = false;
+let topSuggestion = '';
+let topSuggestionDescription;
+let defs = 'none';
 
 /* Functions
 -------------------------------------------------- */
 //updates a buttons text dependent on the parameters passed
+
+
+async function bingSpellCheck(query) {
+
+// try returning a promis from here to make this async
+returnresult = false;
+    topSuggestion = '';
+    defs = 'none';
+//for bing search
+    let queryWithoutSpaces =  query.replace(/\s/g, '');
+    let key = '6bdc2537efc14c85a175ff46478264ca'//bingsearchkey
+    var endpoint = "https://api.bing.microsoft.com/v7.0/spellcheck/";//bing endpoint
+    let query_string = "?mode=proof&mkt=en-US&text=";//bing query string
+//for datamuse
+    let datamuseEndpoint = "https://api.datamuse.com";
+    let datamusespanishVocabulary = '&v=es';
+    let datamuseCloseRhymeQueryString = `/words?rel_nry=${queryWithoutSpaces}&max=10&md=fp`;// close rhymes to the word
+    let datamuseHomophonesQueryString = `/words?rel_hom=${query}&max=10&md=fp`;// homophones of the entered text(sound-alike)
+    let datamuseSoundsLikeQueryString = `/words?sl=${query}&max=30&md=fpd`;// words that sound like the query
+    let datamuseSpelledLikeQueryString = `/words?sp=${query}&max=30&md=fpd`;// words that are spelled like the query
+    let datamuseMatchingConstsQueryString = `/words?rel_cns=${queryWithoutSpaces}&max=10&md=fp`;// close words that have matching constnants
+
+// datamuse fetches
+    const datamuseSoundsLikeReq = await fetch(`${datamuseEndpoint}${datamuseSoundsLikeQueryString}`, {
+        method: "GET",
+        withCredentials: false,
+    });
+    const datamuseSpelledLikeReq = await fetch(`${datamuseEndpoint}${datamuseSpelledLikeQueryString}`, {
+        method: "GET",
+        withCredentials: false,
+    });
+
+    
+    //if its a word this wil have a value
+    const datamuseSoundsLikeJson = await datamuseSoundsLikeReq.json();
+    //if not lets build a suggestions set, multiplying the scores together from each if theres a duplicate. 
+    const datamuseSpelledLikeJson = await datamuseSpelledLikeReq.json();
+     let wordSet = new Set();
+     let wordDefs = new Set();
+    for (let i = 0; i < datamuseSoundsLikeJson.length; i++) {
+       
+        console.log(`object ${i} - ${Object.keys(datamuseSoundsLikeJson[i])[0]}: ${Object.values(datamuseSoundsLikeJson[i])[0]} - ${Object.keys(datamuseSoundsLikeJson[i])[1]}: ${Object.values(datamuseSoundsLikeJson[i])[1]} -  ${Object.keys(datamuseSoundsLikeJson[i])[2]}: ${Object.values(datamuseSoundsLikeJson[i])[2]} -  ${Object.keys(datamuseSoundsLikeJson[i])[3]}: ${Object.values(datamuseSoundsLikeJson[i])[3]}-  ${Object.keys(datamuseSoundsLikeJson[i])[4]}: ${Object.values(datamuseSoundsLikeJson[i])[4]}`);
+
+
+        let tags =  JSON.stringify(Object.values(datamuseSoundsLikeJson[i])[3]);
+let indexOff = tags.indexOf(':');
+let frequency = tags.slice(indexOff+1,indexOff+9);
+        if (String(Object.values(datamuseSoundsLikeJson[i])[0]).toLowerCase() == String(query)){
+                returnresult = true;
+            return;
+            }
+
+
+       
+
+
+        let tempObj = { [Object.values(datamuseSoundsLikeJson[i])[0]]: (Number(Object.values(datamuseSoundsLikeJson[i])[1]) * frequency)};
+        if (wordSet.has(Object.values(datamuseSoundsLikeJson[i])[0]))
+        {
+            console.log('double');
+            wordSet.Object.values(datamuseSoundsLikeJson[i])[0] *= ((1+Number(Object.values(datamuseSoundsLikeJson[i])[1])*frequency));
+            
+        }
+        if (!wordSet.has(Object.values(datamuseSoundsLikeJson[i])[0])) {
+            wordSet.add(tempObj);
+        }
+       
+        }
+  if (datamuseSpelledLikeJson.length > 0){
+        for (let i = 0; i < datamuseSpelledLikeJson.length; i++) {
+
+            let tags = JSON.stringify(Object.values(datamuseSpelledLikeJson[i])[2]);
+            let indexOff = tags.indexOf(':');
+            console.log(tags.slice(indexOff+1, indexOff+9));
+            let frequency = tags.slice(indexOff+1, indexOff + 9);
+
+          
+            
+console.log(query);
+
+            if (String(Object.values(datamuseSpelledLikeJson[i])[0]).toLowerCase() == String(query).toLowerCase()) {
+                returnresult = true;
+                defs = Object.values(datamuseSpelledLikeJson[i])[3];
+               return;
+        }
+
+            
+            if (wordSet.has(Object.values(datamuseSpelledLikeJson[i])[0])) {
+                console.log('double');
+                wordSet.Object.values(datamuseSpelledLikeJson[i])[0] *= ((1 + Number(Object.values(datamuseSpelledLikeJson[i])[1])) * frequency);
+               // wordSet[Object.values(datamuseSpelledLikeJson[i])[0]] *= (1+Number(Object.values(datamuseSpelledLikeJson[i])[1]));
+            }
+            if (!wordSet.has(Object.values(datamuseSoundsLikeJson[i])[0])) {
+               // wordSet[Object.values(datamuseSpelledLikeJson[i])[0]] = Number(Object.values(datamuseSpelledLikeJson[i])[1]);
+                wordSet.add({ [Object.values(datamuseSpelledLikeJson[i])[0]]: (Number(Object.values(datamuseSpelledLikeJson[i])[1]) * frequency)});
+            }
+    }
+
+  }
+    
+        if(!returnresult){
+    
+      // find the biggest number in the word set and return the corrosponsing word. 
+      
+     
+            /*
+            wordSet.forEach(function (value, Key) {  
+                console.log(`key:${key}value:${value[0]}`);
+               if(Number(value) > largestNumber)
+               {
+                   topSuggestion = value.key;
+                   largestNumber = value.values;
+               } 
+            });*/
+            const iterator1 = wordSet.entries();
+           let biggestScore = 0;
+            for (const array of iterator1) {
+                for (const obj of array) {
+                    console.log(obj);
+                   let currentWord = String(Object.keys(obj));
+                   let currentScore = Number(Object.values(obj));
+
+                    console.log(`${String(Object.keys(obj))}     ${Number(Object.values(obj))}`);
+                   if(currentScore > biggestScore){
+                       console.log(currentWord.length);
+                       if (currentWord.length < 6){
+                       biggestScore = currentScore;
+                       topSuggestion = currentWord;
+                       
+                       
+                       }
+                     //  topSuggestionDescription = currentDescription;
+                   }
+            }
+        }
+
+    }
+
+   
+    /* //bing xml request
+    var request = new XMLHttpRequest();
+    
+    try {
+        request.open("get", endpoint + query_string + encodeURIComponent(query));
+    }
+    catch (e) {
+        renderErrorMessage("Bad request");
+    }
+
+      request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
+    request.addEventListener("load", function () {
+// this might be messed up
+          if (this.status === 200) {
+            let result = JSON.stringify(this.responseText);
+            console.log('result' + result);
+              returnresult = result;
+         
+        }
+        else {
+            if (this.status === 401) 
+                console.log('failed');
+            console.log(this.statusText+ '         ' + this.status);
+        }
+    });    
+  
+        
+    });
+    request.addEventListener("error", function () {
+        renderErrorMessage("Network error");
+    });
+
+    request.addEventListener("abort", function () {
+        renderErrorMessage("Request aborted");
+    });
+
+    request.send();   
+    */
+//bing fetch request
+ /*   const response = await fetch(`${endpoint}${query_string}${encodeURIComponent(query)}`, {
+        method: "GET",
+        withCredentials: true,
+        headers: {
+            "Ocp-Apim-Subscription-Key": key
+        }});
+
+    console.log('result' + JSON.stringify(response));
+
+        if (response.status === 200) {
+            let result = JSON.stringify(response.responseText);
+            console.log('result' + result);
+            returnresult = result;
+        }
+        else {
+               if (response.status === 401)
+                console.log('failed');
+            console.log(response.statusText + '         ' + response.status);
+               fetchReturn = false;
+        } */
+}
+
+
+
 function populateVoiceList() {
     voices = synth.getVoices();
 console.log(voices);
@@ -566,9 +771,15 @@ for(let i = 1; i < 6; i++)
          
           phrase1 == `space` ? phrase1 = "&nbsp" : phrase1 = phrase1;
           phrase2 == `space` ? phrase2 = "&nbsp" : phrase2 = phrase2;
-          phrase3 == `space`? phrase3 = `&nbsp` : phrase3 = phrase3;
+          phrase3 == `space` ? phrase3 = `&nbsp` : phrase3 = phrase3;
           phrase4 == `space` ? phrase4 = `&nbsp` : phrase4 = phrase4;
-          phrase5 == `space`? phrase5 = `&nbsp` : phrase5 = phrase5;
+          phrase5 == `space` ? phrase5 = `&nbsp` : phrase5 = phrase5;
+          phrase1 == `blank`  ? phrase1 = "" : phrase1 = phrase1;
+          phrase2 == `blank` ? phrase2 = "" : phrase2 = phrase2;
+          phrase3 == `blank` ? phrase3 = `` : phrase3 = phrase3;
+          phrase4 == `blank` ? phrase4 = `` : phrase4 = phrase4;
+          phrase5 == `blank`  ? phrase5 = `` : phrase5 = phrase5;
+
           
           sentense = String(phrase1 + phrase2 + phrase3 + phrase4 + phrase5 + '.'); 
         output.innerHTML = sentense;
@@ -577,6 +788,7 @@ for(let i = 1; i < 6; i++)
           phrase3 ==  `&nbsp`? phrase3 = ` ` : phrase3 = phrase3;
           phrase4 ==  `&nbsp`? phrase4 = ` ` : phrase4 = phrase4;
           phrase5 ==  `&nbsp`? phrase5 = ` ` : phrase5 = phrase5;
+
          
       
            sentense = String(phrase1+phrase2+phrase3+phrase4+phrase5+'.'); 
@@ -601,15 +813,20 @@ for(let i = 1; i < 6; i++)
         tempSection.appendChild(buildSentenceElement(`${phrase5}.`, 4));
     }
       if (currentType == 'word') {
-          phrase1 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp` ,0)) : tempSection.appendChild(buildSentenceElement(`${phrase1}`, 0));
-          phrase2 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 1)) : tempSection.appendChild(buildSentenceElement(`${phrase2}`, 1)) ;
-          phrase3 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 2)) : tempSection.appendChild(buildSentenceElement(`${phrase3}`, 2));
-          phrase4 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 3)) : tempSection.appendChild(buildSentenceElement(`${phrase4}`, 3));
-          phrase5 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 4)) : tempSection.appendChild(buildSentenceElement(`${phrase5}`, 4));
-      
+          phrase1 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 0)) : phrase1 == `blank` ? tempSection.appendChild(buildSentenceElement(``, 0)): tempSection.appendChild(buildSentenceElement(`${phrase1}`, 0));
+          phrase2 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 1)) : phrase2 == `blank` ? tempSection.appendChild(buildSentenceElement(``, 1)) : tempSection.appendChild(buildSentenceElement(`${phrase2}`, 1));
+          phrase3 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 2)) : phrase3 == `blank` ? tempSection.appendChild(buildSentenceElement(``, 2)) : tempSection.appendChild(buildSentenceElement(`${phrase3}`, 2));
+          phrase4 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp`, 3)) : phrase4 == `blank` ? tempSection.appendChild(buildSentenceElement(``, 3)) : tempSection.appendChild(buildSentenceElement(`${phrase4}`, 3));
+          phrase5 == `space` ? tempSection.appendChild(buildSentenceElement(`&nbsp.`, 4)) : phrase5 == `blank` ? tempSection.appendChild(buildSentenceElement(`.`, 4)) : tempSection.appendChild(buildSentenceElement(`${phrase5}.`, 4));
       }
       
     output.appendChild(tempSection);
+      phrase1 == 'blank' ? phrase1 = '': phrase1 = phrase1;
+       phrase2 == 'blank' ? phrase2 = '': phrase2 = phrase2;
+      phrase3 == 'blank' ? phrase3 = '': phrase3 = phrase3;
+      phrase4 == 'blank' ? phrase4 = '': phrase4 = phrase4;
+       phrase5 == 'blank' ? phrase5 = '': phrase5 = phrase5;
+      
     noun1ToSpeak = document.getElementById(`col:0-row:${currentNoun1Index}`);
     verbToSpeak = document.getElementById(`col:1-row:${currentVerbIndex}`);
     adjToSpeak = document.getElementById(`col:2-row:${currentAdjIndex}`);
@@ -640,24 +857,68 @@ for(let i = 1; i < 6; i++)
                     document.getElementById("para:4").style.backgroundColor = "limeGreen";
                     settingToSpeak.classList.toggle(`${'speaking'}`);
                     saySentense(phrase5).then(() => {
-                        settingToSpeak.classList.remove(`${'speaking'}`);
-                        document.getElementById("para:4").style.backgroundColor = "transparent";
-                        document.getElementById("para:3").style.backgroundColor = "limeGreen";
-                        document.getElementById("para:2").style.backgroundColor = "limeGreen";
-                        document.getElementById("para:0").style.backgroundColor = "limeGreen";
-                        document.getElementById("para:1").style.backgroundColor = "limeGreen";
+settingToSpeak.classList.remove(`${'speaking'}`);
+                        document.getElementById("para:4").style.backgroundColor = "orange";
+                        document.getElementById("para:3").style.backgroundColor = "orange";
+                        document.getElementById("para:2").style.backgroundColor = "orange";
+                        document.getElementById("para:0").style.backgroundColor = "orange";
+                        document.getElementById("para:1").style.backgroundColor = "orange";
                         if(currentType == "word"){
-                            if (isAword(sentense)){
+                           
+                            phrase5 == `space` ? phrase5 = ` ` : phrase5 = phrase5;
+                            phrase4 == `space` ? phrase4 = ` ` : phrase4 = phrase4;
+                            phrase3 == `space` ? phrase3 = ` ` : phrase3 = phrase3;
+                            phrase2 == `space` ? phrase2 = " " : phrase2 = phrase2;
+                            phrase1 == `space` ? phrase1 = " " : phrase1 = phrase1;
+                            sentense = String(phrase1 + phrase2 + phrase3 + phrase4 + phrase5);
+                              bingSpellCheck(sentense).then(() => {
+                            if (returnresult){
+                                let tempPText = `Yep, it looks like ${sentense} is a word.`;
+                                let tempP = document.createElement("p");
+                                tempP.innerText = tempPText;
+                                output.appendChild(tempP);
                                 document.getElementById("para:4").style.backgroundColor = "limeGreen";
-                                phrase1 == `space` ? phrase1 = " " : phrase1 = phrase1;
-                                phrase2 == `space` ? phrase2 = " " : phrase2 = phrase2;
-                                phrase3 == `space` ? phrase3 = ` ` : phrase3 = phrase3;
-                                phrase4 == `space` ? phrase4 = ` ` : phrase4 = phrase4;
-                                phrase5 == `space` ? phrase5 = ` ` : phrase5 = phrase5;
+                                document.getElementById("para:3").style.backgroundColor = "limeGreen";
+                                document.getElementById("para:2").style.backgroundColor = "limeGreen";
+                                document.getElementById("para:0").style.backgroundColor = "limeGreen";
+                                document.getElementById("para:1").style.backgroundColor = "limeGreen";
+                                let tempDefinition ;
+                              
+                                if (typeof (defs) === "string"){
+                                     tempDefinition = ` But I don't have any definitions for it.`;
+                                }
+                                if (typeof (defs) === "object") { 
+                                     let wordTypeSentense = '' ;
+                                   let randomDefIndex =  Math.floor(Math.random() * defs.length)
+                                    console.log(`randomDefIndex: ${randomDefIndex}  defsLength: ${defs.length}`)
+                                    let randomDef = defs[randomDefIndex];
+                                    console.log(`randomDef: ${randomDef}`)
+                                    let indexOfSeperator = randomDef.indexOf(`\t`);
+                                    console.log(`indexOfSep:   ${indexOfSeperator}`);
+                                    let randomDefinition = randomDef.slice(indexOfSeperator+1, randomDef.length);
+                                    console.log(`rndm def: ${randomDefinition}`);
+                                    wordType = randomDef.slice(0, indexOfSeperator);
+                                    console.log(`wrd Type:    ${wordType}`);
+                                    
+                                    if(wordType.includes(',')){
+                                        let indexOfComma = randomDef.indexOf(`,`);
+                                        console.log(`indx Comma:  ${indexOfComma}`);
+                                        wordType = randomDef.slice(0, indexOfComma - 1);
+                                        console.log(`wrd Type no Comma:    ${wordType}`);
+                                    }
+                                    switch(wordType){
+                                        case 'n': wordTypeSentense = `as a noun`; break;
+                                        case 'v': wordTypeSentense = `as a verb`; break;
+                                        case 'adj': wordTypeSentense = `as an adjective`; break;
+                                        case 'adv': wordTypeSentense = `as an adverb`; break;
+                                        case 'u': wordTypeSentense = ``; break;
+                                    }
+                                    console.log(`wrd Type after switch:   "${wordType}"`);
+                                    defs.length == 1 ? tempDefinition = `I have ${defs.length} Definition for ${sentense}. used ${wordTypeSentense}. it means: ${randomDefinition}`: tempDefinition = `I have ${defs.length} Definitions for ${sentense}. ${wordTypeSentense}, One of them is: ${randomDefinition}`;
 
-
-                                sentense = String(phrase1 + phrase2 + phrase3 + phrase4 + phrase5 + '.');
-                                 saySentense(`${sentense}`).then(() => { 
+                                    
+                                }
+                                 saySentense(`Yep, it looks like ${sentense} is a word. ${tempDefinition}`).then(() => { 
                             document.getElementById("para:3").style.backgroundColor = "transparent";
                             document.getElementById("para:2").style.backgroundColor = "transparent";
                             document.getElementById("para:0").style.backgroundColor = "transparent";
@@ -666,23 +927,32 @@ for(let i = 1; i < 6; i++)
                             playbackButton.disabled = false;
                             randomButton.disabled = false;
                             })}
-                            console.log(sentense);
-                            if (!isAword(sentense)){
+                            console.log('731:' + sentense);
+                            if (!returnresult){
+                                let tempPText = `Nope, ${ sentense } is not a word. Did you mean ${topSuggestion}?`;
+                                let tempP = document.createElement("p");
+                                tempP.innerText = tempPText;
+                                output.appendChild(tempP);
+                                console.log(topSuggestion);
                                     document.getElementById("para:3").style.backgroundColor = "red";
                                     document.getElementById("para:2").style.backgroundColor = "red";
                                     document.getElementById("para:0").style.backgroundColor = "red";
                                     document.getElementById("para:1").style.backgroundColor = "red";
                                     document.getElementById("para:4").style.backgroundColor = "red";
+
                                 phrase1 == `space` ? phrase1 = " " : phrase1 = phrase1;
                                 phrase2 == `space` ? phrase2 = " " : phrase2 = phrase2;
                                 phrase3 == `space` ? phrase3 = ` ` : phrase3 = phrase3;
                                 phrase4 == `space` ? phrase4 = ` ` : phrase4 = phrase4;
                                 phrase5 == `space` ? phrase5 = ` ` : phrase5 = phrase5;
-
-
+                                phrase1 == `blank` ? phrase1 = "" : phrase1 = phrase1;
+                                phrase2 == `blank` ? phrase2 = "" : phrase2 = phrase2;
+                                phrase3 == `blank` ? phrase3 = `` : phrase3 = phrase3;
+                                phrase4 == `blank` ? phrase4 = `` : phrase4 = phrase4;
+                                phrase5 == `blank` ? phrase5 = `` : phrase5 = phrase5;
                                 sentense = String(phrase1 + phrase2 + phrase3 + phrase4 + phrase5 + '.');
                                   
-                                saySentense(`${sentense}`).then(() => {
+                                saySentense(`Nope, ${sentense} is not a word. Did you mean ${topSuggestion}?`).then(() => {
                                         document.getElementById("para:3").style.backgroundColor = "transparent";
                                         document.getElementById("para:2").style.backgroundColor = "transparent";
                                         document.getElementById("para:0").style.backgroundColor = "transparent";
@@ -692,6 +962,7 @@ for(let i = 1; i < 6; i++)
                                         randomButton.disabled = false;
                                     })
                                 }
+                            })
                         }
                         if (currentType == "story") {
                             document.getElementById("para:4").style.backgroundColor = "limegreen";
@@ -713,12 +984,6 @@ for(let i = 1; i < 6; i++)
     })
 
 }}
-
-let isAword = (word) =>{
-    return true;
-}
-
-
 
 let reset = () => {
     currentNoun1Index = 0;
