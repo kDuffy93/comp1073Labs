@@ -874,8 +874,15 @@ settingToSpeak.classList.remove(`${'speaking'}`);
                         document.getElementById("para:2").style.backgroundColor = "orange";
                         document.getElementById("para:0").style.backgroundColor = "orange";
                         document.getElementById("para:1").style.backgroundColor = "orange";
+                        
                         if(currentType == "word"){
                            
+                           saySentense(`hmm, let me check.`);
+                            setTimeout(function () {
+                                console.log("Time out Done!");
+                            
+
+
                             phrase5 == `space` ? phrase5 = ` ` : phrase5 = phrase5;
                             phrase4 == `space` ? phrase4 = ` ` : phrase4 = phrase4;
                             phrase3 == `space` ? phrase3 = ` ` : phrase3 = phrase3;
@@ -974,7 +981,9 @@ settingToSpeak.classList.remove(`${'speaking'}`);
                                     })
                                 }
                             })
+                            }, 2000);
                         }
+                        
                         if (currentType == "story") {
                             document.getElementById("para:4").style.backgroundColor = "limegreen";
                             saySentense(`${sentense}`).then(() => {
@@ -1069,6 +1078,7 @@ let saySentense = (sentense) => {
     }) 
     utterThis.addEventListener("cancel", () => {
    removeSpeakingClasses();
+   console.log(`speaking cancelled  `)
 reject();
     })
     });     
