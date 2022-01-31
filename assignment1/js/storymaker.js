@@ -1,5 +1,16 @@
 // Assignment 1 | COMP1073 Client-Side JavaScript
 
+/* planned Features
+1. text inputs when on WORDS game type for each column to type in a letter. only accepts a single letter. as soon as they type it the index changes, the input blanks out and focus goes to the next column. if its the last text input then change focus to the see n say my word. 
+
+1. text input override for words. if this is selected, hide 4 table rows, table head and table foot, possibly the random button and change the onclick function of the table buttons to put the value of it into a textbox that also accepts normal typing. when say my word or random button are clicked use the input from the textbox as their word or phrase to check. 
+
+3. build the math page and make it work
+
+4. style an animation when the page loags so that it zooms in from a closed book to look like its being set down, then zoom in(pick it up) and transition(page flip) to the first page. the "story game". then change the story, words and math radio buttons to display in the top corners of the page as flip page icons. when on page one you can only flip to the right, when on page 3 only the left. 
+
+*/
+
 /* Variables
 -------------------------------------------------- */
 var pitch = document.querySelector('#pitch');
