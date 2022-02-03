@@ -1085,8 +1085,7 @@ reject();
 }
 let removeSpeakingClasses = () =>
 {
-    if(noun1ToSpeak)noun1ToSpeak.classList.remove(`${'speaking'}`);
-
+         if(noun1ToSpeak)noun1ToSpeak.classList.remove(`${'speaking'}`);
          if(verbToSpeak)verbToSpeak.classList.remove(`${'speaking'}`);
          if(adjToSpeak)adjToSpeak.classList.remove(`${'speaking'}`);
          if(noun2ToSpeak)noun2ToSpeak.classList.remove(`${'speaking'}`);
