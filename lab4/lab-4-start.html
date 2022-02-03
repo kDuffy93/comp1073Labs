@@ -2,28 +2,49 @@
 <html>
 
 <head>
-	<meta charset="utf-8" />
-	<title>Lab 4 | COMP1073 Client-Side JavaScript</title>
-	<link href="css/styles.css" rel="stylesheet" />
-	<script src="js/countdown.js" defer></script>
-	<!-- Instructions for this lab are contained inside the file js/countdown.js -->
+    <meta charset="utf-8" />
+    <title>Lab 4 | COMP1073 Client-Side JavaScript</title>
+    <link href="normalize.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <script src="js/countdown.js" defer></script>
+    <!-- Instructions for this lab are contained inside the file js/countdown.js -->
 </head>
 
 <body>
-	<header>
-		<h1 id="changeBackground">click me to change the background</h1>
-		<label for="newBackground">New background each round:</label><input id="newBackground" type="checkbox"></input>
-		<button id="countdownDisplay">Click here after you pick a rocket</button>
-		<p id="gameDisplay">Choose which one you think will make it to space first.</p>
-	</header>
-	<!-- STEP 2a: Build an HTML element of your choice below to display the value of the variable i (the counter inside the loop below) as it counts down from 10 to 0.-->
-	<img src="imgs/rocketship.png" id="rocket1" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket2" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket3" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket4" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket5" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket6" class="rocket" alt="Rocket Ship">
-	<img src="imgs/rocketship.png" id="rocket7" class="rocket" alt="Rocket Ship">
+    <header>
+        <section id="scoreSection">
+            <p class="playerName">Score:</p>
+            <p class="playerName">Player 1</p>
+            <p class="playerScore" id="playerScore1">1</p>
+            <p class="playerName">Player2</p>
+            <p class="playerScore" id="playerScore2">2</p>
+            <p class="playerName">Player 3:</p>
+            <p class="playerScore" id="playerScore3">3</p>
+            <p class="playerName">Player 4:</p>
+            <p class="playerScore" id="playerScore4">4</p>
+            <p class="playerName">Player 5:</p>
+            <p class="playerScore" id="playerScore5">5</p>
+            <p class="playerName">Player 6</p>
+            <p class="playerScore" id="playerScore6">6</p>
+            <p class="playerName">Player 7</p>
+            <p class="playerScore" id="playerScore7">7:</p>
+        </section>
+        <section id="headerSection">
+            <h1 id="changeBackground">click me to change the background</h1>
+            <label for="newBackground">New background each round:</label><input id="newBackground" type="checkbox"></input>
+            <button id="countdownDisplay">Click here after you pick a rocket</button>
+            <p id="gameDisplay">Choose which one you think will make it to space first.</p>
+        </section>
+    </header>
+    <!-- STEP 2a: Build an HTML element of your choice below to display the value of the variable i (the counter inside the loop below) as it counts down from 10 to 0.-->
+    <img src="imgs/rocketship.png" id="rocket1" class="hoverable rocket" alt="Rocket Ship"></img>
+    <img src="imgs/rocketship.png" id="rocket2" class="rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket3" class="rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket4" class="rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket5" class="rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket6" class="rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket7" class="rocket" alt="Rocket Ship">
 </body>
 
 </html>
