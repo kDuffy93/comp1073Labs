@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800');
+
+body{
+    font-family:  "Open Sans", sans-serif;
+background-image: url('imgs/backgroundDefault.jpg');
+ background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+font-size:  calc(.9vh + .9vw);
+overflow: hidden;
+min-width:100vw;
+min-height:100vw;
+max-width:100vh;
+max-height:100vh;
+margin:0;
+}
+
+header{
+max-height: 10vh;
+min-height: 10vh;
+width:30vw;
+}
+
+h1{
+margin-bottom: 0;
+font-size:    calc(1.7vh + 1.7vw);
+color:mediumslateblue;
+padding:0;
+margin-left:37.5vw;
+display:inline-block;
+width:25vw;
+vertical-align: top;
+margin-top: 0;
+margin-bottom: 5vh;
+text-align: center;
+}
+
+h2{
+margin:0;
+}
+
+
+#topSection{
+color:lightgreen;
+scrollbar-width: thin;
+overflow-x: hidden;
+overflow-y: scroll;
+text-align: center;
+padding:0;
+width:85vw;
+height:50vh;
+margin-left:7.5vw;
+text-align:center;
+padding-bottom:0;
+}
+#fontSize1{
+	font-size: calc(.5vh + .5vw);;
+}
+#fontSize2{
+	font-size: calc(.75vh + .75vw);;
+}
+#fontSize3{
+	font-size: calc(1vh + 1vw);;
+}
+#fontSize4{
+	font-size: calc(1.25vh + 1.25vw);;
+}
+#fontSize5{
+	font-size: calc(1.5vh + 1.5vw);;
+}
+#fontSize6{
+	font-size: calc(2vh + 2vw);;
+}
+.sampleText{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+#bottomSection{
+color:deepskyblue;
+text-align: center;
+padding:0;
+width:70vw	;
+height:40vh;
+overflow:hidden;
+text-align:center;
+margin-left: 2vw;
+display:inline-block;
+}
+#bottomRightSection{
+display:inline-block;
+
+color:deepskyblue;
+text-align: center;
+padding:0;
+width:15vw	;
+height:40vh;
+overflow:hidden;
+text-align:center;
+margin-left:0;
+margin-top:5vh;
+}
+
+
+.sampleText{
+    margin-bottom: 1vh;
+     margin-top: 1vh;
+}
+
+.fontWeight{
+   font-size: calc(1vh + 1vw);;
+    margin-bottom: 1vh;
+     margin-top: 1vh;
+}
+
+
+#fontWeight1{
+    font-weight: 300;
+}
+#fontWeight2{
+    font-weight: 400;
+}
+#fontWeight3{
+    font-weight: 500;
+}
+#fontWeight4{
+    font-weight: 600;
+}
+#fontWeight5{
+    font-weight: 700;
+}
+#fontWeight6{
+    font-weight: 800;
+}
