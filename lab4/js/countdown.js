@@ -36,7 +36,9 @@ let removeHoverClasses = () => {
     rocket6.classList.remove("hoverable");
     rocket7.classList.remove("hoverable");
 };
-let removeHoverClasses2 = () => {
+
+
+let removeHoverClasses2 = (ver1, var2) => {
     for (const img of imgs) {
         img.classList.remove("hoverable");
     }
@@ -248,7 +250,6 @@ let countdownCall = async() => {
     await blastoff();
     output.style.display = `block`;
     gameDisplay.style.display = `block`;
-
     output.removeEventListener("click", countdownCall);
     output.addEventListener("click", startNewGame);
     output.innerHTML = `click to reset`;

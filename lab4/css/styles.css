@@ -10,7 +10,7 @@ html {
 }
 
 #headerSection {
-    max-width: 95vw;
+    max-width: 85vw;
     display: inline-block;
     vertical-align: top;
 }
@@ -40,10 +40,10 @@ label[for=newBackground] {
 
 h1 {
     margin-bottom: 0;
-    font-size: calc(.5vmin + calc(.5vh + .5vw));
+    font-size: calc(.8vmin + calc(.8vh + .8vw));
     color: mediumslateblue;
     padding: 0;
-    margin-left: 17.5vw;
+    margin-left: 12.5vw;
     display: inline-block;
     width: 25vw;
     vertical-align: top;
@@ -91,14 +91,14 @@ header {
     display: inline-block;
     max-width: 5vw;
     height: 10vh;
-    margin-top: 79.5vh;
+    margin-top: 79vh;
     margin-left: 7vw;
 }
 
 #rocket1 {
     display: inline-block;
     height: 10vh;
-    margin-top: 70vh;
+    margin-top: 79vh;
     max-width: 5vw;
     margin-left: 15vw;
 }
