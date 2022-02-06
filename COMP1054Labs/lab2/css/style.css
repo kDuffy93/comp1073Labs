@@ -1,0 +1,101 @@
+html {
+    font-size: 100%;
+    line-height: 1.4;
+    font-family: 'sans serif';
+    background-color: #0e0e0e;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    margin: 0px;
+    letter-spacing: 1px;
+    font-size: calc(.25vmin +calc(.5vh + 5.25vw));
+    font-family: 'Tangerine', cursive;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: .1px;
+}
+
+h1::first-letter {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: calc(9vmin + calc(1vh + .5vw));
+}
+
+h2 {
+    font-size: calc(4vmin + calc(1vh + .5vw));
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    text-shadow: 0 5px 15px #fff;
+    text-align: right;
+    margin: 3.5vh 1.5vw;
+}
+
+h3 {
+    font-size: calc(2.5vmin + calc(.75vh + .375vw));
+    padding-bottom: 1vh;
+    margin-bottom: 5vh;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+}
+
+h4 {
+    font-size: 2.1em;
+    font-family: 'Jura', sans-serif;
+    font-weight: 400;
+}
+
+p {
+    font-size: calc(.4vmin + calc(.75vh + .775vw));
+    line-height: 5vh;
+    word-spacing: .1ch;
+    white-space: wrap;
+    margin-top: 0;
+    hyphens: auto;
+    font-family: 'Andada Pro', serif;
+    font-weight: 200;
+}
+
+body {
+    min-width: 70vw;
+    max-width: 70vw;
+    margin: 0 auto;
+    background-color: #eee;
+}
+
+header {
+    background-color: #5c8096;
+    padding-bottom: 3vh;
+    /* add text shadow */
+    text-shadow: 0 5px 6px #000;
+}
+
+section {
+    padding: 0 5vw;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    margin-top: 5vh
+}
+
+footer h4 {
+    display: block;
+    font-size: calc(2vmin + calc(.5vh + .25vw));
+    letter-spacing: .5px;
+    word-spacing: .1ch;
+    text-align: center;
+}
+
+footer p {
+    font-family: 'Grenze Gotisch', cursive;
+    word-spacing: .1ch;
+    width: 60vw;
+    padding: 0 0 2.5vh 5vw;
+    text-align: center;
+}
