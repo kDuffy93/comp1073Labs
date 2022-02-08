@@ -3,9 +3,9 @@ html {
     margin: 0;
     padding: 0;
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 90vh;
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: 90vh;
     overflow: hidden;
 }
 
@@ -172,39 +172,39 @@ h2 {
 
 .playerName:first-of-type {
     opacity: 100%;
-    top: 12.5%;
+    top: 17.5%;
     border-bottom: #ff0000 calc(.04vmin + calc(.04vh + .04vw)) solid;
 }
 
 .playerName:nth-of-type(2) {
     opacity: 100%;
-    top: 20%;
+    top: 25%;
     color: #f200ff;
 }
 
 p[id="playerName2"] {
-    top: 30%;
+    top: 35%;
     color: #ffea00;
 }
 
 p[id="playerName3"] {
-    top: 40%;
+    top: 45%;
     color: #00ff08;
 }
 
 p[id="playerName4"] {
-    top: 50%;
+    top: 55%;
     color: #ff0000;
 }
 
 p[id="playerName5"] {
     color: #00fbff;
-    top: 60%;
+    top: 65%;
 }
 
 p[id="playerName6"] {
     color: #ff007b;
-    top: 70%;
+    top: 75%;
 }
 
 .playerScore {
@@ -219,33 +219,33 @@ p[id="playerName6"] {
 }
 
 p[id="1"] {
-    top: 20.3%;
+    top: 25.3%;
     color: #f200ff;
 }
 
 p[id="2"] {
-    top: 30.3%;
+    top: 35.3%;
     color: #ffea00;
 }
 
 p[id="3"] {
-    top: 40.3%;
+    top: 45.3%;
     color: #00ff08;
 }
 
 p[id="4"] {
-    top: 50.3%;
+    top: 55.3%;
     color: #ff0000;
 }
 
 p[id="5"] {
     color: #00fbff;
-    top: 60.3%;
+    top: 65.3%;
 }
 
 p[id="6"] {
     color: #ff007b;
-    top: 70.3%;
+    top: 75.3%;
 }
 
 label[for="numPlayersSelect"] {
@@ -264,7 +264,7 @@ select {
     margin: 0;
     font-size: calc(.5vmin + calc(.25vh + 1vw));
     position: absolute;
-    top: 10%;
+    top: 20%;
     right: 87.5%;
     width: calc(1.5vmin + calc(.5vh + 10vw));
     height: calc(5vmin + 1.5vh);

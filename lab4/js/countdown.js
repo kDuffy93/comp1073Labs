@@ -8,6 +8,7 @@ const backgroundChange = document.getElementById("changeBackground");
 let imgs = document.getElementsByTagName("img");
 let playerScoreParagraphs = document.getElementsByClassName("playerScore");
 let playerScoreNameParagraphs = document.getElementsByClassName("playerName");
+let scoreStyle = document.getElementById("scoreTitle");
 let rocket1 = document.getElementById("rocket1");
 let rocket2 = document.getElementById("rocket2");
 let rocket3 = document.getElementById("rocket3");
@@ -65,6 +66,7 @@ let setScoreOpacity = (opacity) => {
     for (const paragraph of playerScoreNameParagraphs) {
         paragraph.style.opacity = `${opacity}%`;
     }
+    scoreStyle.style.opacity = `${opacity}%`;
 }
 let countdown = async() => {
 
@@ -365,12 +367,14 @@ let countdownCall = async() => {
         gameDisplay.style.opacity = `0%`;
         output.style.transform = `translate3d(0, 30vh, 0)`;
         setScoreOpacity(0);
-    }, 5000);
+    }, 4000);
     output.disabled = true;
     await blastoff();
     output.style.opacity = `100%`;
     gameDisplay.style.opacity = `100%`;
+    setScoreOpacity(100);
     showProperScoreBoxes();
+    scoreStyle.style.opacity = `100%`;
     output.removeEventListener("click", countdownCall);
     output.addEventListener("click", startNewGame);
     output.innerHTML = `click to reset`;
