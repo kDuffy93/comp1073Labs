@@ -11,20 +11,21 @@ html {
 
 #headerSection {
     max-width: 85vw;
-    display: inline-block;
-    vertical-align: top;
+    position: absolute;
+    top: 2vh;
+    right: 0vw;
+    text-align: center;
 }
 
 #newBackground {
-    font-size: calc(.5vmin + calc(.5vh + .5vw));
+    font-size: calc(.25vmin + calc(.5vh + vw));
     max-width: calc(.5vmin + calc(.5vh + .5vw));
-    min-width: calc(.5vmin + calc(.5vh + .5vw));
-    min-height: calc(.5vmin + calc(.5vh + .5vw));
     max-height: calc(.5vmin + calc(.5vh + .5vw));
     vertical-align: top;
     margin: 0;
     padding: 0;
     text-align: center;
+    border-radius: 100;
 }
 
 label[for=newBackground] {
@@ -40,14 +41,13 @@ label[for=newBackground] {
 
 h1 {
     margin-bottom: 0;
-    font-size: calc(.8vmin + calc(.8vh + .8vw));
+    font-size: calc(.6vmin + calc(.6vh + .6vw));
     color: mediumslateblue;
     padding: 0;
-    margin-left: 12.5vw;
     display: inline-block;
-    width: 25vw;
     vertical-align: top;
     margin-top: -.1vh;
+    margin-left: 15%;
     text-align: center;
 }
 
@@ -88,11 +88,11 @@ header {
 }
 
 .rocket {
-    display: inline-block;
     max-width: 5vw;
     height: 10vh;
     margin-top: 79vh;
-    margin-left: 7vw;
+    margin-left: 9vw;
+    float: left;
 }
 
 #rocket1 {
@@ -100,7 +100,7 @@ header {
     height: 10vh;
     margin-top: 79vh;
     max-width: 5vw;
-    margin-left: 15vw;
+    margin-left: 10vw;
 }
 
 .hoverable:hover {
@@ -147,15 +147,10 @@ header {
     border-bottom: .2vh solid #ff007b !important;
 }
 
-.selectedP7 {
-    border-bottom: .2vh solid #0000ff !important;
-}
-
 #scoreSection {
     min-height: 100vh;
     vertical-align: middle;
-    max-width: 5vw;
-    display: inline-block;
+    max-width: 20vw;
 }
 
 .playerScore,
@@ -172,57 +167,127 @@ h2 {
 }
 
 .playerName {
-    margin-top: 2.5vw;
-    display: block;
-    margin-left: 2.5vw;
-    font-size: calc(.25vmin + .8vh);
+    font-size: calc(.4vmin + calc(.7vh + .7vw));
     font-weight: 800;
-    max-width: 5vw;
     opacity: 0%;
+    position: absolute;
+    text-align: center;
+    height: 4vh;
+    right: 86%;
+    width: 15vw;
 }
 
 .playerName:first-of-type {
-    margin-left: 2.5vw;
     opacity: 100%;
+    top: 12.5%;
+    border-bottom: #ff0000 calc(.04vmin + calc(.04vh + .04vw)) solid;
+    solid;
 }
 
 .playerName:nth-of-type(2) {
     opacity: 100%;
+    top: 20%;
+    color: #f200ff;
+}
+
+p[id="playerName2"] {
+    top: 30%;
+    color: #ffea00;
+}
+
+p[id="playerName3"] {
+    top: 40%;
+    color: #00ff08;
+}
+
+p[id="playerName4"] {
+    top: 50%;
+    color: #ff0000;
+}
+
+p[id="playerName5"] {
+    color: #00fbff;
+    top: 60%;
+}
+
+p[id="playerName6"] {
+    color: #ff007b;
+    top: 70%;
 }
 
 .playerScore {
-    display: block;
-    margin-left: 2.5vw;
-    font-size: calc(.25vmin + .8vh);
+    font-size: calc(.4vmin + calc(.7vh + .7vw));
     font-weight: 800;
-    max-width: 1vw;
     opacity: 0%;
+    position: absolute;
+    width: 2.5vw;
+    text-align: center;
+    height: 5vh;
+    right: 84%;
 }
 
-.scoreSection {
-    font-size: calc(.25vmin + .8vh);
-    width: 15vw;
+p[id="1"] {
+    top: 20.3%;
+    color: #f200ff;
+}
+
+p[id="2"] {
+    top: 30.3%;
+    color: #ffea00;
+}
+
+p[id="3"] {
+    top: 40.3%;
+    color: #00ff08;
+}
+
+p[id="4"] {
+    top: 50.3%;
+    color: #ff0000;
+}
+
+p[id="5"] {
+    color: #00fbff;
+    top: 60.3%;
+}
+
+p[id="6"] {
+    color: #ff007b;
+    top: 70.3%;
 }
 
 label[for="numPlayersSelect"] {
     color: #ff0000;
-    font-size: calc(2vmin + 2vh);
+    font-size: calc(.5vmin + calc(.7vh + .7vw));
     position: absolute;
-    top: 5vh;
-    right: 85vw;
-    width: 15vw;
+    top: 2%;
+    right: 100%;
     text-align: center;
+    width: 15vw;
     height: 5vh;
 }
 
 select {
-    font-size: 2vh;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5vh;
     position: absolute;
-    top: 10vh;
-    right: 87.5vw;
-    width: 7.5vw;
+    top: 2%;
+    right: 87.5%;
+    width: calc(2.5vmin + 2.5vh);
     text-align: center;
-    height: 10vh;
+    height: calc(1.5vmin + 1.5vh);
+    border-width: 0;
+}
+
+select:first-child {
+    padding: 0;
+    margin: 0;
+}
+
+select:nth-child(2) {
+    padding: 0;
+    margin: 0;
 }
 
 p[id="1"] {
