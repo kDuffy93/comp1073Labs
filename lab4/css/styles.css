@@ -88,18 +88,14 @@ header {
 }
 
 .rocket {
-    max-width: 5vw;
+    width: 5vw;
     height: 10vh;
-    margin-top: 79vh;
+    margin-top: 77vh;
     margin-left: 7.83vw;
     float: left;
 }
 
 #rocket1 {
-    display: inline-block;
-    height: 10vh;
-    margin-top: 79vh;
-    max-width: 5vw;
     margin-left: 9vw;
 }
 
@@ -259,34 +255,27 @@ label[for="numPlayersSelect"] {
     color: #ff0000;
     font-size: calc(.5vmin + calc(.25vh + .9vw));
     position: absolute;
-    top: 2%;
+    top: -1%;
     right: 85%;
     text-align: center;
     width: 15vw;
-    height: 5vh;
+    height: 2vh;
 }
 
 select {
     padding: 0;
     margin: 0;
-    font-size: 1.5vh;
+    font-size: calc(.5vmin + calc(.25vh + 1vw));
     position: absolute;
-    top: 2%;
-    right: 82.5%;
-    width: calc(1.5vmin + calc(.25vh + .9vw));
-    text-align: center;
+    top: 10%;
+    right: 87.5%;
+    width: calc(1.5vmin + calc(.5vh + 10vw));
     height: calc(1.5vmin + 1.5vh);
     border-width: 0;
-}
-
-select:first-child {
-    padding: 0;
-    margin: 0;
-}
-
-select:nth-child(2) {
-    padding: 0;
-    margin: 0;
+    overflow: visible;
+    color: #00FF00;
+    background-color: #000;
+    box-sizing: border-box;
 }
 
 p[id="1"] {

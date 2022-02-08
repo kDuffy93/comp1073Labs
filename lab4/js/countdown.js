@@ -55,6 +55,17 @@ let addHoverClasses = () => {
     }
 
 };
+let setScoreOpacity = (opacity) => {
+    document.getElementById("1").style.opacity = `${opacity}%`;
+    document.getElementById("2").style.opacity = `${opacity}%`;
+    document.getElementById("3").style.opacity = `${opacity}%`;
+    document.getElementById("4").style.opacity = `${opacity}%`;
+    document.getElementById("5").style.opacity = `${opacity}%`;
+    document.getElementById("6").style.opacity = `${opacity}%`;
+    for (const paragraph of playerScoreNameParagraphs) {
+        paragraph.style.opacity = `${opacity}%`;
+    }
+}
 let countdown = async() => {
 
     for (let i = 10; i >= 0; i--) {
@@ -350,26 +361,15 @@ let countdownCall = async() => {
     await delay(10250);
     setTimeout(() => {
         output.style.opacity = `0%`;
-        gameDisplay.style.display = `0%`;
+        gameDisplay.style.opacity = `0%`;
         output.style.transform = `translate3d(0, 30vh, 0)`;
-
-        for (const paragraph in playerScoreParagraphs) {
-            paragraph.style.opacity = "0%";
-        }
-        for (const paragraph in playerScoreNameParagraphs) {
-            paragraph.style.opacity = "0%";
-        }
+        setScoreOpacity(0);
     }, 5000);
     output.disabled = true;
     await blastoff();
     output.style.opacity = `100%`;
     gameDisplay.style.opacity = `100%`;
-    for (const paragraph in playerScoreParagraphs) {
-        paragraph.style.opacity = "100%";
-    }
-    for (const paragraph in playerScoreNameParagraphs) {
-        paragraph.style.opacity = "100%";
-    }
+    showProperScoreBoxes();
     output.removeEventListener("click", countdownCall);
     output.addEventListener("click", startNewGame);
     output.innerHTML = `click to reset`;
@@ -379,7 +379,6 @@ let countdownCall = async() => {
 let startNewGame = () => {
     output.removeEventListener("click", startNewGame);
     output.style.transform = `translate3d(0, 0, 0)`;
-
     if (newBackgroundCheckbox.checked == true) getNewBackground();
     addImgEvents(1);
     resetRocketHeights();
@@ -564,6 +563,7 @@ let showProperScoreBoxes = () => {
 
         switch (Number(String(paragraph.textContent).charAt(String(paragraph.textContent).indexOf(" ") + 1))) {
             case 1:
+                playerCount > 0 ? (paragraph.style.opacity = "100%", document.getElementById("1").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("1").style.opacity = "0%");
                 break;
             case 2:
                 playerCount > 1 ? (paragraph.style.opacity = "100%", document.getElementById("2").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("2").style.opacity = "0%");
