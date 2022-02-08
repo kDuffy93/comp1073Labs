@@ -137,37 +137,37 @@ let increaseRocketHeights = async(iteration) => {
                 case 0:
                     rocket1Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8875}vh, 0)`;
+                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8655}vh, 0)`;
                     break;
                 case 1:
                     rocket2Height += randomAmount;
                     console.log(rocket2Height);
-                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8885}vh, 0)`;
+                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8655}vh, 0)`;
                     break;
                 case 2:
                     rocket3Height += randomAmount;
                     console.log(rocket3Height);
-                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8885}vh, 0)`;
+                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8655}vh, 0)`;
                     break;
                 case 3:
                     rocket4Height += randomAmount;
                     console.log(rocket4Height);
-                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8885}vh, 0)`;
+                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8655}vh, 0)`;
                     break;
                 case 4:
                     rocket5Height += randomAmount;
                     console.log(rocket5Height);
-                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8885}vh, 0)`;
+                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8655}vh, 0)`;
                     break;
                 case 5:
                     rocket6Height += randomAmount;
                     console.log(rocket6Height);
-                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8885}vh, 0)`;
+                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8655}vh, 0)`;
                     break;
                 case 6:
                     rocket7Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8885}vh, 0)`;
+                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8655}vh, 0)`;
                     break;
                 default:
                     console.log(`default from switch`);

@@ -10,7 +10,7 @@ html {
 }
 
 #headerSection {
-    max-width: 85vw;
+    max-width: 100vw;
     position: absolute;
     top: 2vh;
     right: 0vw;
@@ -181,7 +181,6 @@ h2 {
     opacity: 100%;
     top: 12.5%;
     border-bottom: #ff0000 calc(.04vmin + calc(.04vh + .04vw)) solid;
-    solid;
 }
 
 .playerName:nth-of-type(2) {
