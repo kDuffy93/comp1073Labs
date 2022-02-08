@@ -137,37 +137,37 @@ let increaseRocketHeights = async(iteration) => {
                 case 0:
                     rocket1Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8655}vh, 0)`;
+                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8875}vh, 0)`;
                     break;
                 case 1:
                     rocket2Height += randomAmount;
                     console.log(rocket2Height);
-                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8655}vh, 0)`;
+                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8875}vh, 0)`;
                     break;
                 case 2:
                     rocket3Height += randomAmount;
                     console.log(rocket3Height);
-                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8655}vh, 0)`;
+                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8875}vh, 0)`;
                     break;
                 case 3:
                     rocket4Height += randomAmount;
                     console.log(rocket4Height);
-                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8655}vh, 0)`;
+                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8875}vh, 0)`;
                     break;
                 case 4:
                     rocket5Height += randomAmount;
                     console.log(rocket5Height);
-                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8655}vh, 0)`;
+                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8875}vh, 0)`;
                     break;
                 case 5:
                     rocket6Height += randomAmount;
                     console.log(rocket6Height);
-                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8655}vh, 0)`;
+                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8875}vh, 0)`;
                     break;
                 case 6:
                     rocket7Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8655}vh, 0)`;
+                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8875}vh, 0)`;
                     break;
                 default:
                     console.log(`default from switch`);
@@ -349,13 +349,27 @@ let countdownCall = async() => {
     output.disabled = true;
     await delay(10250);
     setTimeout(() => {
-        output.style.display = `none`;
+        output.style.opacity = `0%`;
+        gameDisplay.style.display = `0%`;
         output.style.transform = `translate3d(0, 30vh, 0)`;
+
+        for (const paragraph in playerScoreParagraphs) {
+            paragraph.style.opacity = "0%";
+        }
+        for (const paragraph in playerScoreNameParagraphs) {
+            paragraph.style.opacity = "0%";
+        }
     }, 5000);
     output.disabled = true;
     await blastoff();
-    output.style.display = `block`;
-    gameDisplay.style.display = `block`;
+    output.style.opacity = `100%`;
+    gameDisplay.style.opacity = `100%`;
+    for (const paragraph in playerScoreParagraphs) {
+        paragraph.style.opacity = "100%";
+    }
+    for (const paragraph in playerScoreNameParagraphs) {
+        paragraph.style.opacity = "100%";
+    }
     output.removeEventListener("click", countdownCall);
     output.addEventListener("click", startNewGame);
     output.innerHTML = `click to reset`;
@@ -365,7 +379,7 @@ let countdownCall = async() => {
 let startNewGame = () => {
     output.removeEventListener("click", startNewGame);
     output.style.transform = `translate3d(0, 0, 0)`;
-    output.style.display = `block`;
+
     if (newBackgroundCheckbox.checked == true) getNewBackground();
     addImgEvents(1);
     resetRocketHeights();
@@ -377,6 +391,7 @@ let startNewGame = () => {
     output.textContent = `Click here after you pick a rocket`;
     output.addEventListener("click", countdownCall);
     addHoverClasses();
+    resetAllSelections();
 };
 
 

@@ -91,7 +91,7 @@ header {
     max-width: 5vw;
     height: 10vh;
     margin-top: 79vh;
-    margin-left: 9vw;
+    margin-left: 7.83vw;
     float: left;
 }
 
@@ -100,7 +100,7 @@ header {
     height: 10vh;
     margin-top: 79vh;
     max-width: 5vw;
-    margin-left: 10vw;
+    margin-left: 9vw;
 }
 
 .hoverable:hover {
@@ -257,10 +257,10 @@ p[id="6"] {
 
 label[for="numPlayersSelect"] {
     color: #ff0000;
-    font-size: calc(.5vmin + calc(.7vh + .7vw));
+    font-size: calc(.5vmin + calc(.25vh + .9vw));
     position: absolute;
     top: 2%;
-    right: 100%;
+    right: 85%;
     text-align: center;
     width: 15vw;
     height: 5vh;
@@ -272,8 +272,8 @@ select {
     font-size: 1.5vh;
     position: absolute;
     top: 2%;
-    right: 87.5%;
-    width: calc(2.5vmin + 2.5vh);
+    right: 82.5%;
+    width: calc(1.5vmin + calc(.25vh + .9vw));
     text-align: center;
     height: calc(1.5vmin + 1.5vh);
     border-width: 0;
