@@ -14,21 +14,28 @@
 <body>
     <header>
         <section id="scoreSection">
-            <p class="playerName">Score:</p>
+            <label for="numPlayersSelect">Number Of Players</label>
+            <select id="numPlayers" name="numPlayersSelect">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                 <option value="5">5</option>
+                  <option value="6">6</option>
+            </select>
+            <p class="playerName"><u>Scores</u></p>
             <p class="playerName">Player 1</p>
-            <p class="playerScore" id="playerScore1">1</p>
-            <p class="playerName">Player2</p>
-            <p class="playerScore" id="playerScore2">2</p>
+            <p class="playerScore" id="1">0</p>
+            <p class="playerName">Player 2</p>
+            <p class="playerScore" id="2">0</p>
             <p class="playerName">Player 3:</p>
-            <p class="playerScore" id="playerScore3">3</p>
+            <p class="playerScore" id="3">0</p>
             <p class="playerName">Player 4:</p>
-            <p class="playerScore" id="playerScore4">4</p>
+            <p class="playerScore" id="4">0</p>
             <p class="playerName">Player 5:</p>
-            <p class="playerScore" id="playerScore5">5</p>
-            <p class="playerName">Player 6</p>
-            <p class="playerScore" id="playerScore6">6</p>
-            <p class="playerName">Player 7</p>
-            <p class="playerScore" id="playerScore7">7:</p>
+            <p class="playerScore" id="5">0</p>
+            <p class="playerName">Player 6:</p>
+            <p class="playerScore" id="6">0</p>
         </section>
         <section id="headerSection">
             <h1 id="changeBackground">click me to change the background</h1>
@@ -38,7 +45,7 @@
         </section>
     </header>
     <!-- STEP 2a: Build an HTML element of your choice below to display the value of the variable i (the counter inside the loop below) as it counts down from 10 to 0.-->
-    <img src="imgs/rocketship.png" id="rocket1" class="hoverable rocket" alt="Rocket Ship">
+    <img src="imgs/rocketship.png" id="rocket1" class="rocket" alt="Rocket Ship">
     <img src="imgs/rocketship.png" id="rocket2" class="rocket" alt="Rocket Ship">
     <img src="imgs/rocketship.png" id="rocket3" class="rocket" alt="Rocket Ship">
     <img src="imgs/rocketship.png" id="rocket4" class="rocket" alt="Rocket Ship">

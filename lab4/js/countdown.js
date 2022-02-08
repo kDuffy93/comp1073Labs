@@ -6,6 +6,8 @@ const gameDisplay = document.getElementById('gameDisplay');
 const newBackgroundCheckbox = document.getElementById("newBackground");
 const backgroundChange = document.getElementById("changeBackground");
 let imgs = document.getElementsByTagName("img");
+let playerScoreParagraphs = document.getElementsByClassName("playerScore");
+let playerScoreNameParagraphs = document.getElementsByClassName("playerName");
 let rocket1 = document.getElementById("rocket1");
 let rocket2 = document.getElementById("rocket2");
 let rocket3 = document.getElementById("rocket3");
@@ -13,6 +15,7 @@ let rocket4 = document.getElementById("rocket4");
 let rocket5 = document.getElementById("rocket5");
 let rocket6 = document.getElementById("rocket6");
 let rocket7 = document.getElementById("rocket7");
+let selectedPlayerNum = document.getElementById("numPlayers");
 let selectedRocket;
 let rocket1Height = 0;
 let rocket2Height = 0;
@@ -25,6 +28,8 @@ let globalPlayerNumber = 1;
 let resetSelection = false;
 let currentlySelectedRockets = [];
 let playerCount = 1;
+let playerScores = { player1: 0, player2: 0, player3: 0, player4: 0, player5: 0, player6: 0 };
+selectedPlayerNum.value = 1;
 
 
 let removeHoverClasses = () => {
@@ -48,6 +53,7 @@ let addHoverClasses = () => {
     for (const img of imgs) {
         img.classList.add("hoverable");
     }
+
 };
 let countdown = async() => {
 
@@ -131,37 +137,37 @@ let increaseRocketHeights = async(iteration) => {
                 case 0:
                     rocket1Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8925}vh, 0)`;
+                    rocket1.style.transform = `translate3d(0, -${Number(rocket1Height) * .8875}vh, 0)`;
                     break;
                 case 1:
                     rocket2Height += randomAmount;
                     console.log(rocket2Height);
-                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8925}vh, 0)`;
+                    rocket2.style.transform = `translate3d(0, -${rocket2Height * .8885}vh, 0)`;
                     break;
                 case 2:
                     rocket3Height += randomAmount;
                     console.log(rocket3Height);
-                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8925}vh, 0)`;
+                    rocket3.style.transform = `translate3d(0, -${rocket3Height * .8885}vh, 0)`;
                     break;
                 case 3:
                     rocket4Height += randomAmount;
                     console.log(rocket4Height);
-                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8925}vh, 0)`;
+                    rocket4.style.transform = `translate3d(0, -${rocket4Height * .8885}vh, 0)`;
                     break;
                 case 4:
                     rocket5Height += randomAmount;
                     console.log(rocket5Height);
-                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8925}vh, 0)`;
+                    rocket5.style.transform = `translate3d(0, -${rocket5Height * .8885}vh, 0)`;
                     break;
                 case 5:
                     rocket6Height += randomAmount;
                     console.log(rocket6Height);
-                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8925}vh, 0)`;
+                    rocket6.style.transform = `translate3d(0, -${rocket6Height * .8885}vh, 0)`;
                     break;
                 case 6:
                     rocket7Height += randomAmount;
                     console.log(rocket7Height);
-                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8925}vh, 0)`;
+                    rocket7.style.transform = `translate3d(0, -${rocket7Height * .8885}vh, 0)`;
                     break;
                 default:
                     console.log(`default from switch`);
@@ -171,7 +177,33 @@ let increaseRocketHeights = async(iteration) => {
     })
 };
 
+let updateScores = () => {
+    console.log(playerScoreParagraphs);
+    for (const paragraph of playerScoreParagraphs) {
+        if (Number(paragraph.id) == 1) {
+            paragraph.textContent = playerScores.player1;
+        }
+        if (Number(paragraph.id) == 2) {
+            paragraph.textContent = playerScores.player2;
+        }
+        if (Number(paragraph.id) == 3) {
+            paragraph.textContent = playerScores.player3;
+        }
+        if (Number(paragraph.id) == 4) {
+            paragraph.textContent = playerScores.player4;
+        }
+        if (Number(paragraph.id) == 5) {
+            paragraph.textContent = playerScores.player5;
+        }
+        if (Number(paragraph.id) == 6) {
+            paragraph.textContent = playerScores.player6;
+        }
+        if (Number(paragraph.id) == 7) {
+            paragraph.textContent = playerScores.player7;
+        }
 
+    }
+};
 
 
 
@@ -188,39 +220,112 @@ let blastoff = async() => {
     rocket5Height = 0;
     rocket6Height = 0;
     rocket7Height = 0;
+    let currentWinner;
+    let largestHeight;
     let doIteration = 0;
     do {
         await switchImg(doIteration);
         doIteration++;
         await increaseRocketHeights(doIteration);
-        rocket1Height > rocket2Height ? (rocket1.classList.add('winning'), rocket2.classList.remove('winning'), rocket2.classList.add('losing'), rocket1.classList.remove('losing')) : (rocket2.classList.add('winning'), rocket1.classList.remove('winning'), rocket1.classList.add('losing'), rocket2.classList.remove('losing'));
+
+
+
+        //redo this for all ships not 2
+        for (let i = 0; i < 7; i++) {
+            switch (i) {
+                case 0:
+                    currentWinner = rocket1;
+                    largestHeight = rocket1Height;
+                    break;
+                case 1:
+                    rocket2Height > largestHeight ? (currentWinner = rocket2, largestHeight = rocket2Height) : currentWinner = currentWinner;
+                    break;
+                case 2:
+                    rocket3Height > largestHeight ? (currentWinner = rocket3, largestHeight = rocket3Height) : currentWinner = currentWinner;
+                    break;
+                case 3:
+                    rocket4Height > largestHeight ? (currentWinner = rocket4, largestHeight = rocket4Height) : currentWinner = currentWinner;
+                    break;
+                case 4:
+                    rocket5Height > largestHeight ? (currentWinner = rocket5, largestHeight = rocket5Height) : currentWinner = currentWinner;
+                    break;
+                case 5:
+                    rocket6Height > largestHeight ? (currentWinner = rocket6, largestHeight = rocket6Height) : currentWinner = currentWinner;
+                    break;
+                case 6:
+                    rocket7Height > largestHeight ? (currentWinner = rocket7, largestHeight = rocket7Height) : currentWinner = currentWinner;
+                    break;
+            }
+        }
+        for (const img of imgs) {
+            img.classList.remove('winning');
+
+        }
+        for (const img of imgs) {
+
+            img.classList.add('losing');
+        }
+        currentWinner.classList.remove('losing');
+        currentWinner.classList.add('winning');
     } while (rocket1Height < 100 && rocket2Height < 100 && rocket3Height < 100 && rocket4Height < 100 && rocket5Height < 100 && rocket6Height < 100 && rocket7Height < 100);
-
-    rocket1.classList.remove('winning');
-    rocket1.classList.remove('losing');
-    rocket2.classList.remove('winning');
-    rocket2.classList.remove('losing');
-
-
-
-
-    if (rocket1Height >= 100 && rocket1Height > rocket2Height) {
-        for (const img of imgs) {
-            img.id == "rocket1" ? img.src = "imgs/rocketshipWinEnd.png" : img.src = "imgs/rocketshipLoseEnd.png";
-
+    //remove all ships winning and losing classes
+    for (const img of imgs) {
+        img.classList.remove('winning');
+        img.classList.remove('losing');
+        if (currentlySelectedRockets.includes(img.id)) {
+            console.log(`selected rocket id : ${img.id} currWinnerID: ${currentWinner.id}`)
+            if (String(img.id) == String(currentWinner.id)) {
+                let classList = String(img.classList);
+                let indexOfSelected = classList.indexOf(`selected`);
+                console.log(classList.charAt(indexOfSelected + 9));
+                switch (Number(classList.charAt(indexOfSelected + 9))) {
+                    case 1:
+                        console.log(`increminenting player 1 count`);
+                        playerScores.player1++;
+                        updateScores();
+                        break;
+                    case 2:
+                        console.log(`increminenting player 2 count`);
+                        playerScores.player2++;
+                        updateScores();
+                        break;
+                    case 3:
+                        console.log(`increminenting player 3 count`);
+                        playerScores.player3++;
+                        updateScores();
+                        break;
+                    case 4:
+                        console.log(`increminenting player 4 count`);
+                        playerScores.player4++;
+                        updateScores();
+                        break;
+                    case 5:
+                        console.log(`increminenting player 5 count`);
+                        playerScores.player5++;
+                        updateScores();
+                        break;
+                    case 6:
+                        console.log(`increminenting player 6 count`);
+                        playerScores.player6++;
+                        updateScores();
+                        break;
+                    case 7:
+                        console.log(`increminenting player 7 count`);
+                        playerScores.player7++;
+                        updateScores();
+                        break;
+                }
+            }
         }
     }
-    if (rocket2Height >= 100 && rocket2Height > rocket1Height) {
-        for (const img of imgs) {
-            console.log(img.id);
-            console.log(img.src);
-            img.id == "rocket2" ? img.src = "imgs/rocketshipWinEnd.png" : img.src = "imgs/rocketshipLoseEnd.png";
-            console.log(img.src);
-        }
+
+    //loop through all ships and make their src rocketshipLoss
+
+    //redo this to make the right ship display win
+    for (const img of imgs) {
+        img.src = "imgs/rocketshipLoseEnd.png";
     }
-
-
-
+    currentWinner.src = "./imgs/rocketshipWinEnd.png";
 
 };
 
@@ -241,6 +346,7 @@ let countdownCall = async() => {
     removeHoverClasses(); // not working??
     removeHoverClasses2(); // not working ??
     countdown();
+    output.disabled = true;
     await delay(10250);
     setTimeout(() => {
         output.style.display = `none`;
@@ -320,8 +426,7 @@ let resetAllSelections = () => {
 let noMorePlayers = () => {
     globalPlayerNumber = 0;
     resetSelection = true;
-    removeSelectedImgEvent();
-    currentlySelectedRockets = [];
+
 };
 
 
@@ -337,12 +442,14 @@ and remove it below**
     if (resetSelection) {
         resetSelection = false;
         resetAllSelections();
+
     }
 
 
     let tempEle = document.getElementById(id);
     switch (playerNumber) {
         case 1:
+            currentlySelectedRockets = [];
             tempEle.classList.add(`selectedP${playerNumber}`);
             currentlySelectedRockets.push(id);
             if (playerCount == 1) {
@@ -384,21 +491,21 @@ and remove it below**
                 noMorePlayers();
             }
             break;
-
-        case 7:
-            tempEle.classList.add(`selectedP${playerNumber}`);
-            noMorePlayers();
-            break;
     }
 
-
-
-    globalPlayerNumber += 1;
     //changing the static varibles of the event listner so it fires for the next player
+    globalPlayerNumber += 1;
+    //then remove the events off the imgs that are already selected
+    if (currentlySelectedRockets.length < playerCount) {
+
+        removeSelectedImgEvent(currentlySelectedRockets);
+
+    } else {
+        globalPlayerNumber = 1;
+    }
     removeImgEvents();
     addImgEvents(globalPlayerNumber);
-    //then remove the events off the imgs that are already selected
-    removeSelectedImgEvent(currentlySelectedRockets);
+
 }
 
 let removeSelectedImgEvent = (id) => {
@@ -425,13 +532,41 @@ addHoverClasses();
 
 
 
-
-let addImgEvents2 = () => {
-    for (const img of imgs) {
-        img.addEventListener("click", () => {
-            selectedRocket = img.id;
-            console.log(selectedRocket);
-            output.disabled = false;
-        });
-    }
+let playerNumberFunction = () => {
+    playerCount = selectedPlayerNum.selectedIndex + 1;
+    currentlySelectedRockets = [];
+    resetAllSelections();
+    globalPlayerNumber = 1;
+    removeImgEvents();
+    addImgEvents(globalPlayerNumber);
+    showProperScoreBoxes();
 }
+
+
+let showProperScoreBoxes = () => {
+    for (const paragraph of playerScoreNameParagraphs) {
+        if (String(paragraph.textContent).includes('Scores')) { console.log("continue"); continue; }
+
+        switch (Number(String(paragraph.textContent).charAt(String(paragraph.textContent).indexOf(" ") + 1))) {
+            case 1:
+                break;
+            case 2:
+                playerCount > 1 ? (paragraph.style.opacity = "100%", document.getElementById("2").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("2").style.opacity = "0%");
+                break;
+            case 3:
+                playerCount > 2 ? (paragraph.style.opacity = "100%", document.getElementById("3").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("3").style.opacity = "0%");
+                break;
+            case 4:
+                playerCount > 3 ? (paragraph.style.opacity = "100%", document.getElementById("4").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("4").style.opacity = "0%");
+                break;
+            case 5:
+                playerCount > 4 ? (paragraph.style.opacity = "100%", document.getElementById("5").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("5").style.opacity = "0%");
+                break;
+            case 6:
+                playerCount > 5 ? (paragraph.style.opacity = "100%", document.getElementById("6").style.opacity = "100%") : (paragraph.style.opacity = "0%", document.getElementById("6").style.opacity = "0%");
+                break;
+        }
+    }
+};
+
+selectedPlayerNum.addEventListener("change", playerNumberFunction);

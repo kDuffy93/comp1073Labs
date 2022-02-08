@@ -178,10 +178,16 @@ h2 {
     font-size: calc(.25vmin + .8vh);
     font-weight: 800;
     max-width: 5vw;
+    opacity: 0%;
 }
 
 .playerName:first-of-type {
     margin-left: 2.5vw;
+    opacity: 100%;
+}
+
+.playerName:nth-of-type(2) {
+    opacity: 100%;
 }
 
 .playerScore {
@@ -190,8 +196,35 @@ h2 {
     font-size: calc(.25vmin + .8vh);
     font-weight: 800;
     max-width: 1vw;
+    opacity: 0%;
 }
 
 .scoreSection {
     font-size: calc(.25vmin + .8vh);
+    width: 15vw;
+}
+
+label[for="numPlayersSelect"] {
+    color: #ff0000;
+    font-size: calc(2vmin + 2vh);
+    position: absolute;
+    top: 5vh;
+    right: 85vw;
+    width: 15vw;
+    text-align: center;
+    height: 5vh;
+}
+
+select {
+    font-size: 2vh;
+    position: absolute;
+    top: 10vh;
+    right: 87.5vw;
+    width: 7.5vw;
+    text-align: center;
+    height: 10vh;
+}
+
+p[id="1"] {
+    opacity: 100%;
 }
