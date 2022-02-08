@@ -30,10 +30,8 @@ html {
 
 label[for=newBackground] {
     color: mediumslateblue;
-    font-size: calc(.5vmin + calc(.5vh + .5vw));
-    max-width: 30vw;
-    min-width: 30vw;
-    margin-left: 10vw;
+    font-size: calc(1.25vmin + .75vw);
+    margin-left: 5%;
     font-weight: 900;
     vertical-align: top;
     text-align: center;
@@ -41,7 +39,7 @@ label[for=newBackground] {
 
 h1 {
     margin-bottom: 0;
-    font-size: calc(.6vmin + calc(.6vh + .6vw));
+    font-size: calc(1.25vmin + .75vw);
     color: mediumslateblue;
     padding: 0;
     display: inline-block;
@@ -55,17 +53,16 @@ h1 {
     background-color: #8e96a3;
     opacity: 0.5;
     color: black !important;
-    font-size: calc(1.5vmin + calc(1vh + 1vw));
+    font-size: calc(2.25vmin + 1.25vw);
     font-weight: 900;
-    height: 15vh;
+    height: calc(10.25vmin + 3.25vw);
     padding: 0;
-    margin-left: 27.5vw;
-    width: 45vw;
+    margin-left: 40vw;
+    width: calc(25.25vmin + 10.25vw);
     display: block;
-    min-height: 15vh;
-    max-height: 15vh;
-    min-width: 45vw;
-    max-width: 45vw;
+    border-radius: 60%;
+    border-width: 0;
+    padding-bottom: -1%;
 }
 
 body {
@@ -105,10 +102,10 @@ header {
 
 #gameDisplay {
     color: deepskyblue;
-    font-size: calc(.7vmin + calc(.7vh + .7vw));
+    font-size: calc(1.5vmin + 1vw);
     text-align: center;
     padding: 0;
-    width: 100vw
+    width: 100vw;
 }
 
 .winning {
@@ -270,7 +267,7 @@ select {
     top: 10%;
     right: 87.5%;
     width: calc(1.5vmin + calc(.5vh + 10vw));
-    height: calc(1.5vmin + 1.5vh);
+    height: calc(5vmin + 1.5vh);
     border-width: 0;
     overflow: visible;
     color: #00FF00;
