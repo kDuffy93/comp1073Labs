@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Lab 5 | COMP1073 Client-Side JavaScript</title>
+    <link href="styles.css" rel="stylesheet" />
+    <style>
+        html {
+            font-family: sans-serif;
+            font-size: 200%;
+            background-Color: hsl(0, 85%, 50%);
+            color: rgb(255, 255, 255);
+            transition-property: background-color;
+            transition-duration: 0.25s;
+        }
+    </style>
+    <script defer src="colorChanger.js"></script>
+</head>
+
+<body>
+    <h1>Lab 5</h1>
+    <p>This script will enable the user to adjust the below range input elements to modify the <abbr title="Hue, Saturation, Brightness">HSB</abbr> values of the <code>background-color</code> CSS property of the HTML element.</p>
+    <label for="hue">Hue</label>
+    <input autocomplete="off" id="hue" type="range" min="0" max="360" value="0" />
+    <label for="saturation">Saturation</label>
+    <input autocomplete="off" id="saturation" type="range" min="0" max="100" value="85" />
+    <label for="lightness">Lightness</label>
+    <input autocomplete="off" id="lightness" type="range" min="0" max="100" value="50" />
+</body>
+
+</html>
