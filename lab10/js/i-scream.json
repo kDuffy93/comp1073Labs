@@ -30,18 +30,18 @@
             "calories": 450,
             "type": "Ice Cream",
             "ingredients": [
-                "Chololate Chipe",
-                "vanilla",
+                "Chololate Chips",
                 "Cookie Dough Chunks"
             ],
             "image": "ice-cream-xtra2.svg"
         },
         {
-            "name": "Vanilla Bubblegum",
+            "name": "Bannana Bubblegum",
             "calories": 300,
             "type": "sorbet",
             "ingredients": [
-                "Vanilla flavor",
+                "Bannana flavor",
+                "Bannana chunks",
                 "bubblegum chunks"
             ],
             "image": "ice-cream-xtra1.svg"

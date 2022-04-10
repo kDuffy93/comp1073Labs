@@ -1,12 +1,14 @@
 /* STEP 2: Bind the HEADER and the SECTION elements above to variables */
 const header = document.querySelector('header');
 const section = document.querySelector('section');
+const footer = document.querySelector("footer");
 
 // STEP 3a: Create the asynchronous function populate()
 async function populate() {
     // Introducing JavaScript Object Notation (JSON): https://json.org/
     // STEP 4: Store the URL of a JSON file in a variable */
-    const requestURL = "https://kduffy93.github.io/comp1073Labs/js/i-scream.json";
+    const requestURL =
+        "https://kduffy93.github.io/comp1073Labs/lab10/js/i-scream.json";
     // STEP 5: Use the new URL to create a new request object
     const request = new Request(requestURL);
     // STEP 6: Make a network request with the fetch() function, which returns a Response object
@@ -19,6 +21,7 @@ async function populate() {
     populateHeader(iScream);
     // STEP 10a: Invoke the showTopFlavors function here, then build it below
     showTopFlavors(iScream);
+    populateFooter(iScream);
 
 };
 
@@ -28,7 +31,7 @@ populate();
 /* STEP 9b: Build out the populateHeader() function */
 function populateHeader(jsonObj) {
     // Create the H1 element
-    let headerH1 = document.createElement('h1');
+    let headerH1 = document.createElement("h1");
     // Grab the company name from the JSON object and use it for the text node
     headerH1.textContent = jsonObj.companyName;
     // Inject the complete H1 element into the DOM, inside the HEADER
@@ -72,6 +75,20 @@ function showTopFlavors(jsonObj) {
         section.appendChild(article);
     };
 };
+
+function populateFooter(jsonObj) {
+    let headOffice = document.createElement("p");
+    headOffice.style.display = "inline-block";
+
+    headOffice.textContent = `Head Office: ${jsonObj.headOffice}`;
+    footer.appendChild(headOffice);
+
+    let establishedIn = document.createElement("p");
+    establishedIn.style.display = "inline-block";
+    establishedIn.style.paddingLeft = "15vw";
+    establishedIn.textContent = `Established In: ${jsonObj.established}`;
+    footer.appendChild(establishedIn);
+}
 /* STEP 11: Change the URL in step 3 to point to the JSON file in the local /js folder */
 
 // STEP 12: Add a 3rd flavour of ice cream to the local JSON file, making use of the /images/strawberry-sprinkle.svg image
