@@ -27,14 +27,14 @@ header p {
 section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 section article {
     border: 1px solid black;
     box-shadow: 0 2px 14px grey;
     padding: 2.5%;
-    width: 17.5%;
+    width: 15%;
 }
 
 article img {
@@ -52,6 +52,6 @@ section ul {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
