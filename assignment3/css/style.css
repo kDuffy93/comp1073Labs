@@ -1,12 +1,20 @@
+/* main section 85% width and centered*/
+
 section {
     width: 85vw;
     margin-left: 7.5vw;
 }
 
+
+/* output section 50% width and centered*/
+
 section:last-of-type {
     width: 50vw;
     margin-left: 25vw;
 }
+
+
+/* setting fieldsets to flex*/
 
 fieldset {
     display: flex;
@@ -15,13 +23,22 @@ fieldset {
     gap: 1.5%;
 }
 
+
+/* setting fieldsetcontainer back to block */
+
 #fieldsetContainer {
     display: block;
 }
 
+
+/* make the checkboxes slightly larger */
+
 input[type="checkbox"] {
     transform: scale(1.2);
 }
+
+
+/* move the labels slightly over */
 
 input[type="checkbox"] label {
     margin-left: 2px;
