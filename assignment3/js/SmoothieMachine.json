@@ -24,6 +24,12 @@
             "active": true
         },
         {
+            "name": "chocolate milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
             "name": "lactose free milk",
             "calories": "100",
             "cost": "0.15",
