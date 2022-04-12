@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 3 - Smoothie Machine</title>
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/smoothiemachine.js" defer></script>
 
 </head>
@@ -15,7 +15,7 @@
     <header>
 
     </header>
-    <section>
+    <section id="smoothieMachineSection">
         <h1>Smoothie Machine</h1>
         <form>
             <fieldset>
@@ -25,43 +25,45 @@
                 <input type="radio" id="medium" name="size" value="medium">
                 <label for="medium">Medium</label>
                 <input type="radio" id="large" name="size" value="large">
-                <label for="large">Large</label></section>
-    </fieldset>
-    <fieldset>
-        <legend>Ingrediant Options</legend>
-        <fieldset id="liquidFieldSet">
-            <legend>Liquids</legend>
-        </fieldset>
-        <fieldset id="fruitFieldSet">
-            <legend>Fruits</legend>
-        </fieldset>
-        <fieldset id="protienFieldSet">
-            <legend>Protien</legend>
-        </fieldset>
-        <fieldset id="veggieFieldSet">
-            <legend>Veggies</legend>
-        </fieldset>
+                <label for="large">Large</label>
+            </fieldset>
+            <fieldset id="fieldsetContainer">
+                <legend>Ingrediant Options</legend>
 
-        <fieldset id="specialtyFieldSet">
-            <legend>Specialty</legend>
-        </fieldset>
-        <fieldset id="fillerFieldSet">
-            <legend>Fillers</legend>
-        </fieldset>
-        <fieldset id="flavorFieldSet">
-            <legend>Flavors</legend>
-        </fieldset>
-        <fieldset id="grainFieldSet">
-            <legend>Grains</legend>
-        </fieldset>
-    </fieldset>
-    <input type="button" id="submitButton" value="Place Order">
-    </form>
+                <fieldset id="liquidFieldSet">
+                    <legend>Liquids</legend>
+                </fieldset>
+                <fieldset id="fruitFieldSet">
+                    <legend>Fruits</legend>
+                </fieldset>
+                <fieldset id="protienFieldSet">
+                    <legend>Protien</legend>
+                </fieldset>
+                <fieldset id="veggieFieldSet">
+                    <legend>Veggies</legend>
+                </fieldset>
+
+                <fieldset id="specialtyFieldSet">
+                    <legend>Specialty</legend>
+                </fieldset>
+                <fieldset id="fillerFieldSet">
+                    <legend>Fillers</legend>
+                </fieldset>
+                <fieldset id="flavorFieldSet">
+                    <legend>Flavors</legend>
+                </fieldset>
+                <fieldset id="grainFieldSet">
+                    <legend>Grains</legend>
+                </fieldset>
+            </fieldset>
+            <input type="button" id="submitButton" value="Place Order">
+        </form>
     </section>
-    <section>
-        <h2>Your Order</h2>
+    <section id="yourOrderSection" style="display:none">
+        <h1>Your Order</h1>
         <p id="output"></p>
         <p id="output2"></p>
+        <input type="button" id="newOrder" value="New Order">
     </section>
     <footer>
 

@@ -1,0 +1,28 @@
+section {
+    width: 85vw;
+    margin-left: 7.5vw;
+}
+
+section:last-of-type {
+    width: 50vw;
+    margin-left: 25vw;
+}
+
+fieldset {
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5%;
+}
+
+#fieldsetContainer {
+    display: block;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+input[type="checkbox"] label {
+    margin-left: 2px;
+}
