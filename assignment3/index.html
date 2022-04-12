@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 3 - Smoothie Machine</title>
+
+    <script src="js/smoothiemachine.js" defer></script>
+
 </head>
 
 <body>
@@ -17,7 +20,6 @@
         <form>
             <fieldset>
                 <legend>Smoothie Size</legend>
-
                 <input type="radio" id="small" name="size" value="small">
                 <label for="small">Small</label>
                 <input type="radio" id="medium" name="size" value="medium">
@@ -29,32 +31,33 @@
         <legend>Ingrediant Options</legend>
         <input type="checkbox" id="iceChips" name="iceChips">
         <label for="iceChips">Ice Chips</label>
-        <fieldset>
+        <fieldset id="liquidFieldSet">
             <legend>Liquids</legend>
         </fieldset>
-        <fieldset>
+        <fieldset id="fruitFieldSet">
             <legend>Fruits</legend>
         </fieldset>
-        <fieldset>
-            <legend>Veggies</legend>
-        </fieldset>
-        <fieldset>
+        <fieldset id="protienFieldSet">
             <legend>Protien</legend>
         </fieldset>
-        <fieldset>
+        <fieldset id="veggieFieldSet">
+            <legend>Veggies</legend>
+        </fieldset>
+
+        <fieldset id="specialtyFieldSet">
             <legend>Specialty</legend>
         </fieldset>
-        <fieldset>
+        <fieldset id="fillerFieldSet">
             <legend>Fillers</legend>
         </fieldset>
-        <fieldset>
+        <fieldset id="flavorFieldSet">
             <legend>Flavors</legend>
         </fieldset>
-        <fieldset>
+        <fieldset id="grainFieldSet">
             <legend>Grains</legend>
         </fieldset>
     </fieldset>
-
+    <input type="button" id="submitButton" value="Place Order">
     </form>
     </section>
     <footer>
