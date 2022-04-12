@@ -85,7 +85,7 @@ class smoothie {
             tempString += ` And to top it all off, it will be flavoured with ${this.flavors[0]} `;
         }
         if (this.flavors.length > 1) {
-            tempString += ` And to top it all off, it will be flavoured with`;
+            tempString += ` And to top it all off, it will be flavoured with `;
             for (let i = 0; i < this.flavors.length; i++) {
                 if (i == this.flavors.length - 1) {
                     tempString += `and ${this.flavors[i]}.`;
