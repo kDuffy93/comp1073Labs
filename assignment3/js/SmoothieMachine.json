@@ -1,0 +1,718 @@
+{
+    "liquids": [{
+            "name": "1% milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "2% milk",
+            "calories": "125",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "3% milk",
+            "calories": "150",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "lactose free milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "goat milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "almond milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pea milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "soy milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "rice milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "oat milk",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "water",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "coconut water",
+            "calories": "25",
+            "cost": "0.55",
+            "active": true
+        },
+        {
+            "name": "ice coffee",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "Antioxidant fruit juice blend",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "berry juice blend",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "apple juice",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "orange juice",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cranberry juice",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pineapple juice",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "mango juice",
+            "calories": "100",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "fruits": [{
+            "name": "strawberries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "blueberries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "raspberries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "blackberries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "acai berries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "goji berries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "green grapes",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "purple grapes",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "peach",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "mango",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "bannana",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pineapple",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "apple",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "oranges",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "tangerines",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cherries",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "honeydew melon",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "watermelon",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cantaloupe",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "veggies": [{
+            "name": "spinnach",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "kale",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cabbage",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "swiss chard",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "carrot",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cucumber",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cauliflower tops",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "broccoli tops",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pumpkin",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "beets",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "peas",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "celery",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "Zucchini",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "bell pepper",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "protien": [{
+            "name": "plain yogurt",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "vanilla yogurt",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "plain greek yogurt",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "kefir",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cottage cheese",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "vanilla greek yogurt",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "whey protien powder",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pea protien powder",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "hemp protien powder",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "tofu",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "chick peas",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pasturised egg yolk",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pasturised egg white",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "specialty": [{
+            "name": "hemp seed",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "chai seed",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "sunflower seeds",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "flax seed",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "matcha",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "maca",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "mushroom powder",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "spirulina",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "chlorella",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "wheat grass",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "fillers": [{
+            "name": "avacodo",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "penut butter",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "almond butter",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "coconut butter",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "tahini",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "walnuts",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cashews",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "penuts",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "almonds",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "brazil nuts",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "flavors": [{
+            "name": "cocoa powder",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cinnamon",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "tumeric",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "ginger",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "ginesing",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cardamon",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "cayenne",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "nutmeg",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "mint",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "vanilla",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "carmel",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "toffee",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "french vanilla",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "hazlenut",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pumpkin spice",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "grape",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "pommegranet",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "mango",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "lemon rind",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "lime rind",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "kiwi rind",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "orange rind",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "lemon",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "lime",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ],
+    "grains": [{
+            "name": "brown rice",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "quinoa",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "oats",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "barley",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "wheat",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "millet",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "rye",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        },
+        {
+            "name": "sorghum",
+            "calories": "25",
+            "cost": "0.15",
+            "active": true
+        }
+    ]
+}
