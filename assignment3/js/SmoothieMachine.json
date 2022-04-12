@@ -1,5 +1,11 @@
 {
     "liquids": [{
+            "name": "Ice Chips",
+            "calories": "0",
+            "cost": "0.05",
+            "active": true
+        },
+        {
             "name": "1% milk",
             "calories": "100",
             "cost": "0.15",

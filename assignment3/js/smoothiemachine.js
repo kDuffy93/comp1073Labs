@@ -7,8 +7,106 @@ const fillerFieldSet = document.getElementById("fillerFieldSet");
 const flavorFieldSet = document.getElementById("flavorFieldSet");
 const grainFieldSet = document.getElementById("grainFieldSet");
 const submitButton = document.getElementById("submitButton");
-let currentlySelectedSize = document.querySelector('input[name="size"]:checked').value;
+let objectName = 'orderNumber';
+let orderNumber = 1;
+const output = document.getElementById("output");
+const output2 = document.getElementById("output2");
 
+
+class smoothie {
+    constructor(
+        size,
+        liquids,
+        fruits,
+        veggies,
+        protiens,
+        specialties,
+        fillers,
+        flavors,
+        grains
+    ) {
+        this.size = size;
+        this.liquids = liquids;
+        this.fruits = fruits;
+        this.veggies = veggies;
+        this.protiens = protiens;
+        this.specialties = specialties;
+        this.fillers = fillers;
+        this.flavors = flavors;
+        this.grains = grains;
+    }
+
+
+
+
+    outputDescription() {
+        output.textContent = `Size: ${this.size}`;
+        let tempString = "";
+        let mainIngridentsArray = [];
+        if (this.liquids.length > 1) {
+            for (let i = 0; i < this.liquids.length; i++) {
+                if (i == this.liquids.length - 1) {
+                    tempString += `and ${this.liquids[i]}`
+                }
+                if (i != this.liquids.length - 1) {
+                    tempString += `${this.liquids[i]}, `;
+                }
+            }
+
+            tempString = `Your smoothie will have a mixture of ${tempString} as a base.`;
+        }
+        if (this.liquids.length <= 1) {
+            tempString = `Your smoothie will have ${this.liquids[0]} as a base.`;
+        }
+
+
+        this.fruits.length > 0 ? this.fruits.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        this.veggies.length > 0 ? this.veggies.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        this.protiens.length > 0 ? this.protiens.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        this.specialties.length > 0 ? this.specialties.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        this.fillers.length > 0 ? this.fillers.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        this.grains.length > 0 ? this.grains.forEach(ingredient => { mainIngridentsArray.push(ingredient); }) : mainIngridentsArray.push();
+        if (mainIngridentsArray.length > 1) {
+            tempString += `The main ingridents will include: `
+            for (let i = 0; i < mainIngridentsArray.length; i++) {
+                if (i == mainIngridentsArray.length - 1) {
+                    tempString += `and ${mainIngridentsArray[i]}.`;
+                }
+                if (i != mainIngridentsArray.length - 1) {
+                    tempString += `${mainIngridentsArray[i]}, `;
+                }
+            }
+        }
+        if (mainIngridentsArray.length <= 1) {
+            tempString += `The main ingrident will be: ${mainIngridentsArray[0]} `;
+        }
+
+        if (this.flavors.length === 1) {
+            tempString += `And to top it all off, it will be flavoured with ${this.flavors[0]} `;
+        }
+        if (this.flavors.length > 1) {
+            tempString += `And to top it all off, it will be flavoured with`;
+            for (let i = 0; i < this.flavors.length; i++) {
+                if (i == this.flavors.length - 1) {
+                    tempString += `and ${this.flavors[i]}.`;
+                }
+                if (i != this.flavors.length - 1) {
+                    tempString += `${this.flavors[i]}, `;
+                }
+            }
+        }
+
+
+
+
+        output2.textContent = tempString;
+
+
+
+
+
+    }
+}
 
 //
 async function populate() {
@@ -31,7 +129,6 @@ function populateOptions(options) {
     let fillers = options.fillers;
     let flavors = options.flavors;
     let grains = options.grains;
-
     // call populateFieldSet for each fieldset to be dynamically filled.
     populateFieldSet(liquidFieldSet, liquids, "liquids");
     populateFieldSet(fruitFieldSet, fruits, "fruits");
@@ -60,12 +157,7 @@ let populateFieldSet = (fieldset, jsonObj, key) => {
 };
 
 let placeOrder = () => {
-
-    let size = currentlySelectedSize;
-    console.log(size);
-
-    let iceChips = document.getElementById("iceChips").checked == true ? true : false;
-    console.log(iceChips);
+    let size = document.querySelector('input[name="size"]:checked').value;
 
     let selectedLiquidElements = getSelectedItems("liquidsCheckbox");
     let selectedLiquidsArray = getSelectedValues(selectedLiquidElements);
@@ -80,7 +172,7 @@ let placeOrder = () => {
     let selectedVeggiesArray = getSelectedValues(selectedVeggieElements);
 
     let selectedSpecialtyElements = getSelectedItems("specialtiesCheckbox");
-    let selectedFpecialtiesArray = getSelectedValues(selectedSpecialtyElements);
+    let selectedSpecialtiesArray = getSelectedValues(selectedSpecialtyElements);
 
     let selectedFillerElements = getSelectedItems("fillersCheckbox");
     let selectedFillersArray = getSelectedValues(selectedFillerElements);
@@ -92,23 +184,26 @@ let placeOrder = () => {
     let selectedGrainArray = getSelectedValues(selectedGrainElements);
 
 
-    console.log(`
-    selected Liquids: ${selectedLiquidsArray}
-    selected Fruits: ${selectedFruitsArray}
-    selected Protien:${selectedProtiensArray}
-    selected Veggies:${selectedVeggiesArray}
-    selected Specialty: ${selectedFpecialtiesArray}
-    selected Fillers:${selectedFillersArray}
-    selected Flavors:${selectedFlavorsArray}
-    selected Grains:${selectedGrainArray}
-    `);
+    window[objectName + orderNumber] = new smoothie(
+        size,
+        selectedLiquidsArray,
+        selectedFruitsArray,
+        selectedProtiensArray,
+        selectedVeggiesArray,
+        selectedSpecialtiesArray,
+        selectedFillersArray,
+        selectedFlavorsArray,
+        selectedGrainArray
+    );
+    window[objectName + orderNumber].outputDescription();
+    orderNumber++;
 };
 
 let getSelectedItems = (checkName) => {
     return document.querySelectorAll(`input[name="${checkName}"]:checked`);
 };
 
-getSelectedValues = (elementsArray) => {
+let getSelectedValues = (elementsArray) => {
     let tempArray = [];
     elementsArray.forEach((selectedOption) => {
         tempArray.push(selectedOption.value);
