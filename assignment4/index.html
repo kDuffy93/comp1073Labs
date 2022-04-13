@@ -15,18 +15,23 @@
     <section id="container">
         <section id="output">
             <div id="gridItem1">
-                <label>name</label>
-                <p></p>
+                <label>Name</label>
+                <p id="nameOutput"></p>
             </div>
             <div id="gridItem2">
-                <label>ingredients</label>
-                <p></p>
+                <label id="output2Title">Ingredients</label>
+                <p id="Output2">
+                </p>
             </div>
             <div id="gridItem3">
-                <label>instructions</label>
-                <p></p>
+                <label id="output3Title">Preperation Instructions</label>
+                <p id="Output3"></p>
             </div>
-            <img src="https://www.thecocktaildb.com/images/ingredients/whiskey.png" alt="" id="gridItem4">
+            <img src="" alt="" id="featureImage">
+            <img src="img/prev.png" alt="leftArrow" id="prevButton">
+            <img src="img/random.png" alt="Random Button" id="randomSubmit">
+            <img src="img/next.png" alt="RightArrow" id="nextButton">
+
         </section>
         <section id="input">
             <form>
@@ -41,19 +46,11 @@
                     <input type="button" id="firstLetterSubmit" value="Search">
                 </fieldset>
                 <fieldset>
-                    <legend>get ingredient Details by name</legend>
-                    <input type="text" id="ingredientDetailsInput">
-                    <input type="button" id="ingredientDetailsSubmit" value="Search">
-                </fieldset>
-                <fieldset>
                     <legend>search cocktails by ingredient</legend>
                     <input type="text" id="ingredientInput">
                     <input type="button" id="ingredientSubmit" value="Search">
                 </fieldset>
-                <fieldset>
-                    <legend>Lookup Random cocktail</legend>
-                    <input type="button" id="randomSubmit" value="Search">
-                </fieldset>
+
             </form>
         </section>
     </section>
