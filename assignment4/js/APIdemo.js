@@ -9,7 +9,9 @@ let getCocktailsByName = async() => {
         .then((response) => response.json())
         .then((data) => { return data });
 
-    console.log(data);
+    data.foreach(element => {
+        //output data to output pane
+    });
 
 
 
