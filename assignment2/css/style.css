@@ -4,6 +4,7 @@ section {
 
 figure img {
     max-width: 75vw;
+    max-height: 80vh;
     height: auto;
     aspect-ratio: 1200 / 800;
 }
@@ -14,9 +15,9 @@ ul {
 }
 
 ul img {
-    max-width: 240px;
+    width: 12vw;
     height: auto;
-    aspect-ratio: 240 / 160;
+    aspect-ratio: 240/ 160;
 }
 
 .inactive {
@@ -24,5 +25,11 @@ ul img {
 }
 
 h1 {
-    margin-left: 25vw;
+    width: 64.5vw;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 200%;
+    text-align: center;
 }
