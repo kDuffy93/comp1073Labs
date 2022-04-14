@@ -55,7 +55,6 @@ let updateOutput = () => {
             ingredients.push(workingDataSet[currentIndex][`strIngredient${i}`]);
         }
     }
-    // add foreach ingredient append hyperlink instead of add text
     Output2.replaceChildren();
     ingredients.forEach(ingredient => {
         let tempLink = document.createElement("p");
@@ -120,7 +119,7 @@ let getIngredients = async(evt) => {
     tempLink.classList.add("link");
     tempLink.textContent = "Back";
     tempLink.style = 'scale:200%'
-    Output2.appendChild(tempLink);
+    Output2.appendChild('tempLink');
     link = document.querySelectorAll(`.link`);
     link.forEach((element) => {
         element.addEventListener("click", updateOutput);
