@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interface Components Part Two</title>
+    <meta name="description" content="This lesson we will be looking at different ways to style headers, footers, asides, headings, and pull-quotes.">
+    <meta name="robots" content="nofollow, noindex">
+    <!-- add the Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <!-- add the fonts -->
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <!-- add the CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- add the jQuery link -->
+    <!-- jQuery link This must be placed before the link to our custom js ... https://releases.jquery.com/ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/custom-js.js"></script>
+</head>
+
+<body>
+    <!-- For our first header we will make a sticky header. We will also add just a bit of jQuery. -->
+    <header class="sticky-header">
+        <!-- add code -->
+        <div>
+            <a href="index.html"> <img src="./img/fake-logo.png"></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Example 1</a>
+                </li>
+                <li>
+                    <a href="example-2.html">Example 2</a>
+                </li>
+                <li>
+                    <a href="example-3.html">Example 3</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div>
+            <h1>Interface Components Part Two</h1>
+        </div>
+    </section>
+    <!-- our aside will contain icons. This kind of sidebar is common on websites/companies that rely on their social accounts a lot. -->
+    <aside>
+        <!-- add the code -->
+        <ul>
+            <li>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <section>
+            <h2>Title</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+        <section>
+            <h3>Title Two</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+    </main>
+    <footer class="footer-ex1">
+        <!-- add the code -->
+        <div class="ex1-top-footer">
+            <article>
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                </ul>
+            </article>
+            <aritcle>
+                <h5>News</h5>
+                <ul>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                </ul>
+            </aritcle>
+            <aritcle>
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                    <li><a href="">Link</a></li>
+                </ul>
+            </aritcle>
+            <article>
+                <h5>Contact</h5>
+                <p><i class="fa-solid fa-house"></i>123 someplace</p>
+                <p><i class="fa-solid fa-map-location-dot"></i>Barrie, On</p>
+                <p><i class="fa-solid fa-phone"></i>705-123-4567</p>
+                <img src="./img/fake-logo.png" alt="footer-image">
+            </article>
+        </div>
+        <div class="ex1-bottom-footer">
+            <p>2022 <i class="fa-solid fa-copyright"></i>Interface Design Part 2</p>
+        </div>
+    </footer>
+</body>
+
+</html>
