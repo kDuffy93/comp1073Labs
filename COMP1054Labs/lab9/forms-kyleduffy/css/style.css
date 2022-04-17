@@ -1,0 +1,303 @@
+/* General Styling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+p,
+a,
+li,
+figcaption,
+td,
+th,
+label,
+input,
+textarea {
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* header */
+
+header {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    background-color: #0e0e0e;
+}
+
+header div {
+    flex-grow: 1;
+    height: 100px;
+}
+
+header div a img {
+    height: 100%;
+    width: auto;
+}
+
+header nav ul {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+}
+
+header nav ul li {
+    padding: 0px 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* masthead */
+
+.masthead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    background: rgb(2, 46, 81);
+    background: radial-gradient(circle, rgba(2, 46, 81, 1) 66%, rgba(163, 180, 200, 1) 100%);
+}
+
+.masthead h1 {
+    font-size: 4.5em;
+    color: #fff;
+    text-shadow: 6px 3px 5px rgba(65, 65, 65, 0.6);
+}
+
+main section {
+    padding: 5%;
+}
+
+footer {
+    background-color: #0e0e0e;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* basic form */
+
+main section:nth-child(2) {
+    text-align: center;
+}
+
+main section:nth-child(2) h2 {
+    font-size: 3.5em;
+}
+
+main section:nth-child(2) form {
+    width: 100%;
+    height: auto;
+}
+
+main section:nth-child(2) form div {
+    margin-bottom: 15px;
+}
+
+main section:nth-child(2) form div input,
+main section:nth-child(2) form div textarea {
+    outline: none;
+    border: solid 2px #022e51;
+    border-radius: 10px;
+    transition: all .25s linear;
+}
+
+main section:nth-child(2) form div input:focus,
+main section:nth-child(2) form div textarea:focus {
+    border: solid 2px #b74803;
+    border-radius: 15px;
+}
+
+main section:nth-child(2) form div:nth-child(1) input {
+    width: 40%;
+    padding: 15px;
+}
+
+main section:nth-child(2) form div:nth-child(2) input {
+    width: 83%;
+    padding: 16px;
+}
+
+main section:nth-child(2) form div:nth-child(3) {
+    text-align: left;
+    padding: 0 8%;
+}
+
+main section:nth-child(2) form div:nth-child(4) textarea {
+    width: 83%;
+    padding: 17px;
+    height: 150px;
+}
+
+main section:nth-child(2) form div:nth-child(5) input {
+    padding: 15px 50px;
+    background-color: #002e51;
+    color: #fff;
+    border: solid 2px #002e51;
+    border-radius: 10px;
+    transition: all .25s linear;
+}
+
+main section:nth-child(2) form div:nth-child(5) input:hover {
+    background-color: #b74803;
+    border: solid 2px #b74803;
+    border-radius: 15px;
+}
+
+
+/* multi-step form */
+
+main section:nth-child(3) {
+    background-color: #002e51;
+    text-align: center;
+    color: #fff;
+}
+
+main section:nth-child(3) h3 {
+    font-size: 3.5em;
+}
+
+main section:nth-child(3) form {
+    margin: 100px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+    text-align: left;
+}
+
+main section:nth-child(3) form h4 {
+    font-size: 1.75em;
+}
+
+main section:nth-child(3) form input {
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    border: solid 3px #b74803;
+    border-radius: 15px;
+    transition: all .25s linear;
+}
+
+main section:nth-child(3) form input:focus {
+    border-radius: 25px;
+}
+
+main section:nth-child(3) form .tab {
+    display: none;
+}
+
+main section:nth-child(3) form .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #a3b4c8;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+main section:nth-child(3) form .step:active {
+    opacity: 1;
+}
+
+main section:nth-child(3) form .step.finish {
+    background-color: #b74803;
+}
+
+main section:nth-child(3) form button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #b74803;
+    border: solid 2px #b74803;
+    border-radius: 50%;
+    color: #fff;
+    transition: all .25s linear;
+}
+
+main section:nth-child(3) form button:hover {
+    background-color: #fff;
+    color: #b74803;
+}
+
+
+/* popup form */
+
+main section:nth-child(4) .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all .5s ease;
+}
+
+main section:nth-child(4) .modal-content {
+    background-color: #022e51;
+    margin: 15% auto;
+    padding: 20px;
+    border: solid 2px #b74803;
+    border-radius: 15px;
+    width: 50%;
+    height: auto;
+}
+
+main section:nth-child(4) .modal-content h4 {
+    color: #fff;
+    font-size: 1.75em;
+}
+
+main section:nth-child(4) .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+main section:nth-child(4) .close:hover,
+main section:nth-child(4) .close:focus {
+    color: #0e0e0e;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+main section:nth-child(4) .modal-content form {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+main section:nth-child(4) .modal-content form input,
+main section:nth-child(4) .modal-content form textarea {
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 15px;
+    outline: none;
+}
+
+main section:nth-child(4) .modal-content form input[type=submit] {
+    width: 40%;
+}
