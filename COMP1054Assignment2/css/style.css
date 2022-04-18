@@ -1,0 +1,270 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: "header header""main aside""footer footer";
+}
+
+p,
+a,
+li,
+th,
+td {
+    text-decoration: none;
+}
+
+header {
+    background: linear-gradient(180deg, #452381, #2e0f4e);
+    display: flex;
+    justify-content: center;
+    grid-area: header;
+    width: 100vw;
+    height: 15vh;
+    gap: 5vw;
+}
+
+header img,
+footer img {
+    width: auto;
+    height: 6vh;
+    align-self: center;
+}
+
+header nav {
+    justify-self: center;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5vw;
+}
+
+header nav ul li {
+    font-size: 125%;
+    font-family: 'Galindo', sans-serif;
+}
+
+header nav ul li a {
+    color: #f6f6f6;
+    font-size: calc(.25vmin + .5vw);
+}
+
+header input {
+    border: none;
+    border-radius: 15px;
+    height: 3vh;
+    line-height: 3vh;
+    text-align: center;
+    width: 11vw;
+    align-self: center;
+}
+
+main {
+    background-color: #452381;
+    color: #f8f8f8;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas: "img img nutritionFacts nutritionFacts""description description ingreditens ingreditens";
+    justify-content: space-between;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+main #imgSection {
+    grid-area: img;
+    text-align: center;
+    margin: 5% 5% 0 5%;
+}
+
+main #imgSection img {
+    width: 75%;
+    height: auto;
+}
+
+main #nutritionFacts {
+    grid-area: nutritionFacts;
+    margin: 5% 5% 0 5%;
+}
+
+#description {
+    grid-area: description;
+    margin: 5% 5% 0 5%;
+}
+
+#ingredientsFigure {
+    grid-area: ingreditens;
+    margin: 5% 5% 0 5%;
+}
+
+#ingredientsFigure p {
+    margin: 10% 5% 0 5%;
+}
+
+#description p {
+    margin: 5% 5%;
+}
+
+#description p span {
+    padding-top: 5%;
+    display: block;
+}
+
+figure {
+    border: 1px solid #000;
+    font-size: calc(.1vmin + calc(.8vw + .8vh));
+}
+
+figcaption {
+    text-align: center;
+    font-size: calc(.3vmin + calc(1vw + 1vh));
+}
+
+#nutritionFacts ul li {
+    width: 100%;
+    font-size: calc(.1vmin + calc(.7vw + .8vh));
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    gap: 15%;
+    border-bottom: solid 1px #0e0e0e;
+}
+
+#nutritionFacts ul li p:nth-of-type(2) {
+    margin-left: auto;
+    padding-right: 5%;
+}
+
+aside {
+    grid-area: aside;
+    height: 125vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+aside div {
+    background: linear-gradient(#452381, #720a77, #2e0f4e);
+    border-bottom: solid 2px #0f0f0f;
+    color: #f8f8f8;
+}
+
+aside div img {
+    width: 50%;
+    margin-left: 25%;
+}
+
+aside div h3 {
+    font-size: calc(1vmin + calc(1vw + .5vh));
+    text-align: center;
+}
+
+aside div p {
+    text-align: center;
+    font-size: calc(.75vmin + calc(.75vw + .5vh));
+}
+
+footer {
+    background-color: #7933c5;
+    color: #fff;
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(.5vmin + 1vw);
+}
+
+footer figure {
+    flex-shrink: 0.25;
+    margin: auto 5vw;
+}
+
+footer form {
+    align-self: center;
+}
+
+footer form fieldset fieldset:first-of-type {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "name1 name2""email1 email2""number1 number2";
+}
+
+footer form fieldset fieldset:first-of-type label:first-of-type {
+    grid-area: name1;
+}
+
+footer form fieldset fieldset:first-of-type input:first-of-type {
+    grid-area: name2;
+}
+
+footer form fieldset fieldset:first-of-type label:nth-of-type(2) {
+    grid-area: email1;
+}
+
+footer form fieldset fieldset:first-of-type input:nth-of-type(2) {
+    grid-area: email2;
+}
+
+footer form fieldset fieldset:first-of-type label:nth-of-type(3) {
+    grid-area: number1;
+}
+
+footer form fieldset fieldset:first-of-type input:nth-of-type(3) {
+    grid-area: number2;
+}
+
+footer form fieldset fieldset:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "department1 department2""text text";
+}
+
+footer form fieldset fieldset:nth-of-type(2) label:first-of-type {
+    grid-area: department1;
+}
+
+footer form fieldset fieldset:nth-of-type(2) select:first-of-type {
+    grid-area: department2;
+}
+
+footer form fieldset fieldset:nth-of-type(2) textarea:first-of-type {
+    grid-area: text;
+    width: 100%;
+}
+
+input[type=submit] {
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+    footer figure {
+        margin: 1%;
+    }
+    footer img {
+        width: 20vw;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer {
+        display: grid;
+        grid-template-areas: "logo section2""section1 section2"
+    }
+    footer figure {
+        grid-area: section1;
+    }
+    footer form {
+        grid-area: section2;
+    }
+    footer img {
+        grid-area: logo;
+    }
+}

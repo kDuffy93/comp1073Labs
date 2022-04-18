@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Kyle Duffy</title>
+    <meta name="description" content="Favourite Candy Page">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galindo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="./imgs/logo.png" alt="Cadbury Logo">
+        <nav>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Our Products</a></li>
+                <li><a href="#">Cocoa Life</a></li>
+                <li><a href="#">Our Community</a></li>
+                <li><a href="#">Personalise Your Bar</a></li>
+            </ul>
+
+        </nav>
+        <input type="text" placeholder="Search">
+    </header>
+    <main>
+        <div></div>
+        <div id="imgSection">
+            <h2>Mini eggs</h2>
+            <img src="./imgs/miniEggs.jpg" alt="A Piture of Cadbury's Mini Eggs">
+        </div>
+        <figure id="nutritionFacts">
+            <figcaption>Typical Values Per 100G</figcaption>
+            <ul>
+                <li>
+                    <p>Energy(KJ):</p>
+                    <p>2070 Kj</p>
+                </li>
+                <li>
+                    <p>Energy (Kcal):</p>
+                    <p>495 kcal</p>
+                </li>
+                <li>
+                    <p>Fats:</p>
+                    <p>215 g</p>
+                </li>
+                <li>
+                    <p>(which are saturated):</p>
+                    <p>13 g</p>
+                </li>
+                <li>
+                    <p>Carbohydrates:</p>
+                    <p>69.5 g</p>
+                </li>
+                <li>
+                    <p>(which are sugars):</p>
+                    <p>68.5 g</p>
+                </li>
+                <li>
+                    <p>Fibre:</p>
+                    <p>1.3 g</p>
+                </li>
+                <li>
+                    <p>Protien:</p>
+                    <p>4.6 g</p>
+                </li>
+                <li>
+                    <p>Salt:</p>
+                    <p>0.2 g</p>
+                </li>
+            </ul>
+        </figure>
+
+        <figure id="description">
+            <figcaption>Description</figcaption>
+            <p>Cadbury Canada is responsible for these magical mini eggs. First introduced in 1967, Made with our famously rich and creamy milk chocolate and covered in a crispy, colorful, candy shell. These have since become a classic. Our cocoa is sourceed
+                from Ghana in West Africa. The cocoa beans are fermented for several days with banana leaves, which helps develop the rich flavor.<span id="chokingHazard">CHOKING HAZARD: THIS PRODUCT IS NOT SUITABLE FOR CHILDREN UNDER 4.</span></p>
+        </figure>
+        <figure id="ingredientsFigure">
+            <figcaption>Ingredients</figcaption>
+            <p>Sugar, MILK, cocoa butter, cocoa mass, dried skimmed MILK, dried whey (from MILK), vegetable fats (palm, shea), MILK fat, emulsifiers (E442, E476), modified maize and tapioca starch, maltodextrin, colours (anthocyanins, beetroot red, paprika
+                extract, carotenes), flavourings.</p>
+        </figure>
+
+
+
+    </main>
+    <aside>
+        <a href="#">
+            <div>
+                <h3>Original (33g)</h3>
+                <img src="imgs/miniEggs33g.png" alt="">
+                <p>Buy Now $1.48</p>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <h3>King Size (62g)</h3>
+                <img src="imgs/miniEggs62g.png" alt="">
+                <p>Buy Now $1.69</p>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <h3>Snack Size (255g)</h3>
+                <img src="imgs/miniEggs255g.jpg" alt="">
+                <p>Buy Now $3.59</p>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <h3>Share Size (453g)</h3>
+                <img src="imgs/miniEggs453g.jpg" alt="">
+                <p>Buy Now $6.99</p>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <h3>Family Size (793g)</h3>
+                <img src="imgs/miniEggs793g.jpg" alt="">
+                <p>Buy Now $9.98</p>
+            </div>
+        </a>
+        <a href="#">
+            <div>
+                <h3>Mega Pack (943g)</h3>
+                <img src="imgs/miniEggs943g.jpg" alt="">
+                <p>Buy Now $12.99</p>
+            </div>
+        </a>
+    </aside>
+    <footer>
+        <img src="./imgs/logo.png" alt="Cadbury Logo">
+        <figure id="companyInformation">
+            <figcaption>Company Info</figcaption>
+            <p>Founded: 1824 in Birmingham, England </p>
+            <p>Founder: John Cadbury</p>
+            <p>Head Office: Uxbridge, London, England</p>
+            <p>84 Linden Rd, Birmingham B30 1JR.</p>
+        </figure>
+        <form id="contactForm">
+            <fieldset>
+                <legend>Contact Us</legend>
+                <fieldset>
+                    <legend>Your Info</legend>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email">
+                    <label for="number">Phone Number:</label>
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="number" placeholder="xxx-xxx-xxxx">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Details</legend>
+                    <label for="dpt">Which Department</label>
+                    <select id="dpt">
+                    <option value="Sales">Marketing and Sales</option>
+                    <option value="Sales">Research and Development</option>
+                    <option value="Sales">Customer Services</option>
+                    <option value="Sales">Human Resources</option>
+                    <option value="Sales">Administration and IT support</option>
+                </select>
+                    <textarea placeholder="Please Include a message..."></textarea>
+                </fieldset>
+                <input type="submit" value="Submit"></fieldset>
+        </form>
+    </footer>
+</body>
+
+</html>
