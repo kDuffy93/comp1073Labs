@@ -9,12 +9,25 @@ body {
     grid-template-areas: "header header""main aside""footer footer";
 }
 
+a {
+    text-decoration: none;
+}
+
 p,
-a,
 li,
 th,
-td {
+td,
+label {
     text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+h2,
+a,
+h3,
+figcaption,
+legend {
+    font-family: 'Galindo', sans-serif;
 }
 
 header {
@@ -48,7 +61,6 @@ header ul {
 
 header nav ul li {
     font-size: 125%;
-    font-family: 'Galindo', sans-serif;
 }
 
 header nav ul li a {
@@ -253,7 +265,7 @@ input[type=submit] {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     footer {
         display: grid;
         grid-template-areas: "logo section2""section1 section2"
