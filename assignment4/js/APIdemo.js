@@ -118,8 +118,8 @@ let getIngredients = async(evt) => {
     let tempLink = document.createElement("p");
     tempLink.classList.add("link");
     tempLink.textContent = "Back";
-    tempLink.style = 'scale:200%'
-    Output2.appendChild('tempLink');
+    tempLink.style = 'scale:200%';
+    Output2.appendChild(tempLink);
     link = document.querySelectorAll(`.link`);
     link.forEach((element) => {
         element.addEventListener("click", updateOutput);
