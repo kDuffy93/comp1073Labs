@@ -1,0 +1,316 @@
+    main>section {
+        border-bottom: 1px solid #221d1ddf;
+        min-height: 50px;
+    }
+    
+    p,
+    ul {
+        margin: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: "header""main""footer";
+    }
+    
+    header {
+        grid-area: header;
+    }
+    
+    a {
+        all: unset;
+    }
+    
+    footer {
+        grid-area: footer;
+    }
+    /* header styling */
+    /*first row */
+    
+    header>section {
+        display: flex;
+        height: 7.5vh;
+    }
+    
+    header>section:first-of-type {
+        background-color: #131921;
+    }
+    
+    header>section>div:first-of-type {
+        display: flex;
+        width: 17%;
+    }
+    
+    header>section>div:first-of-type a {
+        width: 50%;
+    }
+    
+    header>section>div:first-of-type a img {
+        max-width: 100%;
+        height: 7.5vh;
+    }
+    
+    header>section>div:first-of-type div {
+        color: #fff;
+        display: flex;
+        height: 80%;
+        width: 50%;
+        height: 85%;
+    }
+    
+    header>section>div:first-of-type div div:first-of-type {
+        width: 10%;
+        height: 100%;
+        align-items: flex-end;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 70% 30%;
+        grid-template-areas: "line1""line2";
+        align-items: flex-end;
+        width: 90%;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type p:first-of-type {
+        font-size: .75em;
+        grid-area: line1;
+        margin: 0;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type p:last-of-type {
+        font-size: 1em;
+        grid-area: line2;
+        margin: 0;
+    }
+    
+    header>section>div:nth-of-type(2) {
+        width: 60%;
+        padding: 0;
+        height: 100%;
+        align-self: center;
+    }
+    
+    header>section>div:nth-of-type(2) div {
+        border: 1px solid #000;
+        padding: 0;
+        height: 70%;
+        display: flex;
+    }
+    
+    header>section>div:nth-of-type(2) div select {
+        width: 15%;
+    }
+    
+    header>section>div:nth-of-type(2) div input[type=text] {
+        width: 80%;
+        padding: 0;
+    }
+    
+    header>section>div:nth-of-type(2) div div {
+        width: 5%;
+        padding: 0;
+        background-color: orange;
+        height: 100%;
+    }
+    
+    header>section>div:nth-of-type(2) div div i {
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+        text-align: center;
+        justify-content: center;
+        line-height: calc(7.5vh *.75)
+    }
+    /*2nd col */
+    /*3rd col */
+    
+    header>section div:nth-of-type(3) {
+        display: flex;
+        width: 25%;
+        text-align: center;
+        color: #fff;
+    }
+    
+    header>section div:nth-of-type(3) div:first-of-type {
+        align-self: center;
+        min-width: 15%;
+    }
+    
+    header>section div:nth-of-type(3) i:first-of-type {
+        align-self: flex-end;
+    }
+    
+    header>section div:nth-of-type(3) div:nth-of-type(2) {
+        min-width: 45%;
+        display: flex;
+        align-content: flex-end;
+    }
+    
+    header>section div:nth-of-type(3) div:nth-of-type(2) div {
+        width: 90%;
+        display: grid;
+        grid-template-rows: 40% 40%;
+        justify-content: center;
+    }
+    
+    header>section div:nth-of-type(3) div:nth-of-type(2) i {
+        align-self: flex-end;
+    }
+    
+    header>section div:nth-of-type(3) div:nth-of-type(3) div {
+        display: grid;
+        grid-template-rows: 40% 40%;
+        min-width: 80%;
+    }
+    
+    header>section div:nth-of-type(3) div:nth-of-type(4) {
+        min-width: 20%;
+        align-self: flex-end;
+    }
+    
+    header>section:nth-of-type(2) {
+        background-color: #232f3e;
+        color: #fff;
+    }
+    
+    header section:nth-of-type(2) {
+        height: 5vh;
+    }
+    
+    header section:nth-of-type(2) ul {
+        align-items: center;
+        display: flex;
+        gap: 1.5%;
+        min-width: 80%;
+    }
+    
+    header section:nth-of-type(2) ul li {
+        list-style: none;
+    }
+    
+    header section:nth-of-type(2) p {
+        width: 20%;
+        text-align: right;
+        padding-right: 1%;
+    }
+    
+    header section:nth-of-type(2) p a {
+        font-size: 1.5em;
+        flex-grow: 2;
+    }
+    /* main styling */
+    
+    main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 10% repeat(5, 1fr) 10%;
+        grid-template-areas: ". ad ad ad ad ad ."". product product product product product ."". questions questions questions . . ."". relatedProducts relatedProducts relatedProducts relatedProducts relatedProducts  ."". productDetails productDetails productDetails productDetails productDetails ."". productDescription productDescription productDescription productDescription productDescription ."". productQnA productQnA productQnA productQnA productQnA ."". reviews reviews reviews reviews reviews ."". byBrand byBrand byBrand byBrand byBrand .""suggested suggested suggested suggested suggested suggested suggested""history history history history history history history""b2t b2t b2t b2t b2t b2t b2t"
+    }
+    
+    #adSection {
+        grid-area: ad;
+    }
+    
+    #productSection {
+        grid-area: product;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "image image options options atc";
+        height: 100%;
+    }
+    
+    #productImages {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-area: image;
+        grid-template-areas: "thumbnails image image image image   image""thumbnails image image image image   image""thumbnails image image image image   image""thumbnails image image image image   image"". . cap cap . ."
+    }
+    
+    #productImages ul {
+        grid-area: thumbnails;
+    }
+    
+    #productImages ul li {
+        margin: 10%;
+    }
+    
+    #productImages ul li img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #000;
+    }
+    
+    .inactive {
+        border: none !important;
+        opacity: 50%;
+    }
+    
+    #productImages figure {
+        grid-area: image;
+    }
+    
+    #productImages figure img {
+        max-width: 100%;
+        height: inherit;
+    }
+    
+    #productImages p {
+        grid-area: cap;
+        text-align: center;
+    }
+    
+    #OptionsSection {
+        grid-area: options
+    }
+    
+    #a2c {
+        grid-area: atc
+    }
+    
+    #questions {
+        grid-area: questions;
+    }
+    
+    #relatedProducts {
+        grid-area: relatedProducts;
+    }
+    
+    #productDetails {
+        grid-area: productDetails;
+    }
+    
+    #productDescription {
+        grid-area: productDescription;
+    }
+    
+    #QnA {
+        grid-area: productQnA;
+    }
+    
+    #reviews {
+        grid-area: reviews;
+    }
+    
+    #moreByBrand {
+        grid-area: byBrand;
+    }
+    
+    #suggested {
+        grid-area: suggested;
+    }
+    
+    #history {
+        grid-area: history;
+    }
+    
+    #b2t {
+        grid-area: b2t;
+    }
