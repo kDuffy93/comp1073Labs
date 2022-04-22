@@ -137,3 +137,6 @@ let getIngredients = async(evt) => {
     Output3.textContent = data.ingredients[0].strDescription == null ? "No Description Available" : data.ingredients[0].strDescription;
     Output3.appendChild(div);
 };
+
+
+document.getElementById("randomSubmit").click();
