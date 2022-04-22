@@ -368,6 +368,11 @@ main {
     margin-bottom: 5%;
 }
 
+#OptionsSection div:nth-of-type(4) div:nth-of-type(2) {
+    overflow: hidden;
+    height: 35vh;
+}
+
 #OptionsSection div:nth-of-type(4) div {
     display: flex;
     flex-wrap: wrap;
