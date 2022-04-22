@@ -147,13 +147,17 @@
     }
     
     header>section div:nth-of-type(3) a:first-of-type {
-        height: 75%;
+        height: 100%;
         align-self: center;
         min-width: 15%;
+        display: flex;
+        gap: 5%;
+        justify-content: center;
+        justify-self: center;
     }
     
-    header>section div:nth-of-type(3) i:first-of-type {
-        align-self: flex-end;
+    header>section div:nth-of-type(3) a:first-of-type i {
+        align-self: center;
     }
     
     header>section div:nth-of-type(3) a:nth-of-type(2) {
@@ -166,6 +170,7 @@
     header>section div:nth-of-type(3) a:nth-of-type(3) div {
         width: 90%;
         text-align: right;
+        align-self: flex-end;
     }
     
     header>section div:nth-of-type(3) a:nth-of-type(2) i,
@@ -203,22 +208,22 @@
     header section:nth-of-type(2) ul {
         align-items: center;
         display: flex;
-        gap: 1.5%;
         min-width: 80%;
+        justify-content: space-evenly;
     }
     
     header section:nth-of-type(2) ul li {
         list-style: none;
     }
     
-    header section:nth-of-type(2) p {
+    header section:nth-of-type(2) ul~a:last-of-type {
         align-self: center;
         width: 20%;
         text-align: right;
         padding-right: 1%;
     }
     
-    header section:nth-of-type(2) p a {
+    header section:nth-of-type(2) a p {
         font-size: 1.5em;
         flex-grow: 2;
     }
@@ -244,6 +249,7 @@
     }
     
     #productImages {
+        height: fit-content;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-area: image;
@@ -271,11 +277,12 @@
     
     #productImages figure {
         grid-area: image;
+        height: fit-content;
     }
     
     #productImages figure img {
         max-width: 100%;
-        height: inherit;
+        height: auto;
     }
     
     #productImages p {
@@ -285,6 +292,10 @@
     
     #OptionsSection {
         grid-area: options
+    }
+    
+    #OptionsSection a {
+        color: #3077cd;
     }
     
     #a2c {
