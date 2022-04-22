@@ -1,469 +1,524 @@
-main>section {
-    border-bottom: 1px solid #221d1ddf;
-    min-height: 50px;
-}
-
-p,
-ul {
-    margin: 0;
-}
-
-li {
-    list-style: none;
-}
-
-body {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-areas: "header""main""footer";
-}
-
-header {
-    grid-area: header;
-}
-
-a {
-    color: #fff;
-    text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0);
-}
-
-a:hover {
-    text-decoration: none;
-    cursor: pointer;
-    border: 1px solid #fff;
-}
-
-footer {
-    grid-area: footer;
-}
-
-
-/* header styling */
-
-
-/*first row */
-
-header>section {
-    display: flex;
-    height: 7.5vh;
-}
-
-header>section:first-of-type {
-    background-color: #131921;
-}
-
-header>section>div:first-of-type {
-    display: flex;
-    width: 17%;
-}
-
-header>section>div:first-of-type a {
-    width: 50%;
-}
-
-header>section>div:first-of-type a img {
-    max-width: 100%;
-    height: 7.5vh;
-}
-
-header>section>div:first-of-type div {
-    color: #fff;
-    display: flex;
-    height: 80%;
-    width: 50%;
-    height: 85%;
-}
-
-header>section>div:first-of-type div div:first-of-type {
-    width: 10%;
-    height: 100%;
-    align-items: flex-end;
-    font-size: 1vw;
-}
-
-header>section>div:first-of-type div div:last-of-type {
-    height: 100%;
-    display: grid;
-    grid-template-rows: 60% 40%;
-    grid-template-areas: "line1""line2";
-    align-items: flex-end;
-    width: 90%;
-}
-
-header>section>div:first-of-type div div:last-of-type p:first-of-type {
-    font-size: calc(.1vmin + .65vw);
-    grid-area: line1;
-    margin: 0;
-}
-
-header>section>div:first-of-type div div:last-of-type p:last-of-type {
-    font-size: calc(.1vmin + .9vw);
-    grid-area: line2;
-    margin-top: 0;
-}
-
-header>section>div:nth-of-type(2) {
-    width: 60%;
-    padding: 0;
-    height: 100%;
-    align-self: center;
-}
-
-header>section>div:nth-of-type(2) div {
-    border: 1px solid #000;
-    padding: 0;
-    height: 70%;
-    display: flex;
-}
-
-header>section>div:nth-of-type(2) div select {
-    width: 15%;
-}
-
-header>section>div:nth-of-type(2) div input[type=text] {
-    width: 80%;
-    padding: 0;
-}
-
-header>section>div:nth-of-type(2) div div {
-    width: 5%;
-    padding: 0;
-    background-color: orange;
-    height: 100%;
-}
-
-header>section>div:nth-of-type(2) div div i {
-    width: 100%;
-    height: 100%;
-    font-size: 1.5em;
-    text-align: center;
-    justify-content: center;
-    line-height: calc(7.5vh *.75)
-}
-
-
-/*2nd col */
-
-
-/*3rd col */
-
-header>section div:nth-of-type(3) {
-    display: flex;
-    width: 25%;
-    text-align: center;
-    color: #fff;
-}
-
-header>section div:nth-of-type(3) a:first-of-type {
-    height: 100%;
-    align-self: center;
-    min-width: 15%;
-    display: flex;
-    gap: 5%;
-    justify-content: center;
-    justify-self: center;
-    font-size: calc(.75vmin + .9vw);
-}
-
-header>section div:nth-of-type(3) a:first-of-type i {
-    align-self: center;
-}
-
-header>section div:nth-of-type(3) a:first-of-type i:last-of-type {
-    font-size: calc(.25vmin + .5vw);
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(2) {
-    min-width: 45%;
-    display: flex;
-    align-content: flex-end;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(2) div,
-header>section div:nth-of-type(3) a:nth-of-type(3) div {
-    width: 90%;
-    text-align: right;
-    align-self: center
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(2) div p:first-of-type,
-header>section div:nth-of-type(3) a:nth-of-type(3) div p:first-of-type {
-    font-size: calc(.25vmin + .5vw);
-    text-align: center;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(2) div p:last-of-type,
-header>section div:nth-of-type(3) a:nth-of-type(3) div p:last-of-type {
-    font-size: calc(.25vmin + .75vw);
-    text-align: right;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(2) i,
-header>section div:nth-of-type(3) a:nth-of-type(3) i {
-    align-self: flex-end;
-    padding: 0 5%;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(3) {
-    min-width: 20%;
-    display: flex;
-    align-content: flex-end;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(3) div {
-    display: grid;
-    grid-template-rows: 40% 40%;
-    min-width: 80%;
-}
-
-header>section div:nth-of-type(3) a:nth-of-type(4) {
-    min-width: 20%;
-    align-self: flex-end;
-}
-
-header>section:nth-of-type(2) {
-    background-color: #232f3e;
-    color: #fff;
-    font-size: calc(.25vmin + .75vw);
-}
-
-header section:nth-of-type(2) {
-    height: 5vh;
-}
-
-header section:nth-of-type(2) ul {
-    align-items: center;
-    display: flex;
-    min-width: 80%;
-    justify-content: space-evenly;
-}
-
-header section:nth-of-type(2) ul li {
-    list-style: none;
-}
-
-header section:nth-of-type(2) ul~a:last-of-type {
-    align-self: center;
-    width: 20%;
-    text-align: right;
-    padding-right: 1%;
-}
-
-header section:nth-of-type(2) a p {
-    font-size: 1.5em;
-    flex-grow: 2;
-}
-
-
-/* main styling */
-
-main {
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 10% repeat(5, 1fr) 10%;
-    grid-template-areas: ". ad ad ad ad ad ."". product product product product product ."". questions questions questions . . ."". relatedProducts relatedProducts relatedProducts relatedProducts relatedProducts  ."". productDetails productDetails productDetails productDetails productDetails ."". productDescription productDescription productDescription productDescription productDescription ."". productQnA productQnA productQnA productQnA productQnA ."". reviews reviews reviews reviews reviews ."". byBrand byBrand byBrand byBrand byBrand .""suggested suggested suggested suggested suggested suggested suggested""history history history history history history history""b2t b2t b2t b2t b2t b2t b2t"
-}
-
-#adSection {
-    grid-area: ad;
-}
-
-#productSection {
-    grid-area: product;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: "image image options options atc";
-    height: 100%;
-}
-
-#productImages {
-    height: fit-content;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-area: image;
-    grid-template-areas: "thumbnails image image image image   image""thumbnails image image image image   image""thumbnails image image image image   image""thumbnails image image image image   image"". . cap cap . ."
-}
-
-#productImages ul {
-    grid-area: thumbnails;
-}
-
-#productImages ul li {
-    margin: 10%;
-}
-
-#productImages ul li img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #000;
-}
-
-.inactive {
-    border: none !important;
-    opacity: 50%;
-}
-
-#productImages figure {
-    grid-area: image;
-    height: fit-content;
-}
-
-#productImages figure img {
-    max-width: 100%;
-    height: auto;
-}
-
-#productImages p {
-    grid-area: cap;
-    text-align: center;
-}
-
-#OptionsSection {
-    grid-area: options
-}
-
-#OptionsSection a {
-    color: #3077cd;
-}
-
-#OptionsSection>div {
-    border-bottom: 1px solid #000;
-    margin-bottom: 3vh;
-}
-
-#OptionsSection div:nth-of-type(3) div:nth-of-type(2) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 5%;
-    height: 35vh;
-    overflow: hidden;
-}
-
-#OptionsSection div:nth-of-type(3) div:nth-of-type(1),
-#OptionsSection div:nth-of-type(3) div:nth-of-type(3),
-#OptionsSection div:nth-of-type(4) div:nth-of-type(1),
-#OptionsSection div:nth-of-type(4) div:nth-of-type(3) {
-    display: flex;
-}
-
-#OptionsSection div:nth-of-type(4) div:nth-of-type(3) i {
-    align-self: center;
-}
-
-#OptionsSection div:nth-of-type(3) div:nth-of-type(1),
-#OptionsSection div:nth-of-type(3) div:nth-of-type(3) {
-    text-align: center;
-}
-
-#OptionsSection div:nth-of-type(3) div:nth-of-type(2) img {
-    min-width: 40px;
-    max-width: 100px;
-    flex-basis: 15%;
-    width: 10%;
-    height: auto;
-    border: 1px solid #000;
-    margin-bottom: 5%;
-}
-
-#OptionsSection div:nth-of-type(4) div:nth-of-type(2) {
-    overflow: hidden;
-    height: 35vh;
-}
-
-#OptionsSection div:nth-of-type(4) div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 5%;
-}
-
-#OptionsSection div:nth-of-type(4) div p {
-    min-width: 40px;
-    max-width: 100px;
-    flex-basis: 15%;
-    width: 10%;
-    height: 75px;
-    border: 1px solid #000;
-    margin-bottom: 5%;
-    text-align: center;
-    line-height: 75px;
-}
-
-#OptionsSection div:nth-of-type(4) div p:last-of-type {
-    margin-left: 5%;
-}
-
-#OptionsSection div:nth-of-type(6) div {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "img title title""img price .""img rating rating""img stock .";
-    justify-content: flex-start;
-}
-
-#OptionsSection div:nth-of-type(6) div img {
-    grid-area: img;
-}
-
-#OptionsSection div:nth-of-type(6) div a {
-    grid-area: title;
-}
-
-#OptionsSection div:nth-of-type(6) div p:first-of-type {
-    grid-area: price;
-}
-
-#OptionsSection div:nth-of-type(6) div div {
-    grid-area: rating;
-}
-
-#OptionsSection div:nth-of-type(6) div p:last-of-type {
-    grid-area: stock;
-}
-
-#a2c {
-    grid-area: atc
-}
-
-#questions {
-    grid-area: questions;
-}
-
-#relatedProducts {
-    grid-area: relatedProducts;
-}
-
-#productDetails {
-    grid-area: productDetails;
-}
-
-#productDescription {
-    grid-area: productDescription;
-}
-
-#QnA {
-    grid-area: productQnA;
-}
-
-#reviews {
-    grid-area: reviews;
-}
-
-#moreByBrand {
-    grid-area: byBrand;
-}
-
-#suggested {
-    grid-area: suggested;
-}
-
-#history {
-    grid-area: history;
-}
-
-#b2t {
-    grid-area: b2t;
-}
+    main>section {
+        border-bottom: 1px solid #221d1ddf;
+        min-height: 50px;
+    }
+    
+    p,
+    ul {
+        margin: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    body {
+        font-size: 14px;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: "header""main""footer";
+    }
+    
+    header {
+        grid-area: header;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid rgba(0, 0, 0, 0);
+    }
+    
+    a:hover {
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    
+    footer {
+        grid-area: footer;
+    }
+    
+    h2,
+    h3,
+    h4 {
+        margin: 0;
+    }
+    /* header styling */
+    /*first row */
+    
+    header>section {
+        display: flex;
+        height: 7.5vh;
+    }
+    
+    header>section:first-of-type {
+        background-color: #131921;
+    }
+    
+    header>section>div:first-of-type {
+        display: flex;
+        width: 17%;
+    }
+    
+    header>section>div:first-of-type a {
+        width: 50%;
+    }
+    
+    header>section>div:first-of-type a img {
+        max-width: 100%;
+        height: 7.5vh;
+    }
+    
+    header>section>div:first-of-type div {
+        color: #fff;
+        display: flex;
+        height: 80%;
+        width: 50%;
+        height: 85%;
+    }
+    
+    header>section>div:first-of-type div div:first-of-type {
+        width: 10%;
+        height: 100%;
+        align-items: flex-end;
+        font-size: 1vw;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 60% 40%;
+        grid-template-areas: "line1""line2";
+        align-items: flex-end;
+        width: 90%;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type p:first-of-type {
+        font-size: calc(.1vmin + .65vw);
+        grid-area: line1;
+        margin: 0;
+    }
+    
+    header>section>div:first-of-type div div:last-of-type p:last-of-type {
+        font-size: calc(.1vmin + .9vw);
+        grid-area: line2;
+        margin-top: 0;
+    }
+    
+    header>section>div:nth-of-type(2) {
+        width: 60%;
+        padding: 0;
+        height: 100%;
+        align-self: center;
+    }
+    
+    header>section>div:nth-of-type(2) div {
+        border: 1px solid #000;
+        padding: 0;
+        height: 70%;
+        display: flex;
+    }
+    
+    header>section>div:nth-of-type(2) div select {
+        width: 15%;
+    }
+    
+    header>section>div:nth-of-type(2) div input[type=text] {
+        width: 80%;
+        padding: 0;
+    }
+    
+    header>section>div:nth-of-type(2) div div {
+        width: 5%;
+        padding: 0;
+        background-color: orange;
+        height: 100%;
+    }
+    
+    header>section>div:nth-of-type(2) div div i {
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+        text-align: center;
+        justify-content: center;
+        line-height: calc(7.5vh *.75)
+    }
+    /*2nd col */
+    /*3rd col */
+    
+    header>section div:nth-of-type(3) {
+        display: flex;
+        width: 25%;
+        text-align: center;
+        color: #fff;
+    }
+    
+    header>section div:nth-of-type(3) a:first-of-type {
+        height: 100%;
+        align-self: center;
+        min-width: 15%;
+        display: flex;
+        gap: 5%;
+        justify-content: center;
+        justify-self: center;
+        font-size: calc(.75vmin + .9vw);
+    }
+    
+    header>section div:nth-of-type(3) a:first-of-type i {
+        align-self: center;
+    }
+    
+    header>section div:nth-of-type(3) a:first-of-type i:last-of-type {
+        font-size: calc(.25vmin + .5vw);
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(2) {
+        min-width: 45%;
+        display: flex;
+        align-content: flex-end;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(2) div,
+    header>section div:nth-of-type(3) a:nth-of-type(3) div {
+        width: 90%;
+        text-align: right;
+        align-self: center
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(2) div p:first-of-type,
+    header>section div:nth-of-type(3) a:nth-of-type(3) div p:first-of-type {
+        font-size: calc(.25vmin + .5vw);
+        text-align: center;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(2) div p:last-of-type,
+    header>section div:nth-of-type(3) a:nth-of-type(3) div p:last-of-type {
+        font-size: calc(.25vmin + .75vw);
+        text-align: right;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(2) i,
+    header>section div:nth-of-type(3) a:nth-of-type(3) i {
+        align-self: flex-end;
+        padding: 0 5%;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(3) {
+        min-width: 20%;
+        display: flex;
+        align-content: flex-end;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(3) div {
+        display: grid;
+        grid-template-rows: 40% 40%;
+        min-width: 80%;
+    }
+    
+    header>section div:nth-of-type(3) a:nth-of-type(4) {
+        min-width: 20%;
+        align-self: flex-end;
+    }
+    
+    header>section:nth-of-type(2) {
+        background-color: #232f3e;
+        color: #fff;
+        font-size: calc(.25vmin + .75vw);
+    }
+    
+    header section:nth-of-type(2) {
+        height: 5vh;
+    }
+    
+    header section:nth-of-type(2) ul {
+        align-items: center;
+        display: flex;
+        min-width: 80%;
+        justify-content: space-evenly;
+    }
+    
+    header section:nth-of-type(2) ul li {
+        list-style: none;
+    }
+    
+    header section:nth-of-type(2) ul~a:last-of-type {
+        align-self: center;
+        width: 20%;
+        text-align: right;
+        padding-right: 1%;
+    }
+    
+    header section:nth-of-type(2) a p {
+        font-size: 1.5em;
+        flex-grow: 2;
+    }
+    /* main styling */
+    
+    main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 10% repeat(5, 1fr) 10%;
+        grid-template-areas: ". ad ad ad ad ad ."". product product product product product ."". questions questions questions . . ."". relatedProducts relatedProducts relatedProducts relatedProducts relatedProducts  ."". productDetails productDetails productDetails productDetails productDetails ."". productDescription productDescription productDescription productDescription productDescription ."". productQnA productQnA productQnA productQnA productQnA ."". reviews reviews reviews reviews reviews ."". byBrand byBrand byBrand byBrand byBrand .""suggested suggested suggested suggested suggested suggested suggested""history history history history history history history""b2t b2t b2t b2t b2t b2t b2t"
+    }
+    
+    #adSection {
+        grid-area: ad;
+    }
+    
+    #productSection {
+        grid-area: product;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "image image options options atc";
+        height: 100%;
+    }
+    
+    #productImages {
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-area: image;
+        grid-template-areas: "thumbnails image image image image image""thumbnails image image image image image""thumbnails image image image image image""thumbnails image image image image image"". . cap cap . ."
+    }
+    
+    #productImages ul {
+        grid-area: thumbnails;
+        padding: 0;
+    }
+    
+    #productImages ul li {}
+    
+    #productImages ul li img {
+        min-width: 70%;
+        height: auto;
+        border: 1px solid #000;
+    }
+    
+    .inactive {
+        border: none !important;
+        opacity: 50%;
+    }
+    
+    #productImages figure {
+        grid-area: image;
+        height: fit-content;
+        min-width: 50%;
+    }
+    
+    #productImages figure img {
+        min-width: 100px;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    #productImages p {
+        grid-area: cap;
+        text-align: center;
+    }
+    
+    #OptionsSection {
+        grid-area: options
+    }
+    
+    #OptionsSection a {
+        color: #3077cd;
+    }
+    
+    #OptionsSection>div {
+        border-bottom: 1px solid #000;
+        margin-bottom: 3vh;
+    }
+    
+    #OptionsSection,
+    #productImages {
+        padding-top: 5%;
+    }
+    
+    #OptionsSection div:first-of-type div i {
+        color: gold;
+        font-size: 12.5px;
+        height: 12.5px;
+    }
+    
+    #downArrow {
+        color: gray !important;
+        font-size: 8px !important;
+    }
+    
+    .bestSellerIcon {
+        background-color: #C45500;
+        color: #fff;
+        font-size: x-small;
+        padding: 1px 8px 0 4px;
+        clip-path: polygon(100% 0, 92% 49%, 100% 100%, 0 100%, 0 0);
+    }
+    
+    #OptionsSection div:nth-of-type(2) div {
+        padding: 5px 0;
+    }
+    
+    #OptionsSection div:nth-of-type(2) div:first-of-type {
+        display: flex;
+    }
+    
+    #OptionsSection div:nth-of-type(2) div:first-of-type p {
+        color: #B12704;
+    }
+    
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(2) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 5%;
+        height: 35vh;
+        overflow: hidden;
+    }
+    
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(1),
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(3),
+    #OptionsSection div:nth-of-type(4) div:nth-of-type(1),
+    #OptionsSection div:nth-of-type(4) div:nth-of-type(3) {
+        display: flex;
+        font-size: 14px;
+    }
+    
+    #OptionsSection div:nth-of-type(4) div:nth-of-type(3) i,
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(3) i {
+        align-self: center;
+        font-size: 8px;
+    }
+    
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(1),
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(3) {
+        text-align: center;
+    }
+    
+    #OptionsSection div:nth-of-type(3) div:nth-of-type(2) img {
+        min-width: 40px;
+        max-width: 100px;
+        flex-basis: 15%;
+        width: 10%;
+        height: auto;
+        border: 1px solid #000;
+        margin-bottom: 5%;
+    }
+    
+    #OptionsSection div:nth-of-type(4) div:nth-of-type(2) {
+        overflow: hidden;
+        height: 30vh;
+    }
+    
+    #OptionsSection div:nth-of-type(4) div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 5%;
+    }
+    
+    #OptionsSection div:nth-of-type(4) div p {
+        min-width: 90px;
+        flex-basis: 15%;
+        height: 50px;
+        border: 1px solid #000;
+        margin-bottom: 5%;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    #OptionsSection div:nth-of-type(4) div p:last-of-type {}
+    
+    #OptionsSection div:nth-of-type(5) a {
+        font-size: 70%;
+    }
+    
+    #OptionsSection div:nth-of-type(5) ul li,
+    #OptionsSection div:nth-of-type(5) p {
+        list-style: lower-latin;
+        font-size: 80%;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div {
+        width: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "img title title""img price .""img rating rating""img stock .";
+        justify-content: flex-start;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div img {
+        grid-area: img;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div a {
+        grid-area: title;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div p:first-of-type {
+        grid-area: price;
+        color: #B12704;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div div {
+        grid-area: rating;
+        display: flex;
+        font-size: small;
+        gap: 4%;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div div i {
+        color: rgb(255, 217, 0);
+        width: 10px;
+        height: 10px;
+    }
+    
+    #OptionsSection div:nth-of-type(6) div p:last-of-type {
+        grid-area: stock;
+        color: #007600
+    }
+    
+    #a2c {
+        grid-area: atc
+    }
+    
+    #questions {
+        grid-area: questions;
+    }
+    
+    #relatedProducts {
+        grid-area: relatedProducts;
+    }
+    
+    #productDetails {
+        grid-area: productDetails;
+    }
+    
+    #productDescription {
+        grid-area: productDescription;
+    }
+    
+    #QnA {
+        grid-area: productQnA;
+    }
+    
+    #reviews {
+        grid-area: reviews;
+    }
+    
+    #moreByBrand {
+        grid-area: byBrand;
+    }
+    
+    #suggested {
+        grid-area: suggested;
+    }
+    
+    #history {
+        grid-area: history;
+    }
+    
+    #b2t {
+        grid-area: b2t;
+    }
