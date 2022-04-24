@@ -103,3 +103,20 @@ label {
     text-decoration: underline overline;
     justify-content: center;
 }
+
+.link:hover {
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.selected {
+    color: #02ff04;
+}
+
+#prevButton {
+    opacity: 0;
+}
+
+span {
+    padding-left: 25%;
+}

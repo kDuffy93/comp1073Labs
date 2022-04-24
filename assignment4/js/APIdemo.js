@@ -7,12 +7,15 @@ const output2Title = document.getElementById("output2Title");
 const Output3 = document.getElementById("Output3");
 const output3Title = document.getElementById("output3Title");
 const featureImage = document.getElementById("featureImage");
+const currentList = document.getElementById("currentList");
 
-workingDataSet = [];
+let workingDataSet = [];
 let currentIndex = 0;
 
 
 let getCocktailsBy = async(evt) => {
+    clearList();
+
     workingDataSet = [];
     currentIndex = 0;
     let endpoint;
@@ -29,26 +32,71 @@ let getCocktailsBy = async(evt) => {
         endpoint = "filter.php?i=";
         query = ingredientInput.value;
     }
+    if (evt.target.className.startsWith("l")) {
+        evt.preventDefault();
+        endpoint = "filter.php?i=";
+        query = evt.target.textContent;
+    }
     if (evt.target.id.startsWith("r")) {
         endpoint = "random.php";
         query = "";
     }
 
-    let data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`)
+    let dataSet = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`)
         .then((response) => response.json())
         .then((data) => {
             data.drinks.forEach(element => {
                 workingDataSet.push(element);
+                let templi = document.createElement("li");
+                templi.textContent = element.strDrink;
+                currentList.appendChild(templi);
             });;
             return data;
         });
 
+
+    if (evt.target.id.startsWith("i") || evt.target.className.startsWith("l")) {
+        if (evt.target.className.startsWith("l")) { ingredientInput.value = evt.target.textContent };
+        endpoint = "lookup.php?i=";
+        console.log();
+        workingDataSet = [];
+        let i = 0;
+        for (const element of dataSet.drinks) {
+            console.log(element);
+            query = element.idDrink;
+
+            await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    data.drinks.forEach((element) => {
+                        workingDataSet.push(element);
+                    });
+                    return data;
+                });
+            if (i == 0) {
+                updateOutput();
+                i++;
+            }
+        }
+        i = 0;
+
+    }
     updateOutput();
+};
+let clearList = () => {
+    currentList.replaceChildren();
 };
 
 
 let updateOutput = () => {
+    nextButton.style.opacity = "1";
+    prevButton.style.opacity = "1";
     nameOutput.textContent = workingDataSet[currentIndex].strDrink;
+    let lis = document.querySelectorAll("li")
+    for (const element of lis) {
+        element.classList.remove("selected");
+    }
+    document.querySelector(`li:nth-of-type(${currentIndex+1})`).classList.add("selected");
     let ingredients = [];
     for (let i = 1; i < 16; i++) {
         if (workingDataSet[currentIndex][`strIngredient${i}`] != null) {
@@ -60,16 +108,28 @@ let updateOutput = () => {
         let tempLink = document.createElement("p");
         tempLink.classList.add("link");
         tempLink.textContent = ingredient;
+        tempLink.title = `Left Click to view ingreditent information. || Right click to search cocktails by the clicked ingredient.`;
         Output2.appendChild(tempLink);
 
     });
     output3Title.textContent = "Preperation Instructions";
     Output3.textContent = workingDataSet[currentIndex].strInstructions;
     featureImage.src = workingDataSet[currentIndex].strDrinkThumb;
-    link = document.querySelectorAll(`.link`);
-    link.forEach((element) => {
+    links = document.querySelectorAll(`.link`);
+    links.forEach((element) => {
         element.addEventListener("click", getIngredients);
+        element.addEventListener("contextmenu", getCocktailsBy);
     });
+    if (currentIndex == workingDataSet.length - 1 && currentIndex != 0) {
+        nextButton.style.opacity = "0";
+
+    }
+    if (currentIndex == 0) {
+        prevButton.style.opacity = "0";
+    }
+
+
+
 };
 
 
@@ -84,10 +144,13 @@ document.getElementById("randomSubmit").addEventListener("click", getCocktailsBy
 // get next and prev buttons and add event listners
 let nextButton = document.getElementById("nextButton");
 nextButton.addEventListener("click", () => {
+
     if (currentIndex < workingDataSet.length - 1) {
         currentIndex++;
         updateOutput();
+
     }
+
 
 });
 let prevButton = document.getElementById("prevButton");
@@ -96,13 +159,13 @@ prevButton.addEventListener("click", () => {
         currentIndex--;
         updateOutput();
     }
+
 });
 
 
 // build get ingredients to change output for ingredients and do the search. 
 
 let getIngredients = async(evt) => {
-
     let query = evt.target.textContent;
     let endpoint = "https://www.thecocktaildb.com/api/json/v1/1/search.php?i=";
 
