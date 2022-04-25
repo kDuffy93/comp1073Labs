@@ -8,21 +8,25 @@ const Output3 = document.getElementById("Output3");
 const output3Title = document.getElementById("output3Title");
 const featureImage = document.getElementById("featureImage");
 const currentList = document.getElementById("currentList");
-
 let workingDataSet = [];
 let currentIndex = 0;
+let controller;
 
 
-let getCocktailsBy = async(evt) => {
-    clearList();
 
+let getCocktailsBy = async(evt, newController) => {
+    if (controller) controller.abort();
+    controller = new AbortController();
+    const signal = controller.signal;
+    currentList.replaceChildren();
     workingDataSet = [];
     currentIndex = 0;
     let endpoint;
     let query;
+    // check which button was pressed and set the endpoint and query accordingly.
     if (evt.target.id.startsWith("n")) {
         endpoint = "search.php?s=";
-        query = nameInput.value
+        query = nameInput.value;
     }
     if (evt.target.id.startsWith("f")) {
         endpoint = "search.php?f=";
@@ -41,51 +45,54 @@ let getCocktailsBy = async(evt) => {
         endpoint = "random.php";
         query = "";
     }
-
-    let dataSet = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`)
+    // fetch the data with the endpoint and query from above
+    let dataSet = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`, { signal })
         .then((response) => response.json())
         .then((data) => {
-            data.drinks.forEach(element => {
+            data.drinks.forEach((element) => {
                 workingDataSet.push(element);
                 let templi = document.createElement("li");
                 templi.textContent = element.strDrink;
                 currentList.appendChild(templi);
-            });;
+            });
             return data;
+        })
+        .catch(function(e) {
+            console.log('Download error: ' + e.message);
         });
-
-
+    updateOutput();
+    // if the event was an ingredients search then we need to do a second api call to get the correct data
     if (evt.target.id.startsWith("i") || evt.target.className.startsWith("l")) {
-        if (evt.target.className.startsWith("l")) { ingredientInput.value = evt.target.textContent };
+        if (evt.target.className.startsWith("l")) {
+            ingredientInput.value = evt.target.textContent;
+        } // if the search was from right clicking a link then put that links text in the ingredient input box.
         endpoint = "lookup.php?i=";
         console.log();
         workingDataSet = [];
-        let i = 0;
+        let iter = 0;
+        // for each drink we have fetch its corrosponding information with the look up by ID apo call and push it to the working data set.
         for (const element of dataSet.drinks) {
-            console.log(element);
             query = element.idDrink;
-
-            await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`)
+            await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`, { signal })
                 .then((response) => response.json())
                 .then((data) => {
                     data.drinks.forEach((element) => {
                         workingDataSet.push(element);
                     });
-                    return data;
+                })
+                .catch(function(e) {
+                    console.log('Download error: ' + e.message);
                 });
-            if (i == 0) {
+            //update the page with the first record before continuing the loop
+            if (iter == 0) {
                 updateOutput();
-                i++;
+                iter++;
             }
         }
-        i = 0;
-
+        iter = 0;
     }
-    updateOutput();
 };
-let clearList = () => {
-    currentList.replaceChildren();
-};
+
 
 
 let updateOutput = () => {
