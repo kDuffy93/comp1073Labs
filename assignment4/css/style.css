@@ -9,6 +9,10 @@ body {
     display: flex;
 }
 
+header {
+    height: 5vh;
+}
+
 #input {
     width: 29vw;
 }
