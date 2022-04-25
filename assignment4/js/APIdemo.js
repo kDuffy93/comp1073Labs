@@ -50,17 +50,29 @@ let getCocktailsBy = async(evt, newController) => {
     let dataSet = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`, { signal })
         .then((response) => response.json())
         .then((data) => {
+
             data.drinks.forEach((element) => {
                 workingDataSet.push(element);
-                let templi = document.createElement("li");
-                templi.textContent = element.strDrink;
-                currentList.appendChild(templi);
             });
             return data;
         })
         .catch(function(e) {
             console.log('Download error: ' + e.message);
         });
+    let iterator = 0;
+    for (const element of dataSet.drinks) {
+
+        let templi = document.createElement("li");
+        templi.textContent = element.strDrink;
+        let tempa = document.createElement("a");
+        tempa.appendChild(templi);
+        tempa.href = "#";
+        tempa.id = iterator;
+        tempa.addEventListener("click", updateList);
+        currentList.appendChild(tempa);
+        iterator++;
+    }
+
     updateOutput();
     // if the event was an ingredients search then we need to do a second api call to get the correct data
     if (evt.target.id.startsWith("i") || evt.target.className.startsWith("l")) {
@@ -95,7 +107,11 @@ let getCocktailsBy = async(evt, newController) => {
     updateOutput();
 };
 
-
+let updateList = (e) => {
+    e.preventDefault();
+    currentIndex = Number(e.target.parentElement.id);
+    updateOutput();
+}
 
 let updateOutput = () => {
     // show both buttons
@@ -110,7 +126,7 @@ let updateOutput = () => {
     for (const element of lis) {
         element.classList.remove("selected");
     }
-    document.querySelector(`li:nth-of-type(${currentIndex+1})`).classList.add("selected");
+    document.querySelector(`a:nth-of-type(${currentIndex+1}) li`).classList.add("selected");
     // build the ingreditents array
     let ingredients = [];
     for (let i = 1; i < 16; i++) {
