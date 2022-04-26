@@ -15,16 +15,17 @@ let controller;
 
 
 let getCocktailsBy = async(evt, newController) => {
-    // if controller is defined, abort all pending and future requests using it and create a new controller.
+    // if controller is defined, abort all pending and future requests using the abort method and create a new controller.
     if (controller) controller.abort();
     controller = new AbortController();
     const signal = controller.signal;
+    // empty the drinks list, working data set, set the current index back to 0 and define the query and endpoint varibles 
     currentList.replaceChildren();
     workingDataSet = [];
     currentIndex = 0;
     let endpoint;
     let query;
-    // check which button was pressed and set the endpoint and query accordingly.
+    // check which button was pressed and set the endpoint and query values accordingly.
     if (evt.target.id.startsWith("n")) {
         endpoint = "search.php?s=";
         query = nameInput.value;
@@ -46,11 +47,11 @@ let getCocktailsBy = async(evt, newController) => {
         endpoint = "random.php";
         query = "";
     }
-    // fetch the data with the endpoint and query from above
+    // fetch the data with the endpoint and query varibles from above
     let dataSet = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`, { signal })
         .then((response) => response.json())
         .then((data) => {
-
+            // loop through all the drink objects retrived and push them to the working data set.
             data.drinks.forEach((element) => {
                 workingDataSet.push(element);
             });
@@ -59,15 +60,17 @@ let getCocktailsBy = async(evt, newController) => {
         .catch(function(e) {
             console.log('Download error: ' + e.message);
         });
-    let iterator = 0;
-    for (const element of dataSet.drinks) {
 
+    let iterator = 0;
+    // after we have all the elements create the li's to append to the drink list
+    for (const element of dataSet.drinks) {
         let templi = document.createElement("li");
         templi.textContent = element.strDrink;
         let tempa = document.createElement("a");
         tempa.appendChild(templi);
         tempa.href = "#";
         tempa.id = iterator;
+        // when one is clicked we call update list which changes the current index, and calls updateOutput without another api call
         tempa.addEventListener("click", updateList);
         currentList.appendChild(tempa);
         iterator++;
@@ -76,14 +79,15 @@ let getCocktailsBy = async(evt, newController) => {
     updateOutput();
     // if the event was an ingredients search then we need to do a second api call to get the correct data
     if (evt.target.id.startsWith("i") || evt.target.className.startsWith("l")) {
+        // if the search was from right clicking a link then put that links text in the ingredient input box.  
         if (evt.target.className.startsWith("l")) {
             ingredientInput.value = evt.target.textContent;
-        } // if the search was from right clicking a link then put that links text in the ingredient input box.
+        }
         endpoint = "lookup.php?i=";
-        console.log();
+        // if were here we need to clear the working data set to be refilled with the api call and the temp varible dataSet.
         workingDataSet = [];
         let iter = 0;
-        // for each drink we have fetch its corrosponding information with the look up by ID apo call and push it to the working data set.
+        // for each drink we have fetch its corrosponding information with the look up by ID api call and push the returned object to the workingDataSet.
         for (const element of dataSet.drinks) {
             query = element.idDrink;
             await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${endpoint == undefined ? "" : endpoint}${query}`, { signal })
@@ -96,17 +100,17 @@ let getCocktailsBy = async(evt, newController) => {
                 .catch(function(e) {
                     console.log('Download error: ' + e.message);
                 });
-            //update the page with the first record before continuing the loop
+            //update the page with the first record before continuing the loop(second time so the correct buttons appear)
             if (iter == 0 || iter == 1) {
                 updateOutput();
             }
             iter++;
         }
-        iter = 0;
     }
+    // call update output again incase we didnt enter the previous condition. if we did nothing will change.
     updateOutput();
 };
-
+// if drink name is clicked from the drinks list, prevent the links normal behivor, change the current index to the id value of the link clicked and run update output with the new global currentIndex set.
 let updateList = (e) => {
     e.preventDefault();
     currentIndex = Number(e.target.parentElement.id);
@@ -136,7 +140,7 @@ let updateOutput = () => {
     }
     // clear output 2
     Output2.replaceChildren();
-    // create the new li's in output 2 and append them to it.
+    // create a new li's for each ingredient and append them to output 2.
     ingredients.forEach(ingredient => {
         let tempLink = document.createElement("p");
         tempLink.classList.add("link");
@@ -217,12 +221,12 @@ let getIngredients = async(evt) => {
     tempLink.textContent = "Back";
     tempLink.style = 'scale:200%';
     Output2.appendChild(tempLink);
-    // add event listner to the back button to simply update the outputs again
+    // add event listner to the back button to simply update the output again
     link = document.querySelectorAll(`.link`);
     link.forEach((element) => {
         element.addEventListener("click", updateOutput);
     });
-    // greate an alchol by volume title and paragraph, append them to a div and append that div to output 3 after updating its main title and description
+    // create an alchol by volume title and paragraph, append them to a div and append that div to output 3 after updating its main title and description
     let div = document.createElement("div");
     let title = document.createElement("p");
     title.style = "text-decoration: underline;";

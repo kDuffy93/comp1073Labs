@@ -22,7 +22,15 @@ header {
     height: 90vh;
     display: grid;
     grid-template-columns: [line1] 1fr [line2] 1fr [line3] 1fr [line4] 1fr [line5] 1fr;
-    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 50px;
+    grid-template-rows: [header] 50px [row1] 1fr [row2] 1fr [row3] 1fr [row4] 1fr [row5] 1fr [row6] 50px;
+}
+
+#output>h2 {
+    grid-column-start: line2;
+    grid-column-end: span 3;
+    grid-row-start: header;
+    grid-row-end: span 1;
+    text-align: center;
 }
 
 #gridItem1 {
@@ -40,7 +48,6 @@ header {
     grid-column-end: span 2;
     grid-row-start: row2;
     grid-row-end: span 2;
-    padding-right: -5vw;
     overflow-y: auto;
 }
 
@@ -103,9 +110,14 @@ header {
     color: blue;
 }
 
-label {
-    text-decoration: underline overline;
-    justify-content: center;
+h2 {
+    text-align: center;
+}
+
+h3 {
+    margin-top: 2px;
+    font-size: 14px;
+    text-decoration: underline;
 }
 
 .link:hover {
@@ -123,4 +135,12 @@ label {
 
 span {
     padding-left: 25%;
+}
+
+#input>section:nth-child(3) {
+    min-height: 50vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
 }
